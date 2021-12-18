@@ -1,0 +1,60 @@
+{
+  "Mac" : [
+    {
+      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
+      "hash" : "b015aa97df9f92ed303971899660e53494547bc526b07fa477a4536a064b8aef",
+      "name" : "LASwift",
+      "container" : "LASwift.xcframework",
+      "identifier" : "macos-arm64_x86_64"
+    }
+  ],
+  "watchOS" : [
+    {
+      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
+      "hash" : "1c68fa0798b3d894baef313fe7ed21605df278ea5a5bb4f9b36fc00c347f0648",
+      "name" : "LASwift",
+      "container" : "LASwift.xcframework",
+      "identifier" : "watchos-arm64_32_armv7k"
+    },
+    {
+      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
+      "hash" : "54b35d70d8ac13bfdca738598833b8470a14ecfeb15b84b3d50d255f755b0076",
+      "name" : "LASwift",
+      "container" : "LASwift.xcframework",
+      "identifier" : "watchos-arm64_i386_x86_64-simulator"
+    }
+  ],
+  "tvOS" : [
+    {
+      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
+      "hash" : "0b293dcc7c14a3998bddacf17251b825ff0c96035d4cd6aba1ed98dc38bf60f1",
+      "name" : "LASwift",
+      "container" : "LASwift.xcframework",
+      "identifier" : "tvos-arm64"
+    },
+    {
+      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
+      "hash" : "64a891d4b67aa84af5123a9111074a12c4bd0e9c9e1a28d3818078c0c546b23d",
+      "name" : "LASwift",
+      "container" : "LASwift.xcframework",
+      "identifier" : "tvos-arm64_x86_64-simulator"
+    }
+  ],
+  "commitish" : "0.2.5",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
+      "hash" : "89af5425ee2e82e02fe41a7c6d469da10b3ff8b1d116450755cd879883419fb4",
+      "name" : "LASwift",
+      "container" : "LASwift.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
+      "hash" : "ddcadb2fb3b534aed809a05bc08a053abb17e14beb61ce4533bbd94f9951d481",
+      "name" : "LASwift",
+      "container" : "LASwift.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    }
+  ]
+}
