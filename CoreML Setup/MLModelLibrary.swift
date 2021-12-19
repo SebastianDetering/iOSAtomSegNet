@@ -18,6 +18,21 @@ enum hResMLModels: String {
     case denoise_bgremoval_superres_1024 = "Denoise and Background Removal and Super Resolution"
 }
 
+func getHResModel(_ of: MLModels) -> hResMLModels {
+    switch of {
+    case .gaussianMask:
+        return .gaussianMask_1024
+    case .circularMask:
+        return .circularMask_1024
+    case .denoise:
+        return .denoise_1024
+    case .denoise_bgremoval:
+        return .denoise_bgremoval_1024
+    case .denoise_bgremoval_superres:
+        return .denoise_bgremoval_superres_1024
+    }
+}
+
 let applicationMLModelLibrary = MLModelLibrary()
 
 class MLModelLibrary {
@@ -42,8 +57,8 @@ class MLModelLibrary {
             } catch { fatalError("Something went wrong initializing the library of MLModels.") }
     }
     
-    func getMLModel( model: MLModels) -> Any {
-        return _library[model]
+    func getMLModel( model: MLModels) -> ( Any, Any ) {   // ( 512x512 model, 1024x1024 model )
+        return ( _library[model], _hResLibrary[ getHResModel( model ) ] )
     }
     
 }
@@ -52,10 +67,11 @@ class segmentationNetwork: ObservableObject {
     
     private var _modelType : MLModels = .gaussianMask
     private var _currentModel : Any
+    private var _currentHResModel : Any
     
     init() throws {
         do {
-            self._currentModel = applicationMLModelLibrary.getMLModel( model: _modelType )
+            ( self._currentModel, self._currentHResModel ) = applicationMLModelLibrary.getMLModel( model: _modelType )
         } catch let error as MLModelError { throw error }
     }
     
@@ -65,61 +81,98 @@ class segmentationNetwork: ObservableObject {
     
     func setCurrentModel(_ model: MLModels) {
         _modelType = model
-        self._currentModel = applicationMLModelLibrary.getMLModel(model: _modelType)
+        ( self._currentModel, self._currentHResModel )  = applicationMLModelLibrary.getMLModel(model: _modelType)
     }
     
     private func _getModelOutput( _ input: MLMultiArray ) throws -> Any {
         var predictResults : Any
-        do {
-            //switch on each model type to help the compiler identify the model output layer.
-            switch _modelType {
-            case .gaussianMask:
-                predictResults = try (_currentModel as! gaussianMask).prediction(input0: input)
-            case .circularMask:
-                predictResults = try (_currentModel as! circularMask).prediction(input0: input)
-            case .denoise:
-                predictResults = try (_currentModel as! denoise).prediction(input0: input)
-            case .denoise_bgremoval:
-                predictResults = try (_currentModel as! denoise_bgremoval).prediction(input0: input)
-            case .denoise_bgremoval_superres:
-                predictResults = try (_currentModel as! denoise_bgremoval_superres).prediction(input0: input)
-            }
-        } catch let error as MLModelError { throw error }
+
+        if input.shape == [1, 1, 512, 512] {
+            do {
+                //switch on each model type to help the compiler identify the model output layer.
+                switch _modelType {
+                case .gaussianMask:
+                    predictResults = try (_currentModel as! gaussianMask).prediction(input0: input)
+                case .circularMask:
+                    predictResults = try (_currentModel as! circularMask).prediction(input0: input)
+                case .denoise:
+                    predictResults = try (_currentModel as! denoise).prediction(input0: input)
+                case .denoise_bgremoval:
+                    predictResults = try (_currentModel as! denoise_bgremoval).prediction(input0: input)
+                case .denoise_bgremoval_superres:
+                    predictResults = try (_currentModel as! denoise_bgremoval_superres).prediction(input0: input)
+                }
+            } catch let error as MLModelError { throw error }
+            
+        } else if input.shape == [1, 1, 1024, 1024] {
+            do {
+                //switch on each model type to help the compiler identify the model output layer.
+                switch _modelType {
+                case .gaussianMask:
+                    predictResults = try (_currentHResModel as! gaussianMask_1024).prediction(input0: input)
+                case .circularMask:
+                    predictResults = try (_currentHResModel as! circularMask_1024).prediction(input0: input)
+                case .denoise:
+                    predictResults = try (_currentHResModel as! denoise_1024).prediction(input0: input)
+                case .denoise_bgremoval:
+                    predictResults = try (_currentHResModel as! denoise_bgremoval_1024).prediction(input0: input)
+                case .denoise_bgremoval_superres:
+                    predictResults = try (_currentHResModel as! denoise_bgremoval_superres_1024).prediction(input0: input)
+                }
+            } catch let error as MLModelError { throw error }
+            
+        } else { throw ModelIOErrors.PoorlyConfiguredMLMultiArrayInputShape }
         
         return predictResults
-        
     }
     
-    func getActivations( _ of: MLMultiArray ) throws -> MLMultiArray {
+    func getActivations( _ ofArray: MLMultiArray ) throws -> MLMultiArray {
         
         var output : MLMultiArray
+        if ofArray.shape == [1, 1, 512, 512] {
         do {
             switch _modelType {
             case .gaussianMask:
-                output = try (_getModelOutput( of ) as! gaussianMaskOutput)._324
+                output = try (_getModelOutput( ofArray ) as! gaussianMaskOutput)._324
             case .circularMask:
-                output = try (_getModelOutput( of ) as! circularMaskOutput)._324
+                output = try (_getModelOutput( ofArray ) as! circularMaskOutput)._324
             case .denoise:
-                output = try (_getModelOutput( of ) as! denoiseOutput)._324
+                output = try (_getModelOutput( ofArray ) as! denoiseOutput)._324
             case .denoise_bgremoval:
-                output = try (_getModelOutput( of ) as! denoise_bgremovalOutput)._324
+                output = try (_getModelOutput( ofArray ) as! denoise_bgremovalOutput)._324
             case .denoise_bgremoval_superres:
-                output = try (_getModelOutput( of ) as! denoise_bgremoval_superresOutput)._324
+                output = try (_getModelOutput( ofArray ) as! denoise_bgremoval_superresOutput)._324
             }
         } catch let error as MLModelError { throw error }
+        } else if ofArray.shape == [1, 1, 1024, 1024] {
+            do {
+                switch _modelType {
+                case .gaussianMask:
+                    output = try (_getModelOutput( ofArray ) as! gaussianMask_1024Output)._324
+                case .circularMask:
+                    output = try (_getModelOutput( ofArray ) as! circularMask_1024Output)._324
+                case .denoise:
+                    output = try (_getModelOutput( ofArray ) as! denoise_1024Output)._324
+                case .denoise_bgremoval:
+                    output = try (_getModelOutput( ofArray ) as! denoise_bgremoval_1024Output)._324
+                case .denoise_bgremoval_superres:
+                    output = try (_getModelOutput( ofArray ) as! denoise_bgremoval_superres_1024Output)._324
+                }
+            } catch let error as MLModelError { throw error }
+        } else { throw ModelIOErrors.PoorlyConfiguredMLMultiArrayInputShape }
         
         return output
         
     }
     
-    func getCGImageActivations( _ of: MLMultiArray ) throws -> (MLMultiArray, CGImage) {
+    func getCGImageActivations( _ of: MLMultiArray, _ withShape: [NSNumber] ) throws -> (MLMultiArray, CGImage) {
         var mlArrayOutput = of
         do {
             mlArrayOutput = try self.getActivations(of)
         } catch { throw error }
-                let width = 512
-                let height = 512
-                let count = width * height
+            let width = Int( truncating: withShape[2] )
+            let height = Int(truncating:  withShape[3] )
+            let count = width * height
             let pointer = UnsafeMutablePointer<Float32>( OpaquePointer( mlArrayOutput.dataPointer ) )
 
             

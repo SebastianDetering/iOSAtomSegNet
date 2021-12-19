@@ -5,11 +5,12 @@ import LASwift
 import CoreML
 
 // The Image Processing Lifecycle is coded here.
-func getCGActivations(image: UIImage, modelType: MLModels) throws -> (MLMultiArray, CGImage)? {
+func getCGActivations(image: UIImage, modelType: MLModels) throws -> (MLMultiArray?, CGImage?) {
     let imageArrayData = getRGBAArrays(uiImage: image)
     let imageWidth  = image.size.width
     let imageHeight = image.size.height
     var rChannelData = imageArrayData[0]
+    var hResModelType = getHResModel( modelType )
     
     // determine im2pad parameters from source image dimensions.
     var multiArrayShape : [NSNumber] = [1, 1, 512, 512]
@@ -34,15 +35,15 @@ func getCGActivations(image: UIImage, modelType: MLModels) throws -> (MLMultiArr
         var padding = zeros( Int(truncating: multiArrayShape[2]), Int(truncating: multiArrayShape[3]) )
         let imageMat = im2RGBA(uiImage: image)[0] // red component Matrix
         padding[0...Int(imageHeight)-1, 0...Int(imageWidth)-1] = imageMat // set the portion of the zeros matrix to the image matrix
-        rChannelData = padding.flat.map { UInt8( $0 )}
+        rChannelData = padding.flat.map { UInt8( $0 ) }
     }
     
     do {
         let model = try segmentationNetwork()
         model.setCurrentModel(modelType)
         var multiArray = try MLMultiArray.init(shape: multiArrayShape, dataType: .float32)
-        multiArray = try ImageConverter.pixelBuffer(imageArray: rChannelData)
-        var (mlArrayOutput, cgOut) = try model.getCGImageActivations(multiArray)
+        multiArray = try ImageConverter.pixelBuffer(imageArray: rChannelData, imgArrayShape: multiArrayShape)
+        var (mlArrayOutput, cgOut) = try model.getCGImageActivations(multiArray, multiArrayShape)
         if pad {
             cgOut = cgOut.cropping(to: CGRect(x: 0, y: 0, width: Int(imageWidth), height: Int(imageHeight)))!
         }
@@ -51,5 +52,5 @@ func getCGActivations(image: UIImage, modelType: MLModels) throws -> (MLMultiArr
     } catch {
         print(error)
     }
-    return nil
+    return (nil, nil)
 }

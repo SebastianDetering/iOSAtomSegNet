@@ -2,6 +2,7 @@ import Foundation
 
 enum ModelIOErrors : Error {
     case OversizedImageError
+    case PoorlyConfiguredMLMultiArrayInputShape
 }
 
 enum FileSERErrors : Error {

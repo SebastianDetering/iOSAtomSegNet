@@ -59,7 +59,7 @@ struct ImageConverter {
         
     }
     
-    static func pixelBuffer( imageArray : [UInt8], imgArrayShape : [NSNumber] = [1, 1, 512, 512]) throws -> MLMultiArray {
+    static func pixelBuffer( imageArray : [UInt8], imgArrayShape : [NSNumber] = [1, 1, 512, 512] ) throws -> MLMultiArray {
 
         let min = imageArray.min()!
         let max = imageArray.max()!
@@ -74,6 +74,7 @@ struct ImageConverter {
         do {
             pixelBuffer = try MLMultiArray( shape : imgArrayShape, dataType: .float32 )
             
+            //can't use map here.
             for i in 0..<float32Array.count {
                 pixelBuffer[i] = NSNumber( value : float32Array[i] )
             }

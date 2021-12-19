@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    
+    @StateObject var processingViewModel: ProcessingViewModel
     var body: some View {
         TabView {
-            GalleryView()
+            GalleryView(processingViewModel: processingViewModel)
                 .tabItem() {
                     Image(systemName: "photo.on.rectangle.angled")
                     Text("Gallery")
