@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeTabView.swift
 //  SwiftUISegNet
 //
 //  Created by sebi d on 9/12/21.

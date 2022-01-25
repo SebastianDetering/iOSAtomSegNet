@@ -12,6 +12,8 @@
 		9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C839278E106100A3101E /* PythonPortHelpers.swift */; };
 		9286C83E278E439300A3101E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C83D278E439300A3101E /* Persistence.swift */; };
 		9286C841278E43B200A3101E /* AppStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9286C83F278E43B200A3101E /* AppStorage.xcdatamodeld */; };
+		929336DA27A0A106002E14A0 /* MessageDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929336D927A0A106002E14A0 /* MessageDocument.swift */; };
+		929336DC27A0A15D002E14A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929336DB27A0A15D002E14A0 /* ContentView.swift */; };
 		92A5AEB4276D2DBA0012A0EA /* iOSAtomSegNetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AEB3276D2DBA0012A0EA /* iOSAtomSegNetApp.swift */; };
 		92A5AEB8276D2DBB0012A0EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A5AEB7276D2DBB0012A0EA /* Assets.xcassets */; };
 		92A5AEBB276D2DBB0012A0EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A5AEBA276D2DBB0012A0EA /* Preview Assets.xcassets */; };
@@ -80,6 +82,8 @@
 		9286C839278E106100A3101E /* PythonPortHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PythonPortHelpers.swift; sourceTree = "<group>"; };
 		9286C83D278E439300A3101E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9286C840278E43B200A3101E /* AppStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStorage.xcdatamodel; sourceTree = "<group>"; };
+		929336D927A0A106002E14A0 /* MessageDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDocument.swift; sourceTree = "<group>"; };
+		929336DB27A0A15D002E14A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		92A5AEB0276D2DBA0012A0EA /* iOSAtomSegNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAtomSegNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A5AEB3276D2DBA0012A0EA /* iOSAtomSegNetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSAtomSegNetApp.swift; sourceTree = "<group>"; };
 		92A5AEB7276D2DBB0012A0EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 		92A5AEA7276D2DBA0012A0EA = {
 			isa = PBXGroup;
 			children = (
+				929336DB27A0A15D002E14A0 /* ContentView.swift */,
+				929336D927A0A106002E14A0 /* MessageDocument.swift */,
 				9286C83D278E439300A3101E /* Persistence.swift */,
 				9286C83F278E43B200A3101E /* AppStorage.xcdatamodeld */,
 				92A5AEB2276D2DBA0012A0EA /* iOSAtomSegNet */,
@@ -423,10 +429,12 @@
 				92A5AEE1276D2F0F0012A0EA /* BackButton.swift in Sources */,
 				92A5AEFD276D68E00012A0EA /* LoadingView.swift in Sources */,
 				92A5AF19277260CD0012A0EA /* ImageSourceView.swift in Sources */,
+				929336DA27A0A106002E14A0 /* MessageDocument.swift in Sources */,
 				92A5AF1B277261D80012A0EA /* ModelOutputsView.swift in Sources */,
 				92A5AEDF276D2F0F0012A0EA /* ModelPickerView.swift in Sources */,
 				92A5AEEC276D2F3A0012A0EA /* FitData.swift in Sources */,
 				92A5AEF6276D2F500012A0EA /* denoise&bgremoval&superres.mlmodel in Sources */,
+				929336DC27A0A15D002E14A0 /* ContentView.swift in Sources */,
 				92A5AEE2276D2F0F0012A0EA /* ProcessingView.swift in Sources */,
 				92A5AEB4276D2DBA0012A0EA /* iOSAtomSegNetApp.swift in Sources */,
 				92A5AEFF276D6AAA0012A0EA /* ProcessingViewModel.swift in Sources */,
