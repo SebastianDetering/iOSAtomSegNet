@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-enum HomeTabs {
-    case Gallery
-    case NeuralNet
-    case Segment
+enum HomeTabs: String {
+    case Gallery = "images"
+    case NeuralNet = "coreml"
+    case Segment  = "outputs"
 }
 
 struct HomeTabView: View {

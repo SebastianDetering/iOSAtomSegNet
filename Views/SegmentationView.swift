@@ -14,7 +14,7 @@ struct SegmentationView: View {
     @Binding var tabSelection: HomeTabs
     
     var body: some View {
-        
+        NavigationView {
             VStack {
                 if viewModel.newWorkingImageName != nil{
                 HStack(alignment: .center){
@@ -52,5 +52,6 @@ struct SegmentationView: View {
                 Spacer()
             } .background(LinearGradient(gradient: Gradient(colors: [.brandPrimary, Color(.secondarySystemBackground)]), startPoint: .top, endPoint: .bottom))
             .ignoresSafeArea()
+        }
     }
 }

@@ -10,8 +10,9 @@
 		9286C83A278E106100A3101E /* FileSer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C837278E106100A3101E /* FileSer.swift */; };
 		9286C83B278E106100A3101E /* FileRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C838278E106100A3101E /* FileRead.swift */; };
 		9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C839278E106100A3101E /* PythonPortHelpers.swift */; };
+		9286C83E278E439300A3101E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C83D278E439300A3101E /* Persistence.swift */; };
+		9286C841278E43B200A3101E /* AppStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9286C83F278E43B200A3101E /* AppStorage.xcdatamodeld */; };
 		92A5AEB4276D2DBA0012A0EA /* iOSAtomSegNetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AEB3276D2DBA0012A0EA /* iOSAtomSegNetApp.swift */; };
-		92A5AEB6276D2DBA0012A0EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AEB5276D2DBA0012A0EA /* ContentView.swift */; };
 		92A5AEB8276D2DBB0012A0EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A5AEB7276D2DBB0012A0EA /* Assets.xcassets */; };
 		92A5AEBB276D2DBB0012A0EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A5AEBA276D2DBB0012A0EA /* Preview Assets.xcassets */; };
 		92A5AEC4276D2E890012A0EA /* LASwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A5AEC3276D2E890012A0EA /* LASwift.framework */; };
@@ -77,9 +78,10 @@
 		9286C837278E106100A3101E /* FileSer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSer.swift; sourceTree = "<group>"; };
 		9286C838278E106100A3101E /* FileRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRead.swift; sourceTree = "<group>"; };
 		9286C839278E106100A3101E /* PythonPortHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PythonPortHelpers.swift; sourceTree = "<group>"; };
+		9286C83D278E439300A3101E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		9286C840278E43B200A3101E /* AppStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStorage.xcdatamodel; sourceTree = "<group>"; };
 		92A5AEB0276D2DBA0012A0EA /* iOSAtomSegNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAtomSegNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A5AEB3276D2DBA0012A0EA /* iOSAtomSegNetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSAtomSegNetApp.swift; sourceTree = "<group>"; };
-		92A5AEB5276D2DBA0012A0EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		92A5AEB7276D2DBB0012A0EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92A5AEBA276D2DBB0012A0EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		92A5AEBC276D2DBB0012A0EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,6 +145,8 @@
 		92A5AEA7276D2DBA0012A0EA = {
 			isa = PBXGroup;
 			children = (
+				9286C83D278E439300A3101E /* Persistence.swift */,
+				9286C83F278E43B200A3101E /* AppStorage.xcdatamodeld */,
 				92A5AEB2276D2DBA0012A0EA /* iOSAtomSegNet */,
 				92A5AED7276D2F0F0012A0EA /* Views */,
 				92A5AECE276D2EF50012A0EA /* Model */,
@@ -164,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				92A5AEB3276D2DBA0012A0EA /* iOSAtomSegNetApp.swift */,
-				92A5AEB5276D2DBA0012A0EA /* ContentView.swift */,
 				92A5AEB7276D2DBB0012A0EA /* Assets.xcassets */,
 				92A5AEBC276D2DBB0012A0EA /* Info.plist */,
 				92A5AEB9276D2DBB0012A0EA /* Preview Content */,
@@ -400,6 +403,7 @@
 				92A5AEEE276D2F3A0012A0EA /* Errors.swift in Sources */,
 				92A5AEF9276D2F500012A0EA /* gaussianMask_1024.mlmodel in Sources */,
 				92A5AF0F27713A640012A0EA /* denoise_1024.mlmodel in Sources */,
+				9286C83E278E439300A3101E /* Persistence.swift in Sources */,
 				9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */,
 				92A5AEE0276D2F0F0012A0EA /* HomeTabView.swift in Sources */,
 				92A5AF1327713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel in Sources */,
@@ -408,6 +412,7 @@
 				92A5AEF7276D2F500012A0EA /* gaussianMask.mlmodel in Sources */,
 				92A5AF492779568D0012A0EA /* RunInferenceButton.swift in Sources */,
 				92A5AEE3276D2F0F0012A0EA /* GalleryView.swift in Sources */,
+				9286C841278E43B200A3101E /* AppStorage.xcdatamodeld in Sources */,
 				92A5AEFA276D2F500012A0EA /* denoise&bgremoval.mlmodel in Sources */,
 				92A5AF4E277AA65A0012A0EA /* ImageInspectView.swift in Sources */,
 				92A5AEED276D2F3A0012A0EA /* MLModelLibrary.swift in Sources */,
@@ -417,7 +422,6 @@
 				92A5AF0D2770F7EC0012A0EA /* SegmentationView.swift in Sources */,
 				92A5AEE1276D2F0F0012A0EA /* BackButton.swift in Sources */,
 				92A5AEFD276D68E00012A0EA /* LoadingView.swift in Sources */,
-				92A5AEB6276D2DBA0012A0EA /* ContentView.swift in Sources */,
 				92A5AF19277260CD0012A0EA /* ImageSourceView.swift in Sources */,
 				92A5AF1B277261D80012A0EA /* ModelOutputsView.swift in Sources */,
 				92A5AEDF276D2F0F0012A0EA /* ModelPickerView.swift in Sources */,
@@ -555,7 +559,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSAtomSegNet/Preview Content\"";
-				DEVELOPMENT_TEAM = BG774WWHGB;
+				DEVELOPMENT_TEAM = W33KH9HRV5;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -622,6 +626,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9286C83F278E43B200A3101E /* AppStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9286C840278E43B200A3101E /* AppStorage.xcdatamodel */,
+			);
+			currentVersion = 9286C840278E43B200A3101E /* AppStorage.xcdatamodel */;
+			path = AppStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 92A5AEA8276D2DBA0012A0EA /* Project object */;
 }
