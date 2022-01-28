@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9209D3BD27A391A8008DEAFF /* SerImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209D3BC27A391A8008DEAFF /* SerImportView.swift */; };
+		9209D3C127A391E0008DEAFF /* SerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209D3C027A391E0008DEAFF /* SerDetailView.swift */; };
 		9286C83A278E106100A3101E /* FileSer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C837278E106100A3101E /* FileSer.swift */; };
 		9286C83B278E106100A3101E /* FileRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C838278E106100A3101E /* FileRead.swift */; };
 		9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C839278E106100A3101E /* PythonPortHelpers.swift */; };
@@ -77,6 +79,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9209D3BC27A391A8008DEAFF /* SerImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerImportView.swift; sourceTree = "<group>"; };
+		9209D3C027A391E0008DEAFF /* SerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerDetailView.swift; sourceTree = "<group>"; };
 		9286C837278E106100A3101E /* FileSer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSer.swift; sourceTree = "<group>"; };
 		9286C838278E106100A3101E /* FileRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRead.swift; sourceTree = "<group>"; };
 		9286C839278E106100A3101E /* PythonPortHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PythonPortHelpers.swift; sourceTree = "<group>"; };
@@ -149,7 +153,9 @@
 		92A5AEA7276D2DBA0012A0EA = {
 			isa = PBXGroup;
 			children = (
+				9209D3C027A391E0008DEAFF /* SerDetailView.swift */,
 				929336DB27A0A15D002E14A0 /* ContentView.swift */,
+				9209D3BC27A391A8008DEAFF /* SerImportView.swift */,
 				929336D927A0A106002E14A0 /* MessageDocument.swift */,
 				9286C83D278E439300A3101E /* Persistence.swift */,
 				9286C83F278E43B200A3101E /* AppStorage.xcdatamodeld */,
@@ -405,11 +411,13 @@
 				92A5AF1127713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel in Sources */,
 				92A5AF06276EF3D50012A0EA /* circularMask_1024.mlmodel in Sources */,
 				92A5AECC276D2EBB0012A0EA /* MatrixFromImage.swift in Sources */,
+				9209D3BD27A391A8008DEAFF /* SerImportView.swift in Sources */,
 				92A5AED4276D2EF50012A0EA /* GalleryImages.swift in Sources */,
 				92A5AEEE276D2F3A0012A0EA /* Errors.swift in Sources */,
 				92A5AEF9276D2F500012A0EA /* gaussianMask_1024.mlmodel in Sources */,
 				92A5AF0F27713A640012A0EA /* denoise_1024.mlmodel in Sources */,
 				9286C83E278E439300A3101E /* Persistence.swift in Sources */,
+				9209D3C127A391E0008DEAFF /* SerDetailView.swift in Sources */,
 				9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */,
 				92A5AEE0276D2F0F0012A0EA /* HomeTabView.swift in Sources */,
 				92A5AF1327713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel in Sources */,

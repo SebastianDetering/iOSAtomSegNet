@@ -1,16 +1,20 @@
 import SwiftUI
 
-struct ContentView: View {
+struct SerImportView: View {
     
-    @State private var document: MessageDocument = MessageDocument(message: "Hello, World!")
+    @State private var _serFile: SerFile = SerFile(name: "20.40.16 Scanning Acquire_0000_1")
+    @State private var _serHeader: SerHeader
+    @State private var _serReader: FileSer?
+    @State private var rawData: Data
     @State private var isImporting: Bool = false
     @State private var isExporting: Bool = false
     
     var body: some View {
         VStack {
-            GroupBox(label: Text("Message:")) {
-                TextEditor(text: $document.message)
-            }
+            Button("read Ser File")
+                .onTapGesture {
+                    _serReader = try FileSer.init(filename: _serFile.name)
+                }
             GroupBox {
                 HStack {
                     Spacer()
@@ -31,11 +35,10 @@ struct ContentView: View {
         }
         .padding()
         
-        .fileExporter(
-            isPresented: $isExporting,
-            document: document,
-            contentType: .plainText,
-            defaultFilename: "Message"
+        .fileExporter(isPresented: $isExporting,
+            document: rawData,
+            contentType: .data,
+            defaultFilename: "mySerFile"
         ) { result in
             if case .success = result {
                 // Handle success.

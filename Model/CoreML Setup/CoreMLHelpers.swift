@@ -7,7 +7,7 @@ typealias float4 = SIMD4<Float>
 let directory = "/Users/sebi/Dev/Ser-PythonSwift-Port/Tests-Files/Supporting_Files/"
 
 class SerBitmap {
-    // will hold info regarding Ser image(s) and the Bitmap itself ready to be drawn to Apple devices in desired format.
+    // will hold info regarding Ser image(s) and the Bitmap itself ready to be drawn to Apple devices in desired format.f
     // CGImage is a bitmap only, and is the only current format.
     var image : Image?
     var imageName : String?
