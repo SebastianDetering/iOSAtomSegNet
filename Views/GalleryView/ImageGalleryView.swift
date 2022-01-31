@@ -16,7 +16,7 @@ struct ImageGalleryView: View {
                             ImageView(imageName: galleryImage.name)
                                 .padding(.bottom, 10)
                                 .onTapGesture {
-                                    processingViewModel.newSourceImage( sourceType: SourceTypes.Image, imageName: galleryImage.name)
+                                    $processingViewModel.newSourceImage( sourceType: SegNetDataTypes.Images, imageName: galleryImage.name)
                                 }
                         }
                     }

@@ -801,7 +801,7 @@ class FileSer {
         
         return tag
     }
-
+    // float32 no matter what since model input only takes in Float32
     func GetHighDefCGImageFromSer(index: Int = 0) throws -> CGImage {
         var float32Arr : [Float32] = []
         if self.Head == nil {

@@ -27,10 +27,52 @@ extension CGImage {
 
         return pixelData
     }
+    
+    func hDefPixelData() -> [Float32]? {
+        let dataSize = self.width * self.height
+        var pixelData = [Float32](repeating: 0, count: Int(dataSize))
+        let colorSpace = CGColorSpaceCreateDeviceGray()
+        let context = CGContext(data: &pixelData,
+                                width: Int(self.width),
+                                height: Int(self.height),
+                                bitsPerComponent: 32,
+                                bytesPerRow:  Int(self.width) * MemoryLayout<Float32>.stride,
+                                space: colorSpace,
+                                bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)
+        context?.draw(self, in: CGRect(x: 0, y: 0, width: self.width, height: self.height))
+
+        return pixelData
+    }
  }
 
 
 struct ImageConverter {
+    
+    static func hDefPixelBuffer( forImage image: CGImage, imgArrayShape: [NSNumber] = [1,1,512,512] ) throws -> MLMultiArray? {
+        guard let imageArray = image.hDefPixelData() else { throw FileSERErrors.CGConversionError }
+        
+        var pixelBuffer: MLMultiArray
+        do {
+            pixelBuffer = try MLMultiArray( shape: imgArrayShape, dataType: .float32)
+            
+            for i in 0..<imageArray.count {
+                pixelBuffer[i] = NSNumber( value: imageArray[i])
+            }
+        } catch let error as MLModelError { throw error }
+        return pixelBuffer
+    }
+    
+    static func arr2MLPixelBuffer(_ fromArr: [Float32], shape: [NSNumber] = [1,1,512,512]) throws -> MLMultiArray? {
+        var pixelBuffer: MLMultiArray
+        do {
+            pixelBuffer = try MLMultiArray( shape: shape, dataType: .float32)
+            
+            for i in 0..<fromArr.count {
+                pixelBuffer[i] = NSNumber( value: fromArr[i])
+            }
+        } catch let error as MLModelError { throw error }
+        return pixelBuffer
+    }
     
     static func pixelBuffer( forImage image: CGImage, imgArrayShape : [NSNumber] = [1,1, 512, 512]) throws  -> MLMultiArray?  {
      
@@ -45,7 +87,6 @@ struct ImageConverter {
         pointer.initialize( from : &float32Array, count : float32Array.count  )
         
         var pixelBuffer : MLMultiArray
-        print(float32Array.count)
         do {
             pixelBuffer = try MLMultiArray( shape : imgArrayShape, dataType: .float32 )
             
@@ -56,7 +97,6 @@ struct ImageConverter {
         } catch let error as MLModelError { throw error }
         
         return pixelBuffer
-        
     }
     
     static func pixelBuffer( imageArray : [UInt8], imgArrayShape : [NSNumber] = [1, 1, 512, 512] ) throws -> MLMultiArray {

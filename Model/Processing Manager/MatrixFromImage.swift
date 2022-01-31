@@ -9,6 +9,40 @@ import SwiftUI
 import CoreGraphics
 import LASwift
 
+func f32im2Mat(cgImage: CGImage) -> Matrix {
+    let startTime = CFAbsoluteTimeGetCurrent()
+    print("Getting matrix data from 32 bit image, image dimensions\(cgImage.width) x \(cgImage.height)")
+    let width = cgImage.width
+    let height = cgImage.height
+    let colorspace = CGColorSpaceCreateDeviceRGB()
+    let bytesPerRow = 4 * width
+    let bitsPerComponent = 32
+    var pixels = UnsafeMutablePointer<UInt8>.allocate(capacity: width * height * 4 )
+
+    let context = CGContext.init(data: pixels,
+                                 width: width,
+                                 height: height,
+                                 bitsPerComponent: bitsPerComponent,
+                                 bytesPerRow: bytesPerRow,
+                                 space: colorspace,
+                                 bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+
+    context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)))
+    
+    var matOut = zeros(height, width)
+
+    for y in 0..<height {
+        for x in 0..<width {
+        matOut[y, x]    = Double(pixels.pointee)
+      }
+    }
+    
+    let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+    print("Time elapsed \(String(format : "%0.5f", timeElapsed)) seconds")
+    print()
+    return matOut
+    
+}
 func im2RGBA(cgImage: CGImage) -> [Matrix] {
     let startTime = CFAbsoluteTimeGetCurrent()
     print("Getting matrix data from image, image dimensions\(cgImage.width) x \(cgImage.height)")

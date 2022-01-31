@@ -6,14 +6,52 @@ import CoreML
 
 // The Image Processing Lifecycle is coded here.
 
-func getFloat32Activations(imageData: [Float32], modelType: MLModels) throws -> [Float32] {
-    var activationsOut = imageData
+func getFloat32Activations(hDefCGImage: CGImage, modelType: MLModels) throws -> (Matrix?, CGImage?) {
+    guard let f32Data = hDefCGImage.hDefPixelData() else { throw FileSERErrors.CGConversionError }
+    let imageWidth  = hDefCGImage.width
+    let imageHeight = hDefCGImage.height
+    var f32Padded   = f32Data
+    
+    // determine im2pad parameters from source image dimensions.
+    var multiArrayShape : [NSNumber] = [ 1, 1, 512, 512 ]
+    var pad = true
+    if imageWidth == 512 && imageHeight == 512 {
+        pad = false
+    } else if imageWidth == 1024 && imageHeight == 1024 {
+        pad = false
+    }
+    // if dimensions not exact
+    if pad == true {
+        if imageWidth < 512 || imageHeight < 512 {
+            // multiArrayShape remains same
+        } else if imageWidth < 1024  || imageHeight < 1024 {
+            // one of the dimensions is greater than 512, and so we must change im2pad size to 1024x1024
+            multiArrayShape = [1, 1, 1024, 1024]
+        } else {
+            // one of the dimensions is greater than max model input size, so throw error.
+            throw ModelIOErrors.OversizedImageError
+        }
+        
+        var padding = zeros( Int(truncating: multiArrayShape[2]), Int(truncating: multiArrayShape[3]) )
+        let imageMat = f32im2Mat(cgImage: hDefCGImage)
+        padding[0...Int(imageHeight)-1, 0...Int(imageWidth)-1] = imageMat // set the portion of the zeros matrix to the image matrix
+        f32Padded = padding.flat.map { Float32( $0 ) }
+    }
+    
     do {
         let model = try segmentationNetwork()
         model.setCurrentModel(modelType)
-        
+        let multiArray = try ImageConverter.arr2MLPixelBuffer(f32Padded, shape: multiArrayShape)!
+        var (matrix, mlArrayOutput, cgOut) = try model.getCGImageActivations(multiArray, multiArrayShape)
+        if pad {
+            cgOut = cgOut.cropping(to: CGRect(x: 0, y: 0, width: Int(imageWidth), height: Int(imageHeight)))!
+        }
+        let matrixOutput = matrix[0...Int(imageHeight)-1, 0...Int(imageWidth)-1]
+        return (matrixOutput, cgOut)
+
+    } catch {
+        throw error
     }
-    return activationsOut
 }
 
 func getCGActivations(image: CGImage, modelType: MLModels) throws -> (Matrix?, CGImage?) {

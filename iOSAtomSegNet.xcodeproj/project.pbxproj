@@ -16,7 +16,6 @@
 		921916C727A7908600A3FFE9 /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C627A7908600A3FFE9 /* ImageGalleryView.swift */; };
 		921916C927A790B800A3FFE9 /* SerGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C827A790B800A3FFE9 /* SerGalleryView.swift */; };
 		921916CC27A795A900A3FFE9 /* SerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916CB27A795A900A3FFE9 /* SerViewModel.swift */; };
-		921916D027A7AAF400A3FFE9 /* HighFidelityCGImages.mm in Sources */ = {isa = PBXBuildFile; fileRef = 921916CF27A7AAF400A3FFE9 /* HighFidelityCGImages.mm */; };
 		9286C83A278E106100A3101E /* FileSer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C837278E106100A3101E /* FileSer.swift */; };
 		9286C83B278E106100A3101E /* FileRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C838278E106100A3101E /* FileRead.swift */; };
 		9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C839278E106100A3101E /* PythonPortHelpers.swift */; };
@@ -96,9 +95,6 @@
 		921916C627A7908600A3FFE9 /* ImageGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
 		921916C827A790B800A3FFE9 /* SerGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerGalleryView.swift; sourceTree = "<group>"; };
 		921916CB27A795A900A3FFE9 /* SerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerViewModel.swift; sourceTree = "<group>"; };
-		921916CD27A7AAF400A3FFE9 /* iOSAtomSegNet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSAtomSegNet-Bridging-Header.h"; sourceTree = "<group>"; };
-		921916CE27A7AAF400A3FFE9 /* HighFidelityCGImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HighFidelityCGImages.h; sourceTree = "<group>"; };
-		921916CF27A7AAF400A3FFE9 /* HighFidelityCGImages.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HighFidelityCGImages.mm; sourceTree = "<group>"; };
 		9286C837278E106100A3101E /* FileSer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSer.swift; sourceTree = "<group>"; };
 		9286C838278E106100A3101E /* FileRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRead.swift; sourceTree = "<group>"; };
 		9286C839278E106100A3101E /* PythonPortHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PythonPortHelpers.swift; sourceTree = "<group>"; };
@@ -198,9 +194,6 @@
 		92A5AEA7276D2DBA0012A0EA = {
 			isa = PBXGroup;
 			children = (
-				921916CD27A7AAF400A3FFE9 /* iOSAtomSegNet-Bridging-Header.h */,
-				921916CE27A7AAF400A3FFE9 /* HighFidelityCGImages.h */,
-				921916CF27A7AAF400A3FFE9 /* HighFidelityCGImages.mm */,
 				921916C427A78B3000A3FFE9 /* Alert.swift */,
 				921916BD27A61C6A00A3FFE9 /* Ser Detail */,
 				929336DB27A0A15D002E14A0 /* ContentView.swift */,
@@ -460,7 +453,6 @@
 				92A5AF01276E97A60012A0EA /* SegNetIOManager.swift in Sources */,
 				9286C83B278E106100A3101E /* FileRead.swift in Sources */,
 				92A5AEF8276D2F500012A0EA /* circularMask.mlmodel in Sources */,
-				921916D027A7AAF400A3FFE9 /* HighFidelityCGImages.mm in Sources */,
 				92A5AED3276D2EF50012A0EA /* GalleryViewModel.swift in Sources */,
 				92A5AECB276D2EBB0012A0EA /* CGImageFromArray.swift in Sources */,
 				921916BC27A61C6500A3FFE9 /* SerDescriptionView.swift in Sources */,
@@ -651,7 +643,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sebde.iOSAtomSegNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "iOSAtomSegNet-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -680,7 +672,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sebde.iOSAtomSegNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "iOSAtomSegNet-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

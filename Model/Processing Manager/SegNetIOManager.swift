@@ -18,33 +18,70 @@ enum SegNetDataTypes {
 }
 
 final class SegNetIOManager {
-        
+    
     static private var _workingBinaryData: Data!
-    static private var _workingImageName : String!
+    @Published var sourceImage      : CGImage!
+    @Published var sourceImageName  : String!   // for viewing in the gallery
+    
+    static private var _workingImageName : String!   // for seeing as the inputs to model
     static private var _workingImage     : CGImage!
     static private var _workingSerData   : CGImage! // 32 bit depth max supported
     static private var _currentModel     : MLModels = MLModels.gaussianMask
     static private var _mlMatrixOutput   : Matrix!
-    static private var _cgModelOutput    : CGImage!
+    static private var _cgModelOutput    : CGImage!     // outputs of model.
     static private var _cgSegments       : CGImage!
     static private var _SegmentsBinary   : Matrix!
     static private var _threshold        : Float64 = 0.0
     static private var _serReader        : FileSer!
     static private var _serHeader        : SerHeader!
     static private var _headerDescription: SerHeaderDescription!
+    
+    static private var _sourceDType: SegNetDataTypes = .Images
+    static private var _workingDType: SegNetDataTypes = .SerFile
 
-    static func InitializeSerImage(completed: @escaping ( Result<CGImage, Error> ) -> Void ) {
+    static func InitializeSerInfo(completed: @escaping ( Result<SerHeaderDescription, Error> ) -> Void ) {
         do {
             _serReader = try FileSer.init(filename: _workingImageName, mobileBundle: false)
             try _serReader?.readHeader()
             _serHeader = _serReader?.Head
             _headerDescription = _serReader?.getHeaderDescription()
-            _workingSerData = try _serReader?.GetHighDefCGImageFromSer()
-            _workingImage   = try _serReader?.GetCGImageFromSer()
-            completed(.success( _workingImage! ))
+            _sourceDType = .SerFile
+            completed(.success( _headerDescription! ))
         }
-        catch { completed(.failure(error))}
+        catch { completed(.failure(error)) }
         
+    }
+//    let serialQueue = DispatchQueue( label: "queue.Serial" )
+//    self.imageInProcessing = true
+//    self.workingImageName = imageName
+//    serialQueue.async {
+//    {
+//        result in
+//        DispatchQueue.main.async {
+//        switch result {
+//        case .success(let cgOut):
+//            SegNetIOManager.setWorkingImage( cgOut )
+//            self.sourceImage = cgOut
+//            self.sourceImageLoaded = true
+//        case .failure(let error):
+//            print(error.localizedDescription)
+//       }
+//        }
+//    }
+    
+    static func LoadSerImage(completed: @escaping ( Result<CGImage, Error> ) -> Void ) {
+        do {
+            _workingSerData = try _serReader?.GetHighDefCGImageFromSer()
+            completed(.success( _workingSerData! ))
+        }
+        catch { completed(.failure(error)) }
+        
+    }
+    static func getSourceType() -> SegNetDataTypes {
+        return _sourceDType
+    }
+    static func getWorkingType() -> SegNetDataTypes {
+        return _workingDType
     }
     
     static func getBinary() -> Data {
@@ -60,14 +97,24 @@ final class SegNetIOManager {
     
     static func processImage(completed: @escaping (Result< CGImage, Error> ) -> Void) {
         guard let inputImage = _workingImage else {
-            completed(.failure( "working image was nil" ))
+            completed(.failure( ModelIOErrors.MissingSourceImage ))
             return
         }
         // Model output call
         do {
-            (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel)
-            completed(.success( _cgModelOutput! )) //MARK: unsafe
-            return
+            switch _sourceDType {
+            case .Images:
+                (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel)
+                completed(.success( _cgModelOutput! )) //MARK: unsafe
+                return
+            case .SerFile:
+                (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel)
+                completed(.success( _cgModelOutput! )) //MARK: unsafe
+                return
+            case .DM3File:
+                completed(.failure(ModelIOErrors.MissingSourceImage   ))
+            }
+            
         } catch let error { completed(.failure( error )) }
     }
         

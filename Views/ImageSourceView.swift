@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ImageSourceView: View {
     @Binding var tabSelection: HomeTabs
-    @Binding var sourceImage: CGImage?
+    var sourceImage: CGImage
     @Binding var imageInProcessing: Bool
     
     var body: some View {
         if sourceImage != nil {
-            Image( uiImage: UIImage(cgImage: sourceImage!) ) // should have viewModel.workingImage passed in
+            Image( uiImage: UIImage(cgImage: sourceImage) ) // should have viewModel.workingImage passed in
                 .resizable()
                 .frame(width: 230, height: 230)
         } else {

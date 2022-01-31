@@ -18,7 +18,7 @@ struct SerImportView: View {
                    action:      {
                     do {
                         SegNetIOManager.setWorkingImageName( serFileName )
-                        SegNetIOManager.InitializeSerImage() {
+                        SegNetIOManager.InitializeSerInfo() {
                             result in
                                 print("Got a CGOutput from this image.")
                             
@@ -52,6 +52,8 @@ struct SerImportView: View {
                 }
                 }
             }
+            //if SegNetIOManager.getWorkingImage()
+           // Image(uiImage: UIImage.init(cgImage: SegNetIOManager.getWorkingImage()))
         }
         .padding()
         .fileExporter(isPresented: $isExporting,
