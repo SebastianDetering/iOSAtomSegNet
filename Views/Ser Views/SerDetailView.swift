@@ -42,8 +42,10 @@ struct SerDetailItem<T: BinaryInteger>: View  {
     var body: some View {
         HStack {
             Text("\(name)")
-            Text(String(format:"%02X", tagValue as! CVarArg))
-            
+                .frame(width: 300, height: 20, alignment: .leading)
+                
+            Text(String(format:"0x%04X", tagValue as! CVarArg))
+                .font(.caption)
         }
     }
 }

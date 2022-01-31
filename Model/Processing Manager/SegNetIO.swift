@@ -5,6 +5,17 @@ import LASwift
 import CoreML
 
 // The Image Processing Lifecycle is coded here.
+
+func getFloat32Activations(imageData: [Float32], modelType: MLModels) throws -> [Float32] {
+    var activationsOut = imageData
+    do {
+        let model = try segmentationNetwork()
+        model.setCurrentModel(modelType)
+        
+    }
+    return activationsOut
+}
+
 func getCGActivations(image: CGImage, modelType: MLModels) throws -> (Matrix?, CGImage?) {
     guard let imageArrayData = image.pixelData() else { throw "CGImage not converted to UInt8 array" }
     let imageWidth  = image.width

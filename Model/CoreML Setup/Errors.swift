@@ -1,6 +1,7 @@
 import Foundation
 
 enum ModelIOErrors : Error {
+    case MissingSourceImage
     case OversizedImageError
     case PoorlyConfiguredMLMultiArrayInputShape
 }
@@ -22,6 +23,7 @@ enum FileSERErrors : Error {
     
     case Expected2DArrayGot1DArray
     case ZeroSizedDimension
+    case CGConversionError
 }
 
 enum ForImageFormatError : Error {

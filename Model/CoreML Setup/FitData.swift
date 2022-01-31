@@ -7,6 +7,41 @@ import Foundation
 
  // Got some help from Eric Lippert here https://stackoverflow.com/users/88656/eric-lippert
 
+func formatArrDataForMLModel<Element>(dataSet: [Element]) throws -> [Float32]
+where Element: BinaryInteger {
+    do {
+    return try formatArrDataForMLModel(dataSet: dataSet.map(Float.init))
+    } catch { throw error }
+}
+
+func formatArrDataForMLModel<Element>(dataSet: [Element]) throws -> [Float32]
+where Element: BinaryFloatingPoint {
+    guard let max = dataSet.max() else { throw ForImageFormatError.MaxNotFound }
+    guard let min = dataSet.min() else { throw ForImageFormatError.MinNotFound }
+    if abs( min ) <= max {
+        if min >= 0  {
+            let balancer = max - min
+        return dataSet.map { Float32( ($0 - min) / balancer ) }
+        }
+        else if min < 0 {
+            let balancer = max + abs(min)
+            return dataSet.map { Float32( ( $0 - min ) / balancer ) }
+        }
+    }
+    else if abs( min ) > max {
+        if min >= 0  {
+            let balancer = max + min
+            return dataSet.map { Float32( $0  / (  balancer )) }
+        }
+        else if min < 0 {
+            let balancer = max + abs(min)
+            return dataSet.map { Float32(( $0 - min ) / balancer ) }
+        }
+    }
+    else { throw ForImageFormatError.FormatFail }
+    // dont see how it's possible to reach this
+    return []
+}
 
 func formatArrayDataforImage<Element>(dataSet: [Element]?) throws -> [UInt8]
 where Element: BinaryInteger  // <=== Note different `where` clause

@@ -21,7 +21,7 @@ struct iOSAtomSegNetApp: App {
 //            Rectangle()
 //                Button(action: { showingImagePicker = true }, label: { Text("importImage") })
 //            } .sheet(isPresented: $showingImagePicker, content: { Imag})
-            ContentView()
+            HomeTabView(processingViewModel: processingViewModel   )
         }
     }
 }

@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		9209D3BD27A391A8008DEAFF /* SerImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209D3BC27A391A8008DEAFF /* SerImportView.swift */; };
 		9209D3C127A391E0008DEAFF /* SerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209D3C027A391E0008DEAFF /* SerDetailView.swift */; };
+		9209D3C327A39DFE008DEAFF /* SerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209D3C227A39DFE008DEAFF /* SerDocument.swift */; };
+		921916BC27A61C6500A3FFE9 /* SerDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916BB27A61C6500A3FFE9 /* SerDescriptionView.swift */; };
+		921916C027A7877B00A3FFE9 /* SegNetTabPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916BF27A7877B00A3FFE9 /* SegNetTabPickerView.swift */; };
+		921916C527A78B3000A3FFE9 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C427A78B3000A3FFE9 /* Alert.swift */; };
+		921916C727A7908600A3FFE9 /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C627A7908600A3FFE9 /* ImageGalleryView.swift */; };
+		921916C927A790B800A3FFE9 /* SerGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C827A790B800A3FFE9 /* SerGalleryView.swift */; };
+		921916CC27A795A900A3FFE9 /* SerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916CB27A795A900A3FFE9 /* SerViewModel.swift */; };
+		921916D027A7AAF400A3FFE9 /* HighFidelityCGImages.mm in Sources */ = {isa = PBXBuildFile; fileRef = 921916CF27A7AAF400A3FFE9 /* HighFidelityCGImages.mm */; };
 		9286C83A278E106100A3101E /* FileSer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C837278E106100A3101E /* FileSer.swift */; };
 		9286C83B278E106100A3101E /* FileRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C838278E106100A3101E /* FileRead.swift */; };
 		9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C839278E106100A3101E /* PythonPortHelpers.swift */; };
@@ -47,7 +55,7 @@
 		92A5AEFF276D6AAA0012A0EA /* ProcessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AEFE276D6AAA0012A0EA /* ProcessingViewModel.swift */; };
 		92A5AF01276E97A60012A0EA /* SegNetIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF00276E97A60012A0EA /* SegNetIOManager.swift */; };
 		92A5AF06276EF3D50012A0EA /* circularMask_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF03276EF3D40012A0EA /* circularMask_1024.mlmodel */; };
-		92A5AF0D2770F7EC0012A0EA /* SegmentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF0C2770F7EC0012A0EA /* SegmentationView.swift */; };
+		92A5AF0D2770F7EC0012A0EA /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF0C2770F7EC0012A0EA /* ExportView.swift */; };
 		92A5AF0F27713A640012A0EA /* denoise_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF0E27713A640012A0EA /* denoise_1024.mlmodel */; };
 		92A5AF1127713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1027713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel */; };
 		92A5AF1327713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1227713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel */; };
@@ -81,6 +89,16 @@
 /* Begin PBXFileReference section */
 		9209D3BC27A391A8008DEAFF /* SerImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerImportView.swift; sourceTree = "<group>"; };
 		9209D3C027A391E0008DEAFF /* SerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerDetailView.swift; sourceTree = "<group>"; };
+		9209D3C227A39DFE008DEAFF /* SerDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerDocument.swift; sourceTree = "<group>"; };
+		921916BB27A61C6500A3FFE9 /* SerDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerDescriptionView.swift; sourceTree = "<group>"; };
+		921916BF27A7877B00A3FFE9 /* SegNetTabPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegNetTabPickerView.swift; sourceTree = "<group>"; };
+		921916C427A78B3000A3FFE9 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		921916C627A7908600A3FFE9 /* ImageGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
+		921916C827A790B800A3FFE9 /* SerGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerGalleryView.swift; sourceTree = "<group>"; };
+		921916CB27A795A900A3FFE9 /* SerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerViewModel.swift; sourceTree = "<group>"; };
+		921916CD27A7AAF400A3FFE9 /* iOSAtomSegNet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSAtomSegNet-Bridging-Header.h"; sourceTree = "<group>"; };
+		921916CE27A7AAF400A3FFE9 /* HighFidelityCGImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HighFidelityCGImages.h; sourceTree = "<group>"; };
+		921916CF27A7AAF400A3FFE9 /* HighFidelityCGImages.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HighFidelityCGImages.mm; sourceTree = "<group>"; };
 		9286C837278E106100A3101E /* FileSer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSer.swift; sourceTree = "<group>"; };
 		9286C838278E106100A3101E /* FileRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRead.swift; sourceTree = "<group>"; };
 		9286C839278E106100A3101E /* PythonPortHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PythonPortHelpers.swift; sourceTree = "<group>"; };
@@ -120,7 +138,7 @@
 		92A5AEFE276D6AAA0012A0EA /* ProcessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingViewModel.swift; sourceTree = "<group>"; };
 		92A5AF00276E97A60012A0EA /* SegNetIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegNetIOManager.swift; sourceTree = "<group>"; };
 		92A5AF03276EF3D40012A0EA /* circularMask_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = circularMask_1024.mlmodel; sourceTree = "<group>"; };
-		92A5AF0C2770F7EC0012A0EA /* SegmentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationView.swift; sourceTree = "<group>"; };
+		92A5AF0C2770F7EC0012A0EA /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
 		92A5AF0E27713A640012A0EA /* denoise_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = denoise_1024.mlmodel; path = ../../GuassianONNXtoMATLAB/denoise_1024.mlmodel; sourceTree = "<group>"; };
 		92A5AF1027713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "denoise&bgremoval_1024.mlmodel"; path = "../../GuassianONNXtoMATLAB/denoise&bgremoval_1024.mlmodel"; sourceTree = "<group>"; };
 		92A5AF1227713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "denoise&bgremoval&superres_1024.mlmodel"; path = "../../GuassianONNXtoMATLAB/denoise&bgremoval&superres_1024.mlmodel"; sourceTree = "<group>"; };
@@ -150,12 +168,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		921916BD27A61C6A00A3FFE9 /* Ser Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Ser Detail";
+			sourceTree = "<group>";
+		};
+		921916BE27A61C8200A3FFE9 /* Ser Views */ = {
+			isa = PBXGroup;
+			children = (
+				921916BB27A61C6500A3FFE9 /* SerDescriptionView.swift */,
+				9209D3C027A391E0008DEAFF /* SerDetailView.swift */,
+			);
+			path = "Ser Views";
+			sourceTree = "<group>";
+		};
+		921916CA27A7957000A3FFE9 /* Ser */ = {
+			isa = PBXGroup;
+			children = (
+				921916C827A790B800A3FFE9 /* SerGalleryView.swift */,
+				9209D3C227A39DFE008DEAFF /* SerDocument.swift */,
+				9209D3BC27A391A8008DEAFF /* SerImportView.swift */,
+				921916CB27A795A900A3FFE9 /* SerViewModel.swift */,
+			);
+			path = Ser;
+			sourceTree = "<group>";
+		};
 		92A5AEA7276D2DBA0012A0EA = {
 			isa = PBXGroup;
 			children = (
-				9209D3C027A391E0008DEAFF /* SerDetailView.swift */,
+				921916CD27A7AAF400A3FFE9 /* iOSAtomSegNet-Bridging-Header.h */,
+				921916CE27A7AAF400A3FFE9 /* HighFidelityCGImages.h */,
+				921916CF27A7AAF400A3FFE9 /* HighFidelityCGImages.mm */,
+				921916C427A78B3000A3FFE9 /* Alert.swift */,
+				921916BD27A61C6A00A3FFE9 /* Ser Detail */,
 				929336DB27A0A15D002E14A0 /* ContentView.swift */,
-				9209D3BC27A391A8008DEAFF /* SerImportView.swift */,
 				929336D927A0A106002E14A0 /* MessageDocument.swift */,
 				9286C83D278E439300A3101E /* Persistence.swift */,
 				9286C83F278E43B200A3101E /* AppStorage.xcdatamodeld */,
@@ -229,12 +277,13 @@
 		92A5AED7276D2F0F0012A0EA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				921916BE27A61C8200A3FFE9 /* Ser Views */,
 				92A5AF53277B99B70012A0EA /* ImagePickerContentView.swift */,
 				92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */,
 				92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */,
 				92A5AF3F2777D2890012A0EA /* GalleryView */,
 				92A5AF3E2777D27E0012A0EA /* ProcessingView */,
-				92A5AF0C2770F7EC0012A0EA /* SegmentationView.swift */,
+				92A5AF0C2770F7EC0012A0EA /* ExportView.swift */,
 				92A5AED9276D2F0F0012A0EA /* HomeTabView.swift */,
 				92A5AED8276D2F0F0012A0EA /* ModelPickerView.swift */,
 				92A5AF18277260CD0012A0EA /* ImageSourceView.swift */,
@@ -319,8 +368,11 @@
 		92A5AF3F2777D2890012A0EA /* GalleryView */ = {
 			isa = PBXGroup;
 			children = (
+				921916CA27A7957000A3FFE9 /* Ser */,
 				92A5AEDE276D2F0F0012A0EA /* GalleryView.swift */,
 				92A5AECF276D2EF50012A0EA /* GalleryViewModel.swift */,
+				921916BF27A7877B00A3FFE9 /* SegNetTabPickerView.swift */,
+				921916C627A7908600A3FFE9 /* ImageGalleryView.swift */,
 			);
 			path = GalleryView;
 			sourceTree = "<group>";
@@ -357,6 +409,7 @@
 				TargetAttributes = {
 					92A5AEAF276D2DBA0012A0EA = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -402,16 +455,21 @@
 				92A5AECD276D2EBB0012A0EA /* SegNetIO.swift in Sources */,
 				92A5AEFB276D2F500012A0EA /* denoise.mlmodel in Sources */,
 				92A5AED6276D2EF50012A0EA /* Appearance.swift in Sources */,
+				921916C527A78B3000A3FFE9 /* Alert.swift in Sources */,
 				92A5AEEA276D2F3A0012A0EA /* CoreMLHelpers.swift in Sources */,
 				92A5AF01276E97A60012A0EA /* SegNetIOManager.swift in Sources */,
 				9286C83B278E106100A3101E /* FileRead.swift in Sources */,
 				92A5AEF8276D2F500012A0EA /* circularMask.mlmodel in Sources */,
+				921916D027A7AAF400A3FFE9 /* HighFidelityCGImages.mm in Sources */,
 				92A5AED3276D2EF50012A0EA /* GalleryViewModel.swift in Sources */,
 				92A5AECB276D2EBB0012A0EA /* CGImageFromArray.swift in Sources */,
+				921916BC27A61C6500A3FFE9 /* SerDescriptionView.swift in Sources */,
 				92A5AF1127713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel in Sources */,
 				92A5AF06276EF3D50012A0EA /* circularMask_1024.mlmodel in Sources */,
 				92A5AECC276D2EBB0012A0EA /* MatrixFromImage.swift in Sources */,
 				9209D3BD27A391A8008DEAFF /* SerImportView.swift in Sources */,
+				921916CC27A795A900A3FFE9 /* SerViewModel.swift in Sources */,
+				921916C027A7877B00A3FFE9 /* SegNetTabPickerView.swift in Sources */,
 				92A5AED4276D2EF50012A0EA /* GalleryImages.swift in Sources */,
 				92A5AEEE276D2F3A0012A0EA /* Errors.swift in Sources */,
 				92A5AEF9276D2F500012A0EA /* gaussianMask_1024.mlmodel in Sources */,
@@ -419,6 +477,7 @@
 				9286C83E278E439300A3101E /* Persistence.swift in Sources */,
 				9209D3C127A391E0008DEAFF /* SerDetailView.swift in Sources */,
 				9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */,
+				921916C727A7908600A3FFE9 /* ImageGalleryView.swift in Sources */,
 				92A5AEE0276D2F0F0012A0EA /* HomeTabView.swift in Sources */,
 				92A5AF1327713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel in Sources */,
 				92A5AF50277B89BE0012A0EA /* ImagePicker.swift in Sources */,
@@ -433,9 +492,11 @@
 				92A5AEEB276D2F3A0012A0EA /* ImageConverter.swift in Sources */,
 				92A5AF1727716F480012A0EA /* PickerButton.swift in Sources */,
 				92A5AF54277B99B70012A0EA /* ImagePickerContentView.swift in Sources */,
-				92A5AF0D2770F7EC0012A0EA /* SegmentationView.swift in Sources */,
+				92A5AF0D2770F7EC0012A0EA /* ExportView.swift in Sources */,
 				92A5AEE1276D2F0F0012A0EA /* BackButton.swift in Sources */,
 				92A5AEFD276D68E00012A0EA /* LoadingView.swift in Sources */,
+				9209D3C327A39DFE008DEAFF /* SerDocument.swift in Sources */,
+				921916C927A790B800A3FFE9 /* SerGalleryView.swift in Sources */,
 				92A5AF19277260CD0012A0EA /* ImageSourceView.swift in Sources */,
 				929336DA27A0A106002E14A0 /* MessageDocument.swift in Sources */,
 				92A5AF1B277261D80012A0EA /* ModelOutputsView.swift in Sources */,
@@ -573,6 +634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSAtomSegNet/Preview Content\"";
 				DEVELOPMENT_TEAM = W33KH9HRV5;
@@ -589,6 +651,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sebde.iOSAtomSegNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSAtomSegNet-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -599,6 +663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSAtomSegNet/Preview Content\"";
 				DEVELOPMENT_TEAM = BG774WWHGB;
@@ -615,6 +680,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sebde.iOSAtomSegNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSAtomSegNet-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

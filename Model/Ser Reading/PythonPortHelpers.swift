@@ -34,7 +34,28 @@ struct SerHeader {
     var DataOffsetArray     : [Int] = [] // same condition as DataOffsetArray
     var TagOffsetArray      : [Int] = [] // ibid.
 }
-
+// For human view
+struct SerHeaderDescription {
+    var SeriesID            : String = ""
+    var SeriesVersion       : String = ""
+    var DataTypeID          : String = ""
+    var TagTypeID           : String = ""
+    var TotalNumberElements : String = ""
+    var ValidNumberElements : String = ""
+    var OffsetArrayOffset   : String = "" // whether raw val is 32 or 64 depends on offset_dtype, but I cast to Int anyways
+    var NumberDimensions    : String = ""
+    var Dimensions          : [SerDimensionDetailedDescription] = []
+    var DataOffsetArray     : String = "" // same condition as DataOffsetArray
+    var TagOffsetArray      : String = "" // ibid.
+}
+struct SerDimensionDetailedDescription {
+    var DimensionSize       : String = ""
+    var CalibrationOffset   : String = ""
+    var CalibrationDelta    : String = ""
+    var CalibrationElement  : String = ""
+    var Description         : String = ""
+    var Units               : String = ""
+}
 struct SerDimensionDescriptor {
     var DimensionSize       : Int32 = 0
     var CalibrationOffset   : Float64 = 0

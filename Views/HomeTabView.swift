@@ -34,7 +34,7 @@ struct HomeTabView: View {
                     Text("Neural Net")
                 } .tag(HomeTabs.NeuralNet)
                 .onDisappear(perform: { previousSelection = HomeTabs.NeuralNet; print("\(previousSelection)")} )
-            SegmentationView(viewModel: processingViewModel,  tabSelection: $selection)
+            ExportView(viewModel: processingViewModel,  tabSelection: $selection)
                 .tabItem {
                     Image(systemName: "circle.dashed.inset.fill")
                     Text("Segment")

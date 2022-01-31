@@ -39,6 +39,7 @@ class FileSer {
     
     var head : [String: Any]? = nil
     var Head : SerHeader? = nil
+    var headerDescription: SerHeaderDescription = SerHeaderDescription()
     
     var filename : Any? = nil
     
@@ -46,7 +47,7 @@ class FileSer {
 
     var offset : Int = 0 
     
-    var data : [Any]? = nil // the dynamic variable which will store raw data, in many types. Used in readHeader(), and practically every other function
+    private var _data : [Any]? = nil // the dynamic variable which will store raw data, in many types. Used in readHeader(), and practically every other function
     
     var offset_dtype : String?  = nil
     
@@ -79,8 +80,8 @@ class FileSer {
             } else {
                 // check filename type
                 if filename is String {
-                    let url = Bundle.main.url(forResource: (filename as! String), withExtension: ".ser" )
-                    self._file_hdl = fRead( data : try Data(contentsOf: url! ))
+                    guard let url = Bundle.main.url(forResource: (filename as! String), withExtension: ".ser" ) else { throw FileSERErrors.FileMissing }
+                    self._file_hdl = fRead( data : try Data(contentsOf: url ))
                 }
                 else if filename is URL {
                     self._file_hdl = fRead( data : try Data(contentsOf : self.filename as! URL) )
@@ -98,8 +99,9 @@ class FileSer {
         
         // self.read_emi()
     }
-
-    
+    func getData() -> Data {
+        return _file_hdl!.data!
+    }
     private func __del__() {
         // close the file stream in destructor.
         do {
@@ -361,7 +363,29 @@ class FileSer {
         self.Head = head
         return head_dictionary
     }
-
+    func getHeaderDescription() -> SerHeaderDescription{
+        guard let header = Head else { return SerHeaderDescription() }
+        headerDescription.SeriesID = (header.SeriesID == 0x0197) ? "ES Vision Series Data File" : "nil"                              // Series id not found among descriptors (ES Vision Series Data File)
+        headerDescription.SeriesVersion = _dictSeriesVersion[header.SeriesVersion] ?? "nil"
+        headerDescription.DataTypeID    = _dictDataTypeID[header.DataTypeID] ?? "nil"
+        headerDescription.TagTypeID     = _dictTagTypeID[header.TagTypeID] ?? "nil"
+        headerDescription.TotalNumberElements = String(header.TotalNumberElements) // rows * columns
+        headerDescription.ValidNumberElements = String(header.ValidNumberElements)
+        headerDescription.NumberDimensions    = String(header.NumberDimensions)
+        for description in header.Dimensions {
+            var currDescription = SerDimensionDetailedDescription()
+            currDescription.Description = description.Description
+            currDescription.CalibrationDelta    = String(description.CalibrationDelta)
+            currDescription.CalibrationOffset   = String(description.CalibrationOffset)
+            currDescription.DimensionSize       = String(description.DimensionSize)
+            currDescription.Units               = String(describing: description.Units )
+            currDescription.CalibrationElement  = String(description.CalibrationElement)
+            headerDescription.Dimensions.append(currDescription)
+        }
+        headerDescription.TagOffsetArray      = String(describing: header.TagOffsetArray)
+        headerDescription.DataOffsetArray     = String(describing: header.DataOffsetArray)
+        return headerDescription
+    }
 // Needs Swift specific error handling.
     func _checkIndex(i : Int?) throws {
         /* Check index i for sanity, otherwise raise Exception.
@@ -675,7 +699,7 @@ class FileSer {
                 dataset_integer = nil
                 dataset_floating = nil
             }
-            try _file_hdl!.close() // may free up memory
+           // try _file_hdl!.close() // may free up memory, I need this though for file exporting.
         }
         else { throw FileSERErrors.DataTypeIDUndefined }
         dataset_integer?.reverse()
@@ -778,9 +802,8 @@ class FileSer {
         return tag
     }
 
-    func GetCGImageFromSer(index : Int = 0) throws -> CGImage? {
-        
-        var outputImage :CGImage? = nil
+    func GetHighDefCGImageFromSer(index: Int = 0) throws -> CGImage {
+        var float32Arr : [Float32] = []
         if self.Head == nil {
             throw FileSERErrors.UninitializedHead
         }
@@ -788,86 +811,88 @@ class FileSer {
         let FirstMeta : SerMeta = try self.getMetaType(index: 0)
         let np_Type = FirstMeta.DataType
         do {
-            var arrayDataforImage : [UInt8]? = nil
             switch np_Type {
             case 1:
                 // second tuple element will be null in all int cases and flipped for floats.
                 let dataset : ([UInt8]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                guard let uint8DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
+                float32Arr = try formatArrDataForMLModel(dataSet: uint8DSet)
             case 2:
                 let dataset : ([UInt16]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                guard let uint16DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
+                float32Arr = try formatArrDataForMLModel(dataSet: uint16DSet )
             case 3:
                 let dataset : ([UInt32]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                guard let uint32DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
+                float32Arr = try formatArrDataForMLModel(dataSet: uint32DSet )
             case 4:
                 let dataset : ([Int8]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                guard let int8DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
+                float32Arr = try formatArrDataForMLModel(dataSet: int8DSet )
             case 5:
                 let dataset : ([Int16]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                guard let int16DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
+                float32Arr = try formatArrDataForMLModel(dataSet: int16DSet )
             case 6:
                 let dataset : ([Int32]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                guard let int32DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
+                float32Arr = try formatArrDataForMLModel(dataSet: int32DSet )
             case 7:
                 let dataset : ([UInt8]?, [Float32]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.1 )
+                guard let float32DSet = dataset.1 else { throw FileSERErrors.DataReadFail }
+                float32Arr = try formatArrDataForMLModel(dataSet: float32DSet )
             case 8:
                 let dataset : ([UInt8]?, [Float64]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.1 )
+                guard let float64Dset = dataset.1 else { throw FileSERErrors.DataReadFail }
+                print("we may loose fidelity after processing, bit depth input is twice model input (32 bit vs 64 bit).")
+                float32Arr = try formatArrDataForMLModel(dataSet: float64Dset )
             case 9:
                 throw FileSERErrors.ComplexNotProgrammedYet
             case 10:
                 throw FileSERErrors.ComplexNotProgrammedYet
             default :
-                throw "Not a ser dictionary type"
+                throw FileSERErrors.DataTypeUndefined
             }
-        
-        // meta entries will be structs in the future.
-        let arrShape : [Int] = self.MetaArray[0].ArrayShape
-        let width = arrShape[0]
-        let height :  Int? = arrShape[1]
-            if height == nil {
-                throw FileSERErrors.Expected2DArrayGot1DArray
-            }
-        let count = width * height!
-            if count == 0 {
-                throw FileSERErrors.ZeroSizedDimension
-            }
-        // I need to get data into bytes, move into a pointer of CFData type, then initialize CGDataProvider.
-    // Image is Grayscale, each layer needs to be unsigned Int8 0-255
-        let uInt8DataPointer = UnsafeMutablePointer<UInt8>.allocate(capacity: count)
-        uInt8DataPointer.initialize(from: &arrayDataforImage!, count: count)
-        let bitsPerComponent = 8
-        let bytesPerPixel = 1
+            // meta entries will be structs in the future.
+            let arrShape : [Int] = self.MetaArray[0].ArrayShape
+            let width = arrShape[0]
+            let height :  Int? = arrShape[1]
+                if height == nil {
+                    throw FileSERErrors.Expected2DArrayGot1DArray
+                }
+            let count = width * height!
+                if count == 0 {
+                    throw FileSERErrors.ZeroSizedDimension
+                }
+            let dataPointer = UnsafeMutableRawPointer.allocate(byteCount: 4*count, alignment: 0)
+            dataPointer.copyMemory(from: &float32Arr, byteCount: 4*count)
+            let bitsPerComponent = 32
+            let bytesPerPixel = 4
 
-        let bitsPerPixel = bitsPerComponent * bytesPerPixel
-        let bytesPerRow: Int = width * bytesPerPixel;
-            
-        let flatCFData = CFDataCreate(nil, uInt8DataPointer, count * bytesPerPixel )
-        let cgDataProvider = CGDataProvider.init(data: flatCFData! )
-        let deviceColorSpace = CGColorSpaceCreateDeviceGray()
-
-        let serImage = CGImage.init(width: width, height: height!,
-                                    bitsPerComponent: bitsPerComponent,   // 16 bytes for UInt16 * 8 bits per byte
-                                    bitsPerPixel: bitsPerPixel,
-                                    bytesPerRow: bytesPerRow,
-                                    space: deviceColorSpace,
-                                    bitmapInfo: [],
-                                    provider: cgDataProvider!,
-                                    decode: nil,           // No remapping
-                                    shouldInterpolate: true,
-                                    intent: .defaultIntent)
-
-        //https://stackoverflow.com/questions/51372245/swift-convert-byte-array-into-ciimage
+            let bitsPerPixel = 8 * bytesPerPixel
+            let bytesPerRow: Int = width * bytesPerPixel;
+                
+            let flatCFData = CFDataCreate(nil, dataPointer.assumingMemoryBound(to: UInt8.self), count * bytesPerPixel )
+            let cgDataProvider = CGDataProvider.init(data: flatCFData! )
+            let deviceColorSpace = CGColorSpaceCreateDeviceGray()
             defer {
-            uInt8DataPointer.deinitialize(count: count)
-         uInt8DataPointer.deallocate()
+         dataPointer.deallocate()
             }
-         outputImage = serImage
-        
-        return outputImage
-
+            guard let serImage = CGImage.init(width: width, height: height!,
+                                        bitsPerComponent: bitsPerComponent,
+                                        bitsPerPixel: bitsPerPixel,
+                                        bytesPerRow: bytesPerRow,
+                                        space: deviceColorSpace,
+                                        bitmapInfo: [.byteOrder32Little, .floatComponents],
+                                        provider: cgDataProvider!,
+                                        decode: nil,           // No remapping
+                                        shouldInterpolate: true,
+                                        intent: .defaultIntent)
+            else { throw FileSERErrors.CGConversionError}
+            //https://stackoverflow.com/questions/51372245/swift-convert-byte-array-into-ciimage
+                
+            return serImage
         } catch let error as NSError { throw error }
+        
     }
 }

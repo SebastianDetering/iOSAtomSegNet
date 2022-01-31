@@ -17,7 +17,7 @@ enum SourceTypes {
 
 final class ProcessingViewModel: ObservableObject {
     
-    @Published var currentModel: MLModels = SegNetIOManager.shared.getCurrentModel()
+    @Published var currentModel: MLModels = SegNetIOManager.getCurrentModel()
 
     @Published var sourceImageLoaded = false
     @Published var imageInProcessing = false
@@ -29,6 +29,8 @@ final class ProcessingViewModel: ObservableObject {
 
     @Published var workingImageName: String?
     @Published var newWorkingImageName: String?
+    
+    @Published var alertItem: AlertItem?
     
     func newSourceImage( sourceType: SourceTypes, imageName: String ) {
         switch sourceType {
@@ -46,13 +48,13 @@ final class ProcessingViewModel: ObservableObject {
             self.imageInProcessing = true
             self.workingImageName = imageName
             serialQueue.async {
-            SegNetIOManager.shared.setWorkingImageName(imageName)
-            SegNetIOManager.shared.initializeSerImage() {
+            SegNetIOManager.setWorkingImageName(imageName)
+            SegNetIOManager.InitializeSerImage() {
                 result in
                 DispatchQueue.main.async {
                 switch result {
                 case .success(let cgOut):
-                    SegNetIOManager.shared.setWorkingImage( cgOut )
+                    SegNetIOManager.setWorkingImage( cgOut )
                     self.sourceImage = cgOut
                     self.sourceImageLoaded = true
                 case .failure(let error):
@@ -66,9 +68,9 @@ final class ProcessingViewModel: ObservableObject {
     }
     
     func processImage() throws {
-        guard let workingImage = sourceImage else { throw "new working image was nil." }
-        SegNetIOManager.shared.setWorkingImage( workingImage )
-        SegNetIOManager.shared.setCurrentModel( currentModel )
+        guard let workingImage = sourceImage else { throw ModelIOErrors.MissingSourceImage }
+        SegNetIOManager.setWorkingImage( workingImage )
+        SegNetIOManager.setCurrentModel( currentModel )
         let serialQueue = DispatchQueue( label: "queue.Serial" )
         imageDidProcess = false
         isLoadingActivations = true
@@ -80,7 +82,7 @@ final class ProcessingViewModel: ObservableObject {
             }
             else { print("Background thread task")}
             
-        SegNetIOManager.shared.processImage() {
+        SegNetIOManager.processImage() {
             result in
             DispatchQueue.main.async {
             self.isLoadingActivations = false

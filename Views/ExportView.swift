@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct SegmentationView: View {
+struct ExportView: View {
     
     @StateObject var viewModel : ProcessingViewModel
     @Binding var tabSelection: HomeTabs
@@ -16,11 +16,11 @@ struct SegmentationView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.newWorkingImageName != nil{
+                if viewModel.newWorkingImageName != nil {
                 HStack(alignment: .center){
                     Text("Image to Process: " + viewModel.newWorkingImageName! )
                         .foregroundColor(.brandSecondary)
-                    Image(uiImage: UIImage(cgImage: SegNetIOManager.shared.getWorkingImage()!))
+                    Image(uiImage: UIImage(cgImage: SegNetIOManager.getWorkingImage()!))
                         .resizable()
                         .frame(width: 75, height: 75)
                     Spacer()

@@ -1,26 +1,4 @@
-//
-//  ImageProcessingView.swift
-//  SwiftUISegNet
-//
-//  Created by sebi d on 9/13/21.
-//
-
 import SwiftUI
-import CoreML
-
-struct AlertItem: Identifiable {
-    let id = UUID()
-    let title: String
-    let message: String
-    let dismissButton: Alert.Button
-}
-
-struct AlertContext {
-    static let invalidImageInput = AlertItem(title: "Invalid Device input", message: "image was nil", dismissButton: .default(Text("OK")))
-    
-    static let missizedImageInput = AlertItem(title: "Invalid Device input", message: "image was too large", dismissButton: .default(Text("OK")))
-    
-}
 
 struct ProcessingView: View {
     
@@ -53,7 +31,16 @@ struct ProcessingView: View {
                 
                 Button(action:   {do {
                     try viewModel.processImage()
-                } catch { print(error.localizedDescription)} },
+                } catch { switch error {
+                case ModelIOErrors.MissingSourceImage:
+                    viewModel.alertItem = AlertContext.noSourceImage
+                case ModelIOErrors.OversizedImageError:
+                    viewModel.alertItem = AlertContext.missizedImageInput
+                case ModelIOErrors.PoorlyConfiguredMLMultiArrayInputShape:
+                    viewModel.alertItem = AlertContext.invalidImageInput
+                default:
+                    print("add a default alert")
+                }} },
                 label: { RunInferenceButtonLabel() })
                 
                 HStack{
@@ -67,7 +54,9 @@ struct ProcessingView: View {
                 }.frame(width: 400, height: 60, alignment: .trailing)
                 .background(Color(.systemBackground))
                 .cornerRadius(4)
-                
+            }.alert(item: $viewModel.alertItem) {
+                alertItem in
+                Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
             }
         }
         .frame(minWidth: 500, idealWidth: .greatestFiniteMagnitude, maxWidth: .greatestFiniteMagnitude, minHeight: 1800, idealHeight: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .center)
