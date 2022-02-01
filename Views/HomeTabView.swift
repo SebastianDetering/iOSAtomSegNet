@@ -1,10 +1,3 @@
-//
-//  HomeTabView.swift
-//  SwiftUISegNet
-//
-//  Created by sebi d on 9/12/21.
-//
-
 import SwiftUI
 
 enum HomeTabs: String {
@@ -16,39 +9,41 @@ enum HomeTabs: String {
 struct HomeTabView: View {
     
     @StateObject var processingViewModel: ProcessingViewModel
-    @State var selection: HomeTabs = .Gallery
-    @State var previousSelection: HomeTabs = .Gallery
+    @StateObject var homeViewModel: HomeTabViewModel
     
     var body: some View {
-        TabView(selection: $selection) {
-            GalleryView(processingViewModel: processingViewModel, tabSelection: $selection)
+        TabView(selection: $homeViewModel.selection) {
+            GalleryView(homeVM: homeViewModel, processingViewModel: processingViewModel)
                 .tabItem {
                     Image(systemName: "photo.on.rectangle.angled")
                     Text("Gallery")
                 } .tag(HomeTabs.Gallery)
-                .onDisappear(perform: { previousSelection = HomeTabs.Gallery; print("\(previousSelection)")} )
+                .onDisappear(
+                    perform: {
+                        homeViewModel.previousSelection = HomeTabs.Gallery
+                        
+                    } )
 
-            ProcessingView(viewModel: processingViewModel, tabSelection: $selection, previousTabSelection: $previousSelection)
+            ProcessingView(homeVM: homeViewModel,
+                           processingVM: processingViewModel)
                 .tabItem {
                     Image(systemName: "gearshape.2")
                     Text("Neural Net")
                 } .tag(HomeTabs.NeuralNet)
-                .onDisappear(perform: { previousSelection = HomeTabs.NeuralNet; print("\(previousSelection)")} )
-            ExportView(viewModel: processingViewModel,  tabSelection: $selection)
+                .onDisappear(
+                    perform: {
+                                homeViewModel.previousSelection = HomeTabs.NeuralNet
+                } )
+            ExportView(viewModel: processingViewModel,
+                       tabSelection: $homeViewModel.selection)
                 .tabItem {
                     Image(systemName: "circle.dashed.inset.fill")
                     Text("Segment")
                 } .tag(HomeTabs.Segment)
-                .onDisappear(perform: { previousSelection = HomeTabs.Segment; print("\(previousSelection)")} )
-
-                .tabItem {
-                    Image(systemName: "paintbrush.pointed.fill")
-                    Text("Touchup")
-                }
-                .tabItem {
-                    Image(systemName: "paintbrush.pointed.fill")
-                    Text("Centroids")
-                }
+                .onDisappear(
+                    perform: {
+                        homeViewModel.previousSelection = HomeTabs.Segment
+                    } )
         }
     }
 }

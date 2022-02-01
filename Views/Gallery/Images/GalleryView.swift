@@ -15,9 +15,8 @@ enum GalleryTabs {
 
 struct GalleryView: View {
     
-    @StateObject var viewModel = GalleryViewModel()
+    @StateObject var homeVM: HomeTabViewModel
     @StateObject var processingViewModel: ProcessingViewModel
-    @Binding var tabSelection: HomeTabs
     @State var gallerySelection: GalleryTabs = .ImageGallery
     
     var body: some View {
@@ -26,7 +25,8 @@ struct GalleryView: View {
                 SegNetTabPickerView(gallerySelection: $gallerySelection)
                     .padding(.top, 50)
                 if gallerySelection == .ImageGallery {
-                    ImageGalleryView(viewModel: viewModel, processingViewModel: processingViewModel)
+                    ImageGalleryView(homeVM: homeVM,
+                                     processingViewModel: processingViewModel)
                            } else if gallerySelection == .SerGallery {
                                SerGalleryView()
                            } else if gallerySelection == .DM3Gallery {

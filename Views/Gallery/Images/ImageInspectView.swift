@@ -10,9 +10,9 @@ import Foundation
 
 struct ImageInspectView: View {
     
-    @Binding var cgImageSource: CGImage?
-    @Binding var imageDidLoad: Bool
-    @Binding var isShowingView: Bool
+    @StateObject var homeVM: HomeTabViewModel
+    @StateObject var processingVM: ProcessingViewModel
+        
     @State var crosshairShowing: Bool = false
     
     @State var currentScale: CGFloat = 1.0
@@ -30,8 +30,8 @@ struct ImageInspectView: View {
         VStack{
             GeometryReader { geometry in
                 ZStack{
-                    if imageDidLoad {
-                        Image(uiImage: UIImage(cgImage: cgImageSource! ))
+                    if processingVM.sourceImageLoaded {
+                        Image(uiImage: UIImage(cgImage: processingVM.sourceImage! ))
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .offset(x: self.currentOffset.width, y: self.currentOffset.height)
@@ -77,10 +77,10 @@ struct ImageInspectView: View {
                 }.clipped()
             // will be "contradictory" (ideal will exceed max for the oversized images), but that is why the max constraint is there.
             .frame(minWidth: 100,
-                   idealWidth:  (CGFloat(cgImageSource?.width ?? 200) / 1.5),
+                   idealWidth:  (CGFloat(processingVM.sourceImage?.width ?? 200) / 1.5),
                    maxWidth: 500,
                    minHeight: 100,
-                   idealHeight:  (CGFloat(cgImageSource?.height ?? 200) / 1.5) ,
+                   idealHeight:  (CGFloat(processingVM.sourceImage?.height ?? 200) / 1.5) ,
                    maxHeight: 500,
                    alignment: .center)
         }
@@ -91,12 +91,23 @@ struct ImageInspectView: View {
             Button(action:
                     {crosshairShowing = !crosshairShowing},
                    label:
-                    {ZStack {
+                    {
                         Text("crosshair")}
-                    })
-                Spacer()
+                    )
+            Button(action: {
+                processingVM.setWorkingImage()
+                homeVM.selection = .NeuralNet
+                processingVM.inspectingImage = false
+            },
+                       label:
+                {
+                     Text("process")
+                    Image(systemName: "chevron.right")
+                        
+                       }
+                )
             BackButton(text: "close",
-                       isShowingView: $isShowingView,
+                       isShowingView: $processingVM.inspectingImage,
                        previousView: .constant(HomeTabs.Gallery),
                        currentView: .constant(HomeTabs.Gallery) )
             }

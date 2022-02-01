@@ -109,23 +109,9 @@ final class SegNetIOManager {
         _currentModel = to
     }
     
-    static func setWorkingImage( _ to: CGImage) {
-        _workingImage = to
-    }
-    
-    static func setWorkingImageName( _ to: String) {
-        _workingImageName = to
-    }
     
     static func getCurrentModel() -> MLModels {
         return _currentModel
     }
-    static func getWorkingImage() -> CGImage? {
-        return _workingImage
-    }
-    static func getWorkingImageName() -> String? {
-        return _workingImageName
-    }
-        
 }
 

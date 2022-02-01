@@ -52,7 +52,6 @@ final class ProcessingViewModel: ObservableObject {
             self.imageInProcessing = true
             self.workingImageName = imageName
             serialQueue.async {
-            SegNetIOManager.setWorkingImageName(imageName)
             SegNetIOManager.LoadSerImage() {
                 result in
                 DispatchQueue.main.async {
@@ -104,6 +103,6 @@ final class ProcessingViewModel: ObservableObject {
                     }
                 }
             }
-        }
+        } else { throw ModelIOErrors.MissingSourceImage}
     }
 }

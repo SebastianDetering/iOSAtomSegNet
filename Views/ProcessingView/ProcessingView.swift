@@ -2,42 +2,49 @@ import SwiftUI
 
 struct ProcessingView: View {
     
-    @StateObject var viewModel : ProcessingViewModel
+    @StateObject var homeVM: HomeTabViewModel
+    @StateObject var processingVM : ProcessingViewModel
     @State var alertItem : AlertItem?
-    @Binding var tabSelection: HomeTabs
-    @Binding var previousTabSelection: HomeTabs
     @State var isShowingModelPicker: Bool = false
     
     var body: some View {
         ZStack{
             VStack {
                 HStack{
-                    Text("Image to Process: " + (viewModel.workingImageName ?? "") )
-                        .font(.system(size: 10, weight: .regular, design: .serif))
-                        .foregroundColor(.brandSecondary)
+                    if processingVM != nil {
+                        Text("Image to Process: " + processingVM.workingImageName! )
+                            .font(.system(size: 10, weight: .regular, design: .serif))
+                            .foregroundColor(.brandSecondary)
+                    }
+                    else {
+                        Text("no source image")
+                            .font(.system(size: 10, weight: .regular, design: .serif))
+                            .foregroundColor(.brandSecondary)
+                    }
+                        
                     BackButton(text: "back",
-                               isShowingView: $viewModel.imageInProcessing,
-                               previousView: $previousTabSelection,
-                               currentView: $tabSelection)
+                               isShowingView: $processingVM.imageInProcessing,
+                               previousView: $homeVM.previousSelection,
+                               currentView: $homeVM.selection)
                 }
                 
-                WorkingImageView(tabSelection: $tabSelection,
-                                workingImage: viewModel.workingImage,
-                                imageInProcessing: $viewModel.imageInProcessing)
+                WorkingImageView(tabSelection: $homeVM.selection,
+                                workingImage: processingVM.workingImage,
+                                imageInProcessing: $processingVM.imageInProcessing)
                 
-                ModelOutputsView(imageDidProcess: $viewModel.imageDidProcess,
-                                 cgImageOutput: $viewModel.cgImageOutput,
-                                 isLoadingActivations: $viewModel.isLoadingActivations)
+                ModelOutputsView(imageDidProcess: $processingVM.imageDidProcess,
+                                 cgImageOutput: $processingVM.cgImageOutput,
+                                 isLoadingActivations: $processingVM.isLoadingActivations)
                 
                 Button(action:   {do {
-                    try viewModel.processImage()
+                    try processingVM.processImage()
                 } catch { switch error {
                 case ModelIOErrors.MissingSourceImage:
-                    viewModel.alertItem = AlertContext.noSourceImage
+                    processingVM.alertItem = AlertContext.noSourceImage
                 case ModelIOErrors.OversizedImageError:
-                    viewModel.alertItem = AlertContext.missizedImageInput
+                    processingVM.alertItem = AlertContext.missizedImageInput
                 case ModelIOErrors.PoorlyConfiguredMLMultiArrayInputShape:
-                    viewModel.alertItem = AlertContext.invalidImageInput
+                    processingVM.alertItem = AlertContext.invalidImageInput
                 default:
                     print("add a default alert")
                 }} },
@@ -48,13 +55,13 @@ struct ProcessingView: View {
                         .padding(.leading, 10)
                         .foregroundColor(.primary)
                     Spacer()
-                    ModelPickerView(currentModel: $viewModel.currentModel)
+                    ModelPickerView(currentModel: $processingVM.currentModel)
                         .foregroundColor(.secondary)
                         .padding(.trailing, 10)
                 }.frame(width: 400, height: 60, alignment: .trailing)
                 .background(Color(.systemBackground))
                 .cornerRadius(4)
-            }.alert(item: $viewModel.alertItem) {
+            }.alert(item: $processingVM.alertItem) {
                 alertItem in
                 Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
             }

@@ -17,6 +17,7 @@
 		921916C927A790B800A3FFE9 /* SerGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C827A790B800A3FFE9 /* SerGalleryView.swift */; };
 		921916CC27A795A900A3FFE9 /* SerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916CB27A795A900A3FFE9 /* SerViewModel.swift */; };
 		921916D327A8E31D00A3FFE9 /* SourceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916D227A8E31D00A3FFE9 /* SourceImageView.swift */; };
+		921916D527A9CC9000A3FFE9 /* HomeTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */; };
 		9286C83A278E106100A3101E /* FileSer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C837278E106100A3101E /* FileSer.swift */; };
 		9286C83B278E106100A3101E /* FileRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C838278E106100A3101E /* FileRead.swift */; };
 		9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C839278E106100A3101E /* PythonPortHelpers.swift */; };
@@ -69,7 +70,6 @@
 		92A5AF492779568D0012A0EA /* RunInferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF482779568D0012A0EA /* RunInferenceButton.swift */; };
 		92A5AF4E277AA65A0012A0EA /* ImageInspectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */; };
 		92A5AF50277B89BE0012A0EA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */; };
-		92A5AF54277B99B70012A0EA /* ImagePickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF53277B99B70012A0EA /* ImagePickerContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,6 +97,7 @@
 		921916C827A790B800A3FFE9 /* SerGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerGalleryView.swift; sourceTree = "<group>"; };
 		921916CB27A795A900A3FFE9 /* SerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerViewModel.swift; sourceTree = "<group>"; };
 		921916D227A8E31D00A3FFE9 /* SourceImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceImageView.swift; sourceTree = "<group>"; };
+		921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewModel.swift; sourceTree = "<group>"; };
 		9286C837278E106100A3101E /* FileSer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSer.swift; sourceTree = "<group>"; };
 		9286C838278E106100A3101E /* FileRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRead.swift; sourceTree = "<group>"; };
 		9286C839278E106100A3101E /* PythonPortHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PythonPortHelpers.swift; sourceTree = "<group>"; };
@@ -151,7 +152,6 @@
 		92A5AF4C277A74010012A0EA /* 20.40.16 Scanning Acquire_0000_2.ser */ = {isa = PBXFileReference; lastKnownFileType = file; name = "20.40.16 Scanning Acquire_0000_2.ser"; path = "iOSAtomSegNet/Assets.xcassets/20.40.16 Scanning Acquire_0000_2.dataset/20.40.16 Scanning Acquire_0000_2.ser"; sourceTree = SOURCE_ROOT; };
 		92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInspectView.swift; sourceTree = "<group>"; };
 		92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		92A5AF53277B99B70012A0EA /* ImagePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,18 +173,19 @@
 			path = "Ser Detail";
 			sourceTree = "<group>";
 		};
-		921916BE27A61C8200A3FFE9 /* Ser Views */ = {
+		921916BE27A61C8200A3FFE9 /* Ser Detail Views */ = {
 			isa = PBXGroup;
 			children = (
 				921916BB27A61C6500A3FFE9 /* SerDescriptionView.swift */,
 				9209D3C027A391E0008DEAFF /* SerDetailView.swift */,
 			);
-			path = "Ser Views";
+			path = "Ser Detail Views";
 			sourceTree = "<group>";
 		};
 		921916CA27A7957000A3FFE9 /* Ser */ = {
 			isa = PBXGroup;
 			children = (
+				921916BE27A61C8200A3FFE9 /* Ser Detail Views */,
 				921916C827A790B800A3FFE9 /* SerGalleryView.swift */,
 				9209D3C227A39DFE008DEAFF /* SerDocument.swift */,
 				9209D3BC27A391A8008DEAFF /* SerImportView.swift */,
@@ -197,9 +198,11 @@
 		921916D127A8E24900A3FFE9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */,
+				92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */,
 				92A5AEDE276D2F0F0012A0EA /* GalleryView.swift */,
-				92A5AECF276D2EF50012A0EA /* GalleryViewModel.swift */,
 				921916C627A7908600A3FFE9 /* ImageGalleryView.swift */,
+				92A5AECF276D2EF50012A0EA /* GalleryViewModel.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -283,17 +286,11 @@
 		92A5AED7276D2F0F0012A0EA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				921916BE27A61C8200A3FFE9 /* Ser Views */,
-				92A5AF53277B99B70012A0EA /* ImagePickerContentView.swift */,
-				92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */,
-				92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */,
 				92A5AF3F2777D2890012A0EA /* Gallery */,
 				92A5AF3E2777D27E0012A0EA /* ProcessingView */,
 				92A5AF0C2770F7EC0012A0EA /* ExportView.swift */,
 				92A5AED9276D2F0F0012A0EA /* HomeTabView.swift */,
-				92A5AED8276D2F0F0012A0EA /* ModelPickerView.swift */,
-				92A5AF18277260CD0012A0EA /* WorkingImageView.swift */,
-				92A5AF1A277261D80012A0EA /* ModelOutputsView.swift */,
+				921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */,
 				92A5AEDA276D2F0F0012A0EA /* Button */,
 			);
 			path = Views;
@@ -367,6 +364,9 @@
 			children = (
 				92A5AEDC276D2F0F0012A0EA /* ProcessingView.swift */,
 				92A5AEFE276D6AAA0012A0EA /* ProcessingViewModel.swift */,
+				92A5AED8276D2F0F0012A0EA /* ModelPickerView.swift */,
+				92A5AF18277260CD0012A0EA /* WorkingImageView.swift */,
+				92A5AF1A277261D80012A0EA /* ModelOutputsView.swift */,
 			);
 			path = ProcessingView;
 			sourceTree = "<group>";
@@ -482,6 +482,7 @@
 				9209D3C127A391E0008DEAFF /* SerDetailView.swift in Sources */,
 				9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */,
 				921916C727A7908600A3FFE9 /* ImageGalleryView.swift in Sources */,
+				921916D527A9CC9000A3FFE9 /* HomeTabViewModel.swift in Sources */,
 				92A5AEE0276D2F0F0012A0EA /* HomeTabView.swift in Sources */,
 				92A5AF1327713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel in Sources */,
 				92A5AF50277B89BE0012A0EA /* ImagePicker.swift in Sources */,
@@ -495,7 +496,6 @@
 				92A5AEED276D2F3A0012A0EA /* MLModelLibrary.swift in Sources */,
 				92A5AEEB276D2F3A0012A0EA /* ImageConverter.swift in Sources */,
 				92A5AF1727716F480012A0EA /* PickerButton.swift in Sources */,
-				92A5AF54277B99B70012A0EA /* ImagePickerContentView.swift in Sources */,
 				92A5AF0D2770F7EC0012A0EA /* ExportView.swift in Sources */,
 				92A5AEE1276D2F0F0012A0EA /* BackButton.swift in Sources */,
 				92A5AEFD276D68E00012A0EA /* LoadingView.swift in Sources */,

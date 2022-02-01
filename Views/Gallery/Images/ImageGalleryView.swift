@@ -2,8 +2,9 @@ import SwiftUI
 
 struct ImageGalleryView: View {
     
-    @StateObject var viewModel: GalleryViewModel
+    @StateObject var homeVM: HomeTabViewModel
     @StateObject var processingViewModel: ProcessingViewModel
+    @StateObject var viewModel = GalleryViewModel()
     
     var body: some View {
         ZStack {
@@ -26,9 +27,8 @@ struct ImageGalleryView: View {
                 }
             }
             .sheet(isPresented: $processingViewModel.inspectingImage) {
-                ImageInspectView(cgImageSource: $processingViewModel.sourceImage,
-                                 imageDidLoad: $processingViewModel.sourceImageLoaded,
-                                 isShowingView: $processingViewModel.inspectingImage )
+                ImageInspectView(homeVM: homeVM,
+                                 processingVM: processingViewModel)
             }
         }
     }
