@@ -27,18 +27,52 @@ final class ProcessingViewModel: ObservableObject {
     @Published var cgImageOutput : CGImage? // outputs
 
     @Published var workingImageName: String?
-    @Published var newWorkingImageName: String?
+    @Published var sourceImageName: String?
     
     @Published var alertItem: AlertItem?
-    
-    func newSourceImage(imageType: SegNetDataTypes, image: CGImage? ) {
-        sourceImageDType = imageType
-        sourceImage = image
-    }
-    
+
     func setWorkingImage() {
         workingImageDType = sourceImageDType
         workingImage = sourceImage
+    }
+    
+    func newSourceImage( sourceType: SegNetDataTypes, image: CGImage?, imageName: String) {
+        if image != nil {
+        sourceImageDType = sourceType
+        switch sourceType {
+        case .Images:
+            sourceImageName = imageName
+            sourceImage = image
+            sourceImageLoaded = true
+        case .SerFile:
+            sourceImageName = imageName
+            sourceImageLoaded = false
+            imageDidProcess = false
+            let serialQueue = DispatchQueue( label: "queue.Serial" )
+            self.imageInProcessing = true
+            self.workingImageName = imageName
+            serialQueue.async {
+            SegNetIOManager.setWorkingImageName(imageName)
+            SegNetIOManager.LoadSerImage() {
+                result in
+                DispatchQueue.main.async {
+                switch result {
+                case .success(let cgOut):
+                    self.sourceImage = cgOut
+                    self.sourceImageLoaded = true
+                case .failure(let error):
+                    print(error.localizedDescription)
+               }
+                }
+            }
+            }
+            print("ser source")
+        case .DM3File:
+            print("DM3 file not programmed yet.")
+        }
+        } else {
+            sourceImageLoaded = false
+        }
     }
     
     func processImage() throws {

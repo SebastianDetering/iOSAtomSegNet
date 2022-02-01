@@ -16,11 +16,11 @@ struct ExportView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.newWorkingImageName != nil {
+                if viewModel.workingImage != nil {
                 HStack(alignment: .center){
-                    Text("Image to Process: " + viewModel.newWorkingImageName! )
+                    Text("Image to Process: " + viewModel.sourceImageName! )
                         .foregroundColor(.brandSecondary)
-                    Image(uiImage: UIImage(cgImage: SegNetIOManager.getWorkingImage()!))
+                    Image(uiImage: UIImage(cgImage: viewModel.workingImage!))
                         .resizable()
                         .frame(width: 75, height: 75)
                     Spacer()

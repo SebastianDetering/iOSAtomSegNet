@@ -51,23 +51,6 @@ final class SegNetIOManager {
         catch { completed(.failure(error)) }
         
     }
-//    let serialQueue = DispatchQueue( label: "queue.Serial" )
-//    self.imageInProcessing = true
-//    self.workingImageName = imageName
-//    serialQueue.async {
-//    {
-//        result in
-//        DispatchQueue.main.async {
-//        switch result {
-//        case .success(let cgOut):
-//            SegNetIOManager.setWorkingImage( cgOut )
-//            self.sourceImage = cgOut
-//            self.sourceImageLoaded = true
-//        case .failure(let error):
-//            print(error.localizedDescription)
-//       }
-//        }
-//    }
     
     static func LoadSerImage(completed: @escaping ( Result<CGImage, Error> ) -> Void ) {
         do {

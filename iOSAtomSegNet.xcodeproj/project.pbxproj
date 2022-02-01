@@ -16,6 +16,7 @@
 		921916C727A7908600A3FFE9 /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C627A7908600A3FFE9 /* ImageGalleryView.swift */; };
 		921916C927A790B800A3FFE9 /* SerGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C827A790B800A3FFE9 /* SerGalleryView.swift */; };
 		921916CC27A795A900A3FFE9 /* SerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916CB27A795A900A3FFE9 /* SerViewModel.swift */; };
+		921916D327A8E31D00A3FFE9 /* SourceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916D227A8E31D00A3FFE9 /* SourceImageView.swift */; };
 		9286C83A278E106100A3101E /* FileSer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C837278E106100A3101E /* FileSer.swift */; };
 		9286C83B278E106100A3101E /* FileRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C838278E106100A3101E /* FileRead.swift */; };
 		9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C839278E106100A3101E /* PythonPortHelpers.swift */; };
@@ -59,7 +60,7 @@
 		92A5AF1127713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1027713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel */; };
 		92A5AF1327713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1227713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel */; };
 		92A5AF1727716F480012A0EA /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1627716F480012A0EA /* PickerButton.swift */; };
-		92A5AF19277260CD0012A0EA /* ImageSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF18277260CD0012A0EA /* ImageSourceView.swift */; };
+		92A5AF19277260CD0012A0EA /* WorkingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF18277260CD0012A0EA /* WorkingImageView.swift */; };
 		92A5AF1B277261D80012A0EA /* ModelOutputsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1A277261D80012A0EA /* ModelOutputsView.swift */; };
 		92A5AF362773C48A0012A0EA /* 20.40.16 Scanning Acquire_0000.emi in Resources */ = {isa = PBXBuildFile; fileRef = 92A5AF2F2773C4890012A0EA /* 20.40.16 Scanning Acquire_0000.emi */; };
 		92A5AF372773C48A0012A0EA /* 20.40.16 Scanning Acquire_0000_1.ser in Resources */ = {isa = PBXBuildFile; fileRef = 92A5AF302773C4890012A0EA /* 20.40.16 Scanning Acquire_0000_1.ser */; };
@@ -95,6 +96,7 @@
 		921916C627A7908600A3FFE9 /* ImageGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
 		921916C827A790B800A3FFE9 /* SerGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerGalleryView.swift; sourceTree = "<group>"; };
 		921916CB27A795A900A3FFE9 /* SerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerViewModel.swift; sourceTree = "<group>"; };
+		921916D227A8E31D00A3FFE9 /* SourceImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceImageView.swift; sourceTree = "<group>"; };
 		9286C837278E106100A3101E /* FileSer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSer.swift; sourceTree = "<group>"; };
 		9286C838278E106100A3101E /* FileRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRead.swift; sourceTree = "<group>"; };
 		9286C839278E106100A3101E /* PythonPortHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PythonPortHelpers.swift; sourceTree = "<group>"; };
@@ -139,7 +141,7 @@
 		92A5AF1027713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "denoise&bgremoval_1024.mlmodel"; path = "../../GuassianONNXtoMATLAB/denoise&bgremoval_1024.mlmodel"; sourceTree = "<group>"; };
 		92A5AF1227713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "denoise&bgremoval&superres_1024.mlmodel"; path = "../../GuassianONNXtoMATLAB/denoise&bgremoval&superres_1024.mlmodel"; sourceTree = "<group>"; };
 		92A5AF1627716F480012A0EA /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
-		92A5AF18277260CD0012A0EA /* ImageSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourceView.swift; sourceTree = "<group>"; };
+		92A5AF18277260CD0012A0EA /* WorkingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingImageView.swift; sourceTree = "<group>"; };
 		92A5AF1A277261D80012A0EA /* ModelOutputsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelOutputsView.swift; sourceTree = "<group>"; };
 		92A5AF2F2773C4890012A0EA /* 20.40.16 Scanning Acquire_0000.emi */ = {isa = PBXFileReference; lastKnownFileType = file; path = "20.40.16 Scanning Acquire_0000.emi"; sourceTree = "<group>"; };
 		92A5AF302773C4890012A0EA /* 20.40.16 Scanning Acquire_0000_1.ser */ = {isa = PBXFileReference; lastKnownFileType = file; path = "20.40.16 Scanning Acquire_0000_1.ser"; sourceTree = "<group>"; };
@@ -187,8 +189,19 @@
 				9209D3C227A39DFE008DEAFF /* SerDocument.swift */,
 				9209D3BC27A391A8008DEAFF /* SerImportView.swift */,
 				921916CB27A795A900A3FFE9 /* SerViewModel.swift */,
+				921916D227A8E31D00A3FFE9 /* SourceImageView.swift */,
 			);
 			path = Ser;
+			sourceTree = "<group>";
+		};
+		921916D127A8E24900A3FFE9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				92A5AEDE276D2F0F0012A0EA /* GalleryView.swift */,
+				92A5AECF276D2EF50012A0EA /* GalleryViewModel.swift */,
+				921916C627A7908600A3FFE9 /* ImageGalleryView.swift */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		92A5AEA7276D2DBA0012A0EA = {
@@ -274,12 +287,12 @@
 				92A5AF53277B99B70012A0EA /* ImagePickerContentView.swift */,
 				92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */,
 				92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */,
-				92A5AF3F2777D2890012A0EA /* GalleryView */,
+				92A5AF3F2777D2890012A0EA /* Gallery */,
 				92A5AF3E2777D27E0012A0EA /* ProcessingView */,
 				92A5AF0C2770F7EC0012A0EA /* ExportView.swift */,
 				92A5AED9276D2F0F0012A0EA /* HomeTabView.swift */,
 				92A5AED8276D2F0F0012A0EA /* ModelPickerView.swift */,
-				92A5AF18277260CD0012A0EA /* ImageSourceView.swift */,
+				92A5AF18277260CD0012A0EA /* WorkingImageView.swift */,
 				92A5AF1A277261D80012A0EA /* ModelOutputsView.swift */,
 				92A5AEDA276D2F0F0012A0EA /* Button */,
 			);
@@ -358,16 +371,14 @@
 			path = ProcessingView;
 			sourceTree = "<group>";
 		};
-		92A5AF3F2777D2890012A0EA /* GalleryView */ = {
+		92A5AF3F2777D2890012A0EA /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				921916D127A8E24900A3FFE9 /* Images */,
 				921916CA27A7957000A3FFE9 /* Ser */,
-				92A5AEDE276D2F0F0012A0EA /* GalleryView.swift */,
-				92A5AECF276D2EF50012A0EA /* GalleryViewModel.swift */,
 				921916BF27A7877B00A3FFE9 /* SegNetTabPickerView.swift */,
-				921916C627A7908600A3FFE9 /* ImageGalleryView.swift */,
 			);
-			path = GalleryView;
+			path = Gallery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +462,7 @@
 				921916C527A78B3000A3FFE9 /* Alert.swift in Sources */,
 				92A5AEEA276D2F3A0012A0EA /* CoreMLHelpers.swift in Sources */,
 				92A5AF01276E97A60012A0EA /* SegNetIOManager.swift in Sources */,
+				921916D327A8E31D00A3FFE9 /* SourceImageView.swift in Sources */,
 				9286C83B278E106100A3101E /* FileRead.swift in Sources */,
 				92A5AEF8276D2F500012A0EA /* circularMask.mlmodel in Sources */,
 				92A5AED3276D2EF50012A0EA /* GalleryViewModel.swift in Sources */,
@@ -489,7 +501,7 @@
 				92A5AEFD276D68E00012A0EA /* LoadingView.swift in Sources */,
 				9209D3C327A39DFE008DEAFF /* SerDocument.swift in Sources */,
 				921916C927A790B800A3FFE9 /* SerGalleryView.swift in Sources */,
-				92A5AF19277260CD0012A0EA /* ImageSourceView.swift in Sources */,
+				92A5AF19277260CD0012A0EA /* WorkingImageView.swift in Sources */,
 				929336DA27A0A106002E14A0 /* MessageDocument.swift in Sources */,
 				92A5AF1B277261D80012A0EA /* ModelOutputsView.swift in Sources */,
 				92A5AEDF276D2F0F0012A0EA /* ModelPickerView.swift in Sources */,

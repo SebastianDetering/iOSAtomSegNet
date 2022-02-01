@@ -11,6 +11,7 @@ struct SerImportView: View {
     @State private var isExporting: Bool = false   // refactor all into a model
     
     @Binding var serFileName: String
+    var cachedImage: CGImage?
     
     var body: some View {
         VStack {
@@ -52,8 +53,6 @@ struct SerImportView: View {
                 }
                 }
             }
-            //if SegNetIOManager.getWorkingImage()
-           // Image(uiImage: UIImage.init(cgImage: SegNetIOManager.getWorkingImage()))
         }
         .padding()
         .fileExporter(isPresented: $isExporting,

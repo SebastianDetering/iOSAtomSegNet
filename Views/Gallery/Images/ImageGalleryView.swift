@@ -16,8 +16,9 @@ struct ImageGalleryView: View {
                             ImageView(imageName: galleryImage.name)
                                 .padding(.bottom, 10)
                                 .onTapGesture {
-                                    processingViewModel.newSourceImage( imageType: SegNetDataTypes.Images,
-                                                                        image: UIImage.init(named: galleryImage.name)?.cgImage)
+                                    processingViewModel.newSourceImage( sourceType: SegNetDataTypes.Images,
+                                                                        image: UIImage.init(named: galleryImage.name)?.cgImage,
+                                                                        imageName: galleryImage.name)
                                     processingViewModel.inspectingImage = true
                                 }
                         }

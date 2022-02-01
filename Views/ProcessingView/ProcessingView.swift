@@ -12,7 +12,7 @@ struct ProcessingView: View {
         ZStack{
             VStack {
                 HStack{
-                    Text("Image to Process: " + (viewModel.newWorkingImageName ?? "") )
+                    Text("Image to Process: " + (viewModel.workingImageName ?? "") )
                         .font(.system(size: 10, weight: .regular, design: .serif))
                         .foregroundColor(.brandSecondary)
                     BackButton(text: "back",
@@ -21,8 +21,8 @@ struct ProcessingView: View {
                                currentView: $tabSelection)
                 }
                 
-                ImageSourceView(tabSelection: $tabSelection,
-                                sourceImage: viewModel.sourceImage,
+                WorkingImageView(tabSelection: $tabSelection,
+                                workingImage: viewModel.workingImage,
                                 imageInProcessing: $viewModel.imageInProcessing)
                 
                 ModelOutputsView(imageDidProcess: $viewModel.imageDidProcess,

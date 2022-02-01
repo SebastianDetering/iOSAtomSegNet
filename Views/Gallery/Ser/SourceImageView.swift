@@ -1,13 +1,6 @@
-//
-//  ImageSourceView.swift
-//  iOSAtomSegNet
-//
-//  Created by sebi d on 12/21/21.
-//
-
 import SwiftUI
 
-struct ImageSourceView: View {
+struct SourceImageView: View {
     @Binding var tabSelection: HomeTabs
     var sourceImage: CGImage?
     @Binding var imageInProcessing: Bool
