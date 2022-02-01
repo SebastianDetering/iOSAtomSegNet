@@ -22,7 +22,7 @@ struct ProcessingView: View {
                 }
                 
                 ImageSourceView(tabSelection: $tabSelection,
-                                sourceImage: SegNetIOManager.sourceImage,
+                                sourceImage: viewModel.sourceImage,
                                 imageInProcessing: $viewModel.imageInProcessing)
                 
                 ModelOutputsView(imageDidProcess: $viewModel.imageDidProcess,

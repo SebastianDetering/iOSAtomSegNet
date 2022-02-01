@@ -16,14 +16,18 @@ struct ImageGalleryView: View {
                             ImageView(imageName: galleryImage.name)
                                 .padding(.bottom, 10)
                                 .onTapGesture {
-                                    $processingViewModel.newSourceImage( sourceType: SegNetDataTypes.Images, imageName: galleryImage.name)
+                                    processingViewModel.newSourceImage( imageType: SegNetDataTypes.Images,
+                                                                        image: UIImage.init(named: galleryImage.name)?.cgImage)
+                                    processingViewModel.inspectingImage = true
                                 }
                         }
                     }
                 }
             }
-            .sheet(isPresented: $processingViewModel.imageInProcessing) {
-                ImageInspectView(cgImageSource: $processingViewModel.sourceImage, imageDidLoad: $processingViewModel.sourceImageLoaded, isShowingView: $processingViewModel.imageInProcessing )
+            .sheet(isPresented: $processingViewModel.inspectingImage) {
+                ImageInspectView(cgImageSource: $processingViewModel.sourceImage,
+                                 imageDidLoad: $processingViewModel.sourceImageLoaded,
+                                 isShowingView: $processingViewModel.inspectingImage )
             }
         }
     }

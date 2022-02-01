@@ -13,7 +13,8 @@ struct iOSAtomSegNetApp: App {
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
     let persistenceController = PersistenceController.shared
-
+    @StateObject var processingViewModel = ProcessingViewModel()
+    
     var body: some Scene {
         WindowGroup {
 //            ZStack{

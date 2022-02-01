@@ -5,9 +5,7 @@ struct SerGalleryView: View {
     @State private var fileSelected = Set<UUID>()
     @State private var inspecting = false
     @State private var serName: String = ""
-    
-   //@StateObject var serViewModel = SerViewModel()
-    
+        
     var body: some View {
         NavigationView {
             List(selection: $fileSelected) {
