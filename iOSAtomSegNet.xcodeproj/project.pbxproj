@@ -210,12 +210,12 @@
 		92A5AEA7276D2DBA0012A0EA = {
 			isa = PBXGroup;
 			children = (
+				9286C83D278E439300A3101E /* Persistence.swift */,
+				9286C83F278E43B200A3101E /* AppStorage.xcdatamodeld */,
 				921916C427A78B3000A3FFE9 /* Alert.swift */,
 				921916BD27A61C6A00A3FFE9 /* Ser Detail */,
 				929336DB27A0A15D002E14A0 /* ContentView.swift */,
 				929336D927A0A106002E14A0 /* MessageDocument.swift */,
-				9286C83D278E439300A3101E /* Persistence.swift */,
-				9286C83F278E43B200A3101E /* AppStorage.xcdatamodeld */,
 				92A5AEB2276D2DBA0012A0EA /* iOSAtomSegNet */,
 				92A5AED7276D2F0F0012A0EA /* Views */,
 				92A5AECE276D2EF50012A0EA /* Model */,

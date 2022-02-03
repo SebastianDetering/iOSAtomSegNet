@@ -7,8 +7,8 @@ struct ImageGalleryView: View {
     @StateObject var viewModel = GalleryViewModel()
     
     var body: some View {
-        ZStack {
-            
+        VStack {
+            ImageActionsView(isImportViewShowing: $homeVM.isShowingImportView)
             NavigationView {
                 ScrollView {
                     LazyVGrid(columns: viewModel.columns) {
@@ -24,7 +24,7 @@ struct ImageGalleryView: View {
                                 }
                         }
                     }
-                }
+                } .navigationBarHidden(true)
             }
             .sheet(isPresented: $processingViewModel.inspectingImage) {
                 ImageInspectView(homeVM: homeVM,
@@ -33,7 +33,24 @@ struct ImageGalleryView: View {
         }
     }
 }
+
+struct ImageActionsView: View {
+    @State var importedImage: UIImage? = nil
+    @Binding var isImportViewShowing: Bool
     
+    var body: some View{
+        HStack {
+            
+            Button(action: {
+                isImportViewShowing = !isImportViewShowing
+            },
+                   label: {
+                Image(systemName: "photo.on.rectangle.angled")
+            })
+        }
+    }
+}
+
 struct ImageView: View {
     let imageName: String
     

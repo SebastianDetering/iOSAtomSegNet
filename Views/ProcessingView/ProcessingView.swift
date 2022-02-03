@@ -34,7 +34,7 @@ struct ProcessingView: View {
                 
                 ModelOutputsView(imageDidProcess: $processingVM.imageDidProcess,
                                  cgImageOutput: $processingVM.cgImageOutput,
-                                 isLoadingActivations: $processingVM.isLoadingActivations)
+                                    isLoadingActivations: $processingVM.isLoadingActivations)
                 
                 Button(action:   {do {
                     try processingVM.processImage()
