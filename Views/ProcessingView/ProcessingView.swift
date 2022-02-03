@@ -11,7 +11,7 @@ struct ProcessingView: View {
         ZStack{
             VStack {
                 HStack{
-                    if processingVM != nil {
+                    if processingVM.workingImageName != nil {
                         Text("Image to Process: " + processingVM.workingImageName! )
                             .font(.system(size: 10, weight: .regular, design: .serif))
                             .foregroundColor(.brandSecondary)

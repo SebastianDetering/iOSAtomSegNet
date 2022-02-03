@@ -26,5 +26,6 @@ struct iOSAtomSegNetApp: App {
                     alertItem in
                     Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
                 }        }
+            
     }
 }

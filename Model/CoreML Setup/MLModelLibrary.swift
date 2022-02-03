@@ -36,7 +36,7 @@ func getHResModel(_ of: MLModels) -> hResMLModels {
 let applicationMLModelLibrary = MLModelLibrary()
 
 class MLModelLibrary {
-    
+    // model loading is Memory intensive so I added a helper function to get memory and to be smarter about when to deallocate the models.
     private var _library : [ MLModels : Any ] = [:]
     private var _hResLibrary : [hResMLModels : Any] = [:]
     
@@ -95,12 +95,36 @@ class segmentationNetwork: ObservableObject {
     }
     
     func getCurrentModel() -> MLModels {
+        report_memory()
         return _modelType
     }
     
     func setCurrentModel(_ model: MLModels) {
+        report_memory()
         _modelType = model
         ( self._currentModel, self._currentHResModel )  = applicationMLModelLibrary.getMLModel(model: _modelType)
+    }
+    private func report_memory() {
+        var info = mach_task_basic_info()
+        let MACH_TASK_BASIC_INFO_COUNT = MemoryLayout<mach_task_basic_info>.stride/MemoryLayout<natural_t>.stride
+        var count = mach_msg_type_number_t(MACH_TASK_BASIC_INFO_COUNT)
+
+        let kerr: kern_return_t = withUnsafeMutablePointer(to: &info) {
+            $0.withMemoryRebound(to: integer_t.self, capacity: MACH_TASK_BASIC_INFO_COUNT) {
+                task_info(mach_task_self_,
+                          task_flavor_t(MACH_TASK_BASIC_INFO),
+                          $0,
+                          &count)
+            }
+        }
+
+        if kerr == KERN_SUCCESS {
+            print("Memory in use (in bytes): \(info.resident_size)")
+        }
+        else {
+            print("Error with task_info(): " +
+                (String(cString: mach_error_string(kerr), encoding: String.Encoding.ascii) ?? "unknown error"))
+        }
     }
     
     private func _getModelOutput( _ input: MLMultiArray ) throws -> Any {

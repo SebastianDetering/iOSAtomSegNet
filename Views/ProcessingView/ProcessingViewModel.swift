@@ -22,6 +22,7 @@ final class ProcessingViewModel: ObservableObject {
     
     @Published var sourceImageDType: SegNetDataTypes?
     @Published var workingImageDType: SegNetDataTypes?
+    
     @Published var sourceImage: CGImage? // inspecting
     @Published var workingImage: CGImage? // process source
     @Published var cgImageOutput : CGImage? // outputs
@@ -32,6 +33,7 @@ final class ProcessingViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
 
     func setWorkingImage() {
+        workingImageName = sourceImageName
         workingImageDType = sourceImageDType
         workingImage = sourceImage
     }
@@ -88,7 +90,7 @@ final class ProcessingViewModel: ObservableObject {
                 }
                 else { print("Background thread task")}
                 
-                SegNetIOManager.processImage() {
+                SegNetIOManager.processImage(workingImage: self.workingImage) {
                     result in
                     DispatchQueue.main.async {
                         self.isLoadingActivations = false

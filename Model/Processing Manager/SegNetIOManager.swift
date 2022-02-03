@@ -19,18 +19,13 @@ enum SegNetDataTypes {
 
 final class SegNetIOManager {
     
-    static private var _workingBinaryData: Data!
-    @Published var sourceImage      : CGImage!
-    @Published var sourceImageName  : String!   // for viewing in the gallery
+    static private var _workingBinaryData: Data! // ser file binary
     
-    static private var _workingImageName : String!   // for seeing as the inputs to model
-    static private var _workingImage     : CGImage!
-    static private var _workingSerData   : CGImage! // 32 bit depth max supported
     static private var _currentModel     : MLModels = MLModels.gaussianMask
-    static private var _mlMatrixOutput   : Matrix!
-    static private var _cgModelOutput    : CGImage!     // outputs of model.
-    static private var _cgSegments       : CGImage!
-    static private var _SegmentsBinary   : Matrix!
+//    static private var _mlMatrixOutput   : Matrix!
+//    static private var _cgModelOutput    : CGImage!     // outputs of model.
+//    static private var _cgSegments       : CGImage!
+//    static private var _SegmentsBinary   : Matrix!
     static private var _threshold        : Float64 = 0.0
     static private var _serReader        : FileSer!
     static private var _serHeader        : SerHeader!
@@ -39,9 +34,10 @@ final class SegNetIOManager {
     static private var _sourceDType: SegNetDataTypes = .Images
     static private var _workingDType: SegNetDataTypes = .SerFile
 
-    static func InitializeSerInfo(completed: @escaping ( Result<SerHeaderDescription, Error> ) -> Void ) {
+    static func InitializeSerInfo( serFileName: String,
+        completed: @escaping ( Result<SerHeaderDescription, Error> ) -> Void ) {
         do {
-            _serReader = try FileSer.init(filename: _workingImageName, mobileBundle: false)
+            _serReader = try FileSer.init(filename: serFileName, mobileBundle: false)
             try _serReader?.readHeader()
             _serHeader = _serReader?.Head
             _headerDescription = _serReader?.getHeaderDescription()
@@ -54,8 +50,8 @@ final class SegNetIOManager {
     
     static func LoadSerImage(completed: @escaping ( Result<CGImage, Error> ) -> Void ) {
         do {
-            _workingSerData = try _serReader?.GetHighDefCGImageFromSer()
-            completed(.success( _workingSerData! ))
+            guard let serCGData = try _serReader?.GetHighDefCGImageFromSer() else { throw FileSERErrors.DataReadFail }
+            completed(.success( serCGData ))
         }
         catch { completed(.failure(error)) }
         
@@ -78,8 +74,9 @@ final class SegNetIOManager {
         return _headerDescription
     }
     
-    static func processImage(completed: @escaping (Result< CGImage, Error> ) -> Void) {
-        guard let inputImage = _workingImage else {
+    static func processImage(workingImage: CGImage?,
+                             completed: @escaping (Result< CGImage, Error> ) -> Void) {
+        guard let inputImage = workingImage else {
             completed(.failure( ModelIOErrors.MissingSourceImage ))
             return
         }
@@ -87,11 +84,11 @@ final class SegNetIOManager {
         do {
             switch _sourceDType {
             case .Images:
-                (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel)
+                let (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel)
                 completed(.success( _cgModelOutput! )) //MARK: unsafe
                 return
             case .SerFile:
-                (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel)
+                let (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel)
                 completed(.success( _cgModelOutput! )) //MARK: unsafe
                 return
             case .DM3File:

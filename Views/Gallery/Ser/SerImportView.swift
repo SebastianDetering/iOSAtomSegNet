@@ -18,7 +18,7 @@ struct SerImportView: View {
             Button( "Parse \(serFileName).ser",
                    action:      {
                     do {
-                        SegNetIOManager.InitializeSerInfo() {
+                        SegNetIOManager.InitializeSerInfo(serFileName: serFileName) {
                             result in
                                 print("Got a CGOutput from this image.")
                             
