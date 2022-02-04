@@ -8,7 +8,6 @@ struct ImageGalleryView: View {
     
     var body: some View {
         VStack {
-            ImageActionsView(isImportViewShowing: $homeVM.isShowingImportView)
             NavigationView {
                 ScrollView {
                     LazyVGrid(columns: viewModel.columns) {
@@ -30,6 +29,8 @@ struct ImageGalleryView: View {
                 ImageInspectView(homeVM: homeVM,
                                  processingVM: processingViewModel)
             }
+            ImageActionsView(isImportViewShowing: $homeVM.showingImagePicker, isPermissionsShowing: $homeVM.showingPermissionsSelector)
+                .padding(.bottom, 10)
         }
     }
 }
@@ -37,15 +38,20 @@ struct ImageGalleryView: View {
 struct ImageActionsView: View {
     @State var importedImage: UIImage? = nil
     @Binding var isImportViewShowing: Bool
+    @Binding var isPermissionsShowing: Bool
     
     var body: some View{
         HStack {
             
             Button(action: {
-                isImportViewShowing = !isImportViewShowing
+                isImportViewShowing = true
+                isPermissionsShowing = true
             },
                    label: {
+                    HStack{
+                        Text("Camera Roll")
                 Image(systemName: "photo.on.rectangle.angled")
+                    }
             })
         }
     }

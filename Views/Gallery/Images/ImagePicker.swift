@@ -1,16 +1,10 @@
-//
-//  ImagePicker.swift
-//  iOSAtomSegNet
-//
-//  Created by sebi d on 12/28/21.
-//
-
 import PhotosUI
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var image: UIImage?
+    @Binding var isShowing: Bool
     
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
         var parent: ImagePicker
@@ -20,14 +14,28 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            picker.dismiss(animated: true)
             
-            guard let provider = results.first?.itemProvider else { return }
-            
-            if provider.canLoadObject(ofClass: UIImage.self) {
-                provider.loadObject(ofClass: UIImage.self) { image, _ in
-                    self.parent.image = image as? UIImage
+            let authorization = PHPhotoLibrary.authorizationStatus()
+            switch authorization {
+            case .authorized:
+                picker.dismiss(animated: true)
+                
+                guard let provider = results.first?.itemProvider else { return }
+                
+                if provider.canLoadObject(ofClass: UIImage.self) {
+                    provider.loadObject(ofClass: UIImage.self) { image, _ in
+                        self.parent.image = image as? UIImage
+                        var newGalIm = GalleryImage(name: image?.debugDescription ?? "", uiimage: self.parent.image)
+                        exampleImages.append(newGalIm)
+                    }
                 }
+                parent.isShowing = false
+
+            case .limited:
+               print("Probably want to add more photos in this case")
+            default:
+                print("other case \(authorization.rawValue)")
+                parent.isShowing = false
             }
         }
     }

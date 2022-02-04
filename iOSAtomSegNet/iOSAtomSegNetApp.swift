@@ -9,8 +9,7 @@ import SwiftUI
 
 @main
 struct iOSAtomSegNetApp: App {
-    
-    @State private var showingImagePicker = false
+
     @State private var inputImage: UIImage?
     let persistenceController = PersistenceController.shared
     @StateObject var processingViewModel = ProcessingViewModel()
@@ -25,9 +24,14 @@ struct iOSAtomSegNetApp: App {
                     alertItem in
                     Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
                 }
-            if homeViewModel.isShowingImportView {
-                withAnimation {
-                ImagePicker(image: $importedImage)
+            if homeViewModel.hasRunPermissionSelector {
+                if homeViewModel.showingImagePicker {
+                    ImagePicker(image: $inputImage, isShowing: $homeViewModel.showingImagePicker)
+                }
+            } else {
+                if homeViewModel.showingPermissionsSelector{
+                PermissionsView(isShowing: $homeViewModel.showingPermissionsSelector,
+                                gotPermission: $homeViewModel.hasRunPermissionSelector)
                 }
             }
         }

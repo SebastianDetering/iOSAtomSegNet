@@ -18,6 +18,8 @@
 		921916CC27A795A900A3FFE9 /* SerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916CB27A795A900A3FFE9 /* SerViewModel.swift */; };
 		921916D327A8E31D00A3FFE9 /* SourceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916D227A8E31D00A3FFE9 /* SourceImageView.swift */; };
 		921916D527A9CC9000A3FFE9 /* HomeTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */; };
+		923279F527AD82190080F2EB /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923279F427AD82190080F2EB /* PermissionsView.swift */; };
+		923279F727AD82270080F2EB /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923279F627AD82270080F2EB /* PermissionsViewController.swift */; };
 		9286C83A278E106100A3101E /* FileSer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C837278E106100A3101E /* FileSer.swift */; };
 		9286C83B278E106100A3101E /* FileRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C838278E106100A3101E /* FileRead.swift */; };
 		9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C839278E106100A3101E /* PythonPortHelpers.swift */; };
@@ -98,6 +100,8 @@
 		921916CB27A795A900A3FFE9 /* SerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerViewModel.swift; sourceTree = "<group>"; };
 		921916D227A8E31D00A3FFE9 /* SourceImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceImageView.swift; sourceTree = "<group>"; };
 		921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewModel.swift; sourceTree = "<group>"; };
+		923279F427AD82190080F2EB /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
+		923279F627AD82270080F2EB /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
 		9286C837278E106100A3101E /* FileSer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSer.swift; sourceTree = "<group>"; };
 		9286C838278E106100A3101E /* FileRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRead.swift; sourceTree = "<group>"; };
 		9286C839278E106100A3101E /* PythonPortHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PythonPortHelpers.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 		921916D127A8E24900A3FFE9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				923279F627AD82270080F2EB /* PermissionsViewController.swift */,
+				923279F427AD82190080F2EB /* PermissionsView.swift */,
 				92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */,
 				92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */,
 				92A5AEDE276D2F0F0012A0EA /* GalleryView.swift */,
@@ -288,9 +294,6 @@
 			children = (
 				92A5AF3F2777D2890012A0EA /* Gallery */,
 				92A5AF3E2777D27E0012A0EA /* ProcessingView */,
-				92A5AF0C2770F7EC0012A0EA /* ExportView.swift */,
-				92A5AED9276D2F0F0012A0EA /* HomeTabView.swift */,
-				921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */,
 				92A5AEDA276D2F0F0012A0EA /* Button */,
 			);
 			path = Views;
@@ -374,6 +377,9 @@
 		92A5AF3F2777D2890012A0EA /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				92A5AF0C2770F7EC0012A0EA /* ExportView.swift */,
+				92A5AED9276D2F0F0012A0EA /* HomeTabView.swift */,
+				921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */,
 				921916D127A8E24900A3FFE9 /* Images */,
 				921916CA27A7957000A3FFE9 /* Ser */,
 				921916BF27A7877B00A3FFE9 /* SegNetTabPickerView.swift */,
@@ -482,6 +488,7 @@
 				9209D3C127A391E0008DEAFF /* SerDetailView.swift in Sources */,
 				9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */,
 				921916C727A7908600A3FFE9 /* ImageGalleryView.swift in Sources */,
+				923279F727AD82270080F2EB /* PermissionsViewController.swift in Sources */,
 				921916D527A9CC9000A3FFE9 /* HomeTabViewModel.swift in Sources */,
 				92A5AEE0276D2F0F0012A0EA /* HomeTabView.swift in Sources */,
 				92A5AF1327713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel in Sources */,
@@ -503,6 +510,7 @@
 				921916C927A790B800A3FFE9 /* SerGalleryView.swift in Sources */,
 				92A5AF19277260CD0012A0EA /* WorkingImageView.swift in Sources */,
 				929336DA27A0A106002E14A0 /* MessageDocument.swift in Sources */,
+				923279F527AD82190080F2EB /* PermissionsView.swift in Sources */,
 				92A5AF1B277261D80012A0EA /* ModelOutputsView.swift in Sources */,
 				92A5AEDF276D2F0F0012A0EA /* ModelPickerView.swift in Sources */,
 				92A5AEEC276D2F3A0012A0EA /* FitData.swift in Sources */,

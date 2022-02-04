@@ -12,6 +12,7 @@ struct GalleryImage: Hashable,  Identifiable {
     var id = UUID()
     
     var name: String
+    var uiimage: UIImage?
 }
 
 struct SerFile: Hashable, Identifiable {
