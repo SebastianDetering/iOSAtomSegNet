@@ -13,7 +13,8 @@ struct HomeTabView: View {
     
     var body: some View {
         TabView(selection: $homeViewModel.selection) {
-            GalleryView(homeVM: homeViewModel, processingViewModel: processingViewModel)
+            GalleryView(homeVM: homeViewModel,
+                        processingViewModel: processingViewModel)
                 .tabItem {
                     Image(systemName: "photo.on.rectangle.angled")
                     Text("Gallery")
@@ -21,9 +22,7 @@ struct HomeTabView: View {
                 .onDisappear(
                     perform: {
                         homeViewModel.previousSelection = HomeTabs.Gallery
-                        
                     } )
-
             ProcessingView(homeVM: homeViewModel,
                            processingVM: processingViewModel)
                 .tabItem {

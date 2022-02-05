@@ -18,7 +18,9 @@ struct GalleryView: View {
     @StateObject var homeVM: HomeTabViewModel
     @StateObject var processingViewModel: ProcessingViewModel
     @State var gallerySelection: GalleryTabs = .ImageGallery
-    
+
+    let persistenceController = PersistenceController.shared
+        
     var body: some View {
         VStack {
             VStack {
@@ -27,12 +29,15 @@ struct GalleryView: View {
                 if gallerySelection == .ImageGallery {
                     ImageGalleryView(homeVM: homeVM,
                                      processingViewModel: processingViewModel)
-                           } else if gallerySelection == .SerGallery {
-                               SerGalleryView()
-                           } else if gallerySelection == .DM3Gallery {
-                               Text("Dm3 file coming soon")
-                           }
-        }
+                        
+                        .environment(\.managedObjectContext,
+                                     persistenceController.container.viewContext)
+                } else if gallerySelection == .SerGallery {
+                    SerGalleryView()
+                } else if gallerySelection == .DM3Gallery {
+                    Text("Dm3 file coming soon")
+                }
+            }
         }
     }
 }
