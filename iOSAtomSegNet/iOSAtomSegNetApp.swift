@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct iOSAtomSegNetApp: App {
 
-    @State var inputImage: UIImage?
     @StateObject var processingViewModel = ProcessingViewModel()
     @StateObject var homeViewModel = HomeTabViewModel()
     let persistenceController = PersistenceController.shared
@@ -26,7 +25,9 @@ struct iOSAtomSegNetApp: App {
                     }
                 if homeViewModel.hasRunPermissionSelector {
                     if homeViewModel.showingImagePicker {
-                        ImagePicker(image: $inputImage, isShowing: $homeViewModel.showingImagePicker)
+                        ImagePicker(image: $homeViewModel.importImage,
+                                    isShowing: $homeViewModel.showingImagePicker,
+                                    hasImported: $homeViewModel.didLoadNewImage)
                     }
                 } else {
                     if homeViewModel.showingPermissionsSelector{

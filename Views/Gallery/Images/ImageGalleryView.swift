@@ -35,12 +35,12 @@ struct ImageGalleryView: View {
                                         }
                                     }
                                     }
-//                                .onTapGesture {
-//                                    processingViewModel.newSourceImage( sourceType: SegNetDataTypes.Images,
-//                                                                        image: UIImage.init(named: galleryImage.name)?.cgImage,
-//                                                                        imageName: galleryImage.name)
-//                                    processingViewModel.inspectingImage = true
-//                                }
+                                .onTapGesture {
+                                    processingViewModel.newSourceImage( sourceType: SegNetDataTypes.Images,
+                                                                        image: UIImage(data: galleryImage.imageData!)?.cgImage!,
+                                                                        imageName: galleryImage.name ?? " No name ")
+                                    processingViewModel.inspectingImage = true
+                                }
                         }
                     }
                 } .navigationBarHidden(true)
@@ -51,6 +51,9 @@ struct ImageGalleryView: View {
             }
             ImageActionsView(isImportViewShowing: $homeVM.showingImagePicker, isPermissionsShowing: $homeVM.showingPermissionsSelector)
                 .padding(.bottom, 10)
+        }  .onChange(of: homeVM.importImage) {
+            newImage in
+            newGalleryImage()
         }
     }
     private func saveContext() {
@@ -60,6 +63,21 @@ struct ImageGalleryView: View {
             let error = error as NSError
             fatalError("Unresolved Error: \(error)")
         }
+    }
+    private func newGalleryImage() {
+        guard let imageToAdd = homeVM.importImage as? UIImage
+        else {
+            homeVM.importImage = nil
+            homeVM.didLoadNewImage = false
+            return
+        }
+        var newDogImage = GalleryImage(context: viewContext)
+        newDogImage.imageData = imageToAdd.pngData()
+        newDogImage.date = Date()
+        newDogImage.id = UUID()
+    
+        saveContext()
+        homeVM.didLoadNewImage = false
     }
     private func deleteGalleryImage(uId: UUID?) {
         guard let uID = uId as? UUID else {

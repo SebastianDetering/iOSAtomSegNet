@@ -5,6 +5,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var image: UIImage?
     @Binding var isShowing: Bool
+    @Binding var hasImported: Bool
     
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
         var parent: ImagePicker
@@ -22,11 +23,19 @@ struct ImagePicker: UIViewControllerRepresentable {
                 
                 guard let provider = results.first?.itemProvider else { return }
                 
+                self.parent.image = nil
                 if provider.canLoadObject(ofClass: UIImage.self) {
                     provider.loadObject(ofClass: UIImage.self) { image, _ in
-                        self.parent.image = image as? UIImage
+                        guard let importedImage = image as? UIImage  else {
+                            self.parent.hasImported = false
+                            self.parent.isShowing = false
+                            return
+                        }
+                        self.parent.image = importedImage
+                        
                     }
                 }
+                
                 parent.isShowing = false
 
             case .limited:
