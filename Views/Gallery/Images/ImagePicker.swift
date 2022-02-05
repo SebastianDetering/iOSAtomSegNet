@@ -25,8 +25,6 @@ struct ImagePicker: UIViewControllerRepresentable {
                 if provider.canLoadObject(ofClass: UIImage.self) {
                     provider.loadObject(ofClass: UIImage.self) { image, _ in
                         self.parent.image = image as? UIImage
-                        var newGalIm = GalleryImage(name: image?.debugDescription ?? "", uiimage: self.parent.image)
-                        exampleImages.append(newGalIm)
                     }
                 }
                 parent.isShowing = false
