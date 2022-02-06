@@ -57,7 +57,7 @@
 		92A5AEFF276D6AAA0012A0EA /* ProcessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AEFE276D6AAA0012A0EA /* ProcessingViewModel.swift */; };
 		92A5AF01276E97A60012A0EA /* SegNetIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF00276E97A60012A0EA /* SegNetIOManager.swift */; };
 		92A5AF06276EF3D50012A0EA /* circularMask_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF03276EF3D40012A0EA /* circularMask_1024.mlmodel */; };
-		92A5AF0D2770F7EC0012A0EA /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF0C2770F7EC0012A0EA /* ExportView.swift */; };
+		92A5AF0D2770F7EC0012A0EA /* OutputsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF0C2770F7EC0012A0EA /* OutputsView.swift */; };
 		92A5AF0F27713A640012A0EA /* denoise_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF0E27713A640012A0EA /* denoise_1024.mlmodel */; };
 		92A5AF1127713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1027713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel */; };
 		92A5AF1327713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1227713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel */; };
@@ -140,7 +140,7 @@
 		92A5AEFE276D6AAA0012A0EA /* ProcessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingViewModel.swift; sourceTree = "<group>"; };
 		92A5AF00276E97A60012A0EA /* SegNetIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegNetIOManager.swift; sourceTree = "<group>"; };
 		92A5AF03276EF3D40012A0EA /* circularMask_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = circularMask_1024.mlmodel; sourceTree = "<group>"; };
-		92A5AF0C2770F7EC0012A0EA /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
+		92A5AF0C2770F7EC0012A0EA /* OutputsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputsView.swift; sourceTree = "<group>"; };
 		92A5AF0E27713A640012A0EA /* denoise_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = denoise_1024.mlmodel; path = ../../GuassianONNXtoMATLAB/denoise_1024.mlmodel; sourceTree = "<group>"; };
 		92A5AF1027713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "denoise&bgremoval_1024.mlmodel"; path = "../../GuassianONNXtoMATLAB/denoise&bgremoval_1024.mlmodel"; sourceTree = "<group>"; };
 		92A5AF1227713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "denoise&bgremoval&superres_1024.mlmodel"; path = "../../GuassianONNXtoMATLAB/denoise&bgremoval&superres_1024.mlmodel"; sourceTree = "<group>"; };
@@ -377,7 +377,7 @@
 		92A5AF3F2777D2890012A0EA /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				92A5AF0C2770F7EC0012A0EA /* ExportView.swift */,
+				92C699A927AF6A3F00B42FE4 /* Outputs View */,
 				92A5AED9276D2F0F0012A0EA /* HomeTabView.swift */,
 				921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */,
 				921916D127A8E24900A3FFE9 /* Images */,
@@ -385,6 +385,14 @@
 				921916BF27A7877B00A3FFE9 /* SegNetTabPickerView.swift */,
 			);
 			path = Gallery;
+			sourceTree = "<group>";
+		};
+		92C699A927AF6A3F00B42FE4 /* Outputs View */ = {
+			isa = PBXGroup;
+			children = (
+				92A5AF0C2770F7EC0012A0EA /* OutputsView.swift */,
+			);
+			path = "Outputs View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,7 +511,7 @@
 				92A5AEED276D2F3A0012A0EA /* MLModelLibrary.swift in Sources */,
 				92A5AEEB276D2F3A0012A0EA /* ImageConverter.swift in Sources */,
 				92A5AF1727716F480012A0EA /* PickerButton.swift in Sources */,
-				92A5AF0D2770F7EC0012A0EA /* ExportView.swift in Sources */,
+				92A5AF0D2770F7EC0012A0EA /* OutputsView.swift in Sources */,
 				92A5AEE1276D2F0F0012A0EA /* BackButton.swift in Sources */,
 				92A5AEFD276D68E00012A0EA /* LoadingView.swift in Sources */,
 				9209D3C327A39DFE008DEAFF /* SerDocument.swift in Sources */,

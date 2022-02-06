@@ -3,7 +3,9 @@ import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
     
+    @Binding var imageName: String?
     @Binding var image: UIImage?
+    
     @Binding var isShowing: Bool
     @Binding var hasImported: Bool
     
@@ -31,13 +33,14 @@ struct ImagePicker: UIViewControllerRepresentable {
                             self.parent.isShowing = false
                             return
                         }
+                        if let importName = results.first?.itemProvider.suggestedName {
+                        self.parent.imageName = importName
+                        }
                         self.parent.image = importedImage
-                        
+                        // publishing changes from background not allowed warning
                     }
                 }
-                
                 parent.isShowing = false
-
             case .limited:
                print("Probably want to add more photos in this case")
             default:

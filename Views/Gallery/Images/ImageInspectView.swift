@@ -95,9 +95,7 @@ struct ImageInspectView: View {
                         Text("crosshair")}
                     )
             Button(action: {
-                processingVM.setWorkingImage()
-                homeVM.selection = .NeuralNet
-                processingVM.inspectingImage = false
+                moveToProcessingView()
             },
                        label:
                 {
@@ -112,6 +110,12 @@ struct ImageInspectView: View {
                        currentView: .constant(HomeTabs.Gallery) )
             }
         }
+    }
+    private func moveToProcessingView() { // moving the source to processing, and some cleanup
+            processingVM.setWorkingImage()
+            processingVM.clearOuputsImage()
+            homeVM.selection = .NeuralNet
+            processingVM.inspectingImage = false
     }
 }
 

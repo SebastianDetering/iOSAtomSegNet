@@ -9,6 +9,8 @@ final class HomeTabViewModel: ObservableObject {
     @Published var showingImagePicker         = false
 
     @Published var importImage: UIImage?
+    @Published var importImageName: String?
+    
     @Published var didLoadNewImage: Bool = false
     @Published var copyingAssets: Bool = false
 }

@@ -28,7 +28,6 @@ struct GalleryView: View {
                 if gallerySelection == .ImageGallery {
                     ImageGalleryView(homeVM: homeVM,
                                      processingViewModel: processingViewModel)
-                        
                         .environment(\.managedObjectContext,
                                      persistenceController.container.viewContext)
                 } else if gallerySelection == .SerGallery {
@@ -36,8 +35,8 @@ struct GalleryView: View {
                 } else if gallerySelection == .DM3Gallery {
                     Text("Dm3 file coming soon")
                 }
-                
-            }
+            } .background(Color.brandBackground)
+
     }
 }
 

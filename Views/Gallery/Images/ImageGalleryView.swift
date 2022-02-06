@@ -38,7 +38,8 @@ struct ImageGalleryView: View {
                                 .onTapGesture {
                                     processingViewModel.newSourceImage( sourceType: SegNetDataTypes.Images,
                                                                         image: UIImage(data: galleryImage.imageData!)?.cgImage!,
-                                                                        imageName: galleryImage.name ?? " No name ")
+                                                                        imageName: galleryImage.name ?? " No name ",
+                                                                        id: galleryImage.id)
                                     processingViewModel.inspectingImage = true
                                 }
                         }
@@ -56,7 +57,9 @@ struct ImageGalleryView: View {
                 .padding(.bottom, 10)
         }  .onChange(of: homeVM.importImage) {
             newImage in
+            withAnimation {
             newGalleryImage()
+            }
         }
     }
     private func saveContext() {
@@ -78,7 +81,9 @@ struct ImageGalleryView: View {
         newGalleryImage.imageData = imageToAdd.pngData() // iphone camera roll images are jpeg, but this is working
         newGalleryImage.date = Date()
         newGalleryImage.id = UUID()
-    
+        if let newName = homeVM.importImageName {
+            newGalleryImage.name  = newName
+        }
         saveContext()
         homeVM.didLoadNewImage = false
     }
@@ -112,9 +117,9 @@ struct ImageGalleryView: View {
                 }
                 var newGalleryImage = GalleryImage(context: viewContext)
                 newGalleryImage.imageData = imageToAdd.pngData()
-                newGalleryImage.date = Date()
+                newGalleryImage.date = exampleImage.date
+                newGalleryImage.name  = exampleImage.name
                 newGalleryImage.id = exampleImage.id
-            
                 saveContext()
                 homeVM.didLoadNewImage = false
             }
@@ -154,13 +159,12 @@ struct ImageActionsView: View {
     
     var body: some View{
         HStack {
-            
             Button(action: {
                 isImportViewShowing = true
                 isPermissionsShowing = true
             },
                    label: {
-                        Label("Camera Roll", image: "photo.on.rectangle.angled")
+                    Text("Camera Roll")
                     }
                    ) .padding(.trailing, 30)
             

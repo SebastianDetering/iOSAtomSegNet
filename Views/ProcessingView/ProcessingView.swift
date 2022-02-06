@@ -6,6 +6,7 @@ struct ProcessingView: View {
     @StateObject var processingVM : ProcessingViewModel
     @State var alertItem : AlertItem?
     @State var isShowingModelPicker: Bool = false
+    var parent: HomeTabView
     
     var body: some View {
         ZStack{
@@ -34,8 +35,8 @@ struct ProcessingView: View {
                 
                 ModelOutputsView(imageDidProcess: $processingVM.imageDidProcess,
                                  cgImageOutput: $processingVM.cgImageOutput,
-                                    isLoadingActivations: $processingVM.isLoadingActivations)
-                
+                                 isLoadingActivations: $processingVM.isLoadingActivations)
+                HStack {
                 Button(action:   {do {
                     try processingVM.processImage()
                 } catch { switch error {
@@ -49,7 +50,20 @@ struct ProcessingView: View {
                     print("add a default alert")
                 }} },
                 label: { RunInferenceButtonLabel() })
-                
+                    
+                    Button(action:
+                            {
+                                parent.newOutputEntity()
+                            },
+                           label:
+                            {
+                                HStack{
+                                    Text("save output")
+                                    Image(systemName: "tray.and.arrow.down")
+                                }
+                            }
+                           )
+                }
                 HStack{
                     Text("current model")
                         .padding(.leading, 10)
@@ -68,7 +82,7 @@ struct ProcessingView: View {
         }
         .frame(minWidth: 500, idealWidth: .greatestFiniteMagnitude, maxWidth: .greatestFiniteMagnitude, minHeight: 1800, idealHeight: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .center)
         .scaledToFill()
-        .background(LinearGradient(gradient: Gradient(colors: [.brandPrimary, Color(.secondarySystemBackground)]), startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(gradient: Gradient(colors: [processingVM.topGradientColor, processingVM.bottomGradientColor]), startPoint: .top, endPoint: .bottom))
     }
     
     

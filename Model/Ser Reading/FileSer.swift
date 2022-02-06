@@ -75,8 +75,9 @@ class FileSer {
                 if let asset = NSDataAsset(name: filename! as! String) {
                     self._file_hdl = fRead(data: asset.data)
                 }
-                else { print("File \(filename) not found in main bundle or NSDataAsset not initialized")}
-            
+                else {
+                    print("File \(filename) not found in main bundle or NSDataAsset not initialized")
+                }
             } else {
                 // check filename type
                 if filename is String {
@@ -92,7 +93,7 @@ class FileSer {
             }
         }
         catch let error as NSError {
-            print(error)
+            throw error
         }
         
         // self.head = self.readHeader(verbose : true)

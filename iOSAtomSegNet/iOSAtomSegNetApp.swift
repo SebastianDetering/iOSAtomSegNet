@@ -17,9 +17,12 @@ struct iOSAtomSegNetApp: App {
                         alertItem in
                         Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
                     }
+                    .environment(\.managedObjectContext,
+                                 persistenceController.container.viewContext)
                 if homeViewModel.hasRunPermissionSelector {
                     if homeViewModel.showingImagePicker {
-                        ImagePicker(image: $homeViewModel.importImage,
+                        ImagePicker(imageName: $homeViewModel.importImageName,
+                                    image: $homeViewModel.importImage,
                                     isShowing: $homeViewModel.showingImagePicker,
                                     hasImported: $homeViewModel.didLoadNewImage)
                     }

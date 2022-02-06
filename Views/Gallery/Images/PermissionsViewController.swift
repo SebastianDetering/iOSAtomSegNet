@@ -53,10 +53,6 @@ class PermissionsViewController: UIViewController {
         }
     }
     func showRestrictedAccessUI() {
-//        modifyButton.isHidden = true
-//        seeAllButton.isHidden = true
-//
-//        photosAccessLevel.text = "Status: restricted"
     }
     // Both these fetch Assets can only run once, I dont know why, maybe because you can only set preferences once at runtime.
     func showFullAccessUI() {
@@ -73,7 +69,6 @@ class PermissionsViewController: UIViewController {
                 assertionFailure("Not able to open App privacy settings")
                 return
         }
-
         UIApplication.shared.open(url, options: [:], completionHandler: { _ in self.isShowing.wrappedValue = false })
     }
     func showAccessDeniedUI() {

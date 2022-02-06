@@ -11,6 +11,11 @@ import SwiftUI
 import UIKit
 
 final class ProcessingViewModel: ObservableObject {
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \OutputEntity.date, ascending: false)])
+    
+    private var outputEntities: FetchedResults<OutputEntity>
     
     @Published var currentModel: MLModels = SegNetIOManager.getCurrentModel()
 
@@ -23,6 +28,8 @@ final class ProcessingViewModel: ObservableObject {
     @Published var sourceImageDType: SegNetDataTypes?
     @Published var workingImageDType: SegNetDataTypes?
     
+    @Published var tempSourceID: UUID?
+    @Published var currSourceID: UUID?
     @Published var sourceImage: CGImage? // inspecting
     @Published var workingImage: CGImage? // process source
     @Published var cgImageOutput : CGImage? // outputs
@@ -32,15 +39,28 @@ final class ProcessingViewModel: ObservableObject {
     
     @Published var alertItem: AlertItem?
 
+    let topGradientColor = Color.brandBackground
+    let bottomGradientColor = Color.brandBackground2
+    
     func setWorkingImage() {
         workingImageName = sourceImageName
         workingImageDType = sourceImageDType
         workingImage = sourceImage
     }
     
-    func newSourceImage( sourceType: SegNetDataTypes, image: CGImage?, imageName: String) {
-        if image != nil {
-        sourceImageDType = sourceType
+    func clearOuputsImage() { // clear outputs if we move to the neural network with a new source image
+        if tempSourceID != currSourceID { // in case we returned to the original source image we had loaded
+            cgImageOutput = nil
+        }
+        currSourceID = tempSourceID
+    }
+    func newSourceImage( sourceType: SegNetDataTypes, image: CGImage?, imageName: String, id: UUID?) {
+        if (image != nil){
+            guard let imageID = id as? UUID else { // note im not allowing any images to show if they dont have UUID
+                return
+            }
+            tempSourceID = imageID
+            sourceImageDType = sourceType
         switch sourceType {
         case .Images:
             sourceImageName = imageName

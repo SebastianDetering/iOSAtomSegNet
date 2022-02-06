@@ -14,7 +14,7 @@ struct ModelOutputsView: View {
     
     var body: some View {
         ZStack{
-            if imageDidProcess {
+            if imageDidProcess && cgImageOutput != nil {
                 Image.init(uiImage: UIImage(cgImage: cgImageOutput!))
                     .resizable()
                     .frame(width: 230, height: 230)
