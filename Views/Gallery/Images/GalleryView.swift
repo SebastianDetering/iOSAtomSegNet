@@ -22,7 +22,6 @@ struct GalleryView: View {
     let persistenceController = PersistenceController.shared
         
     var body: some View {
-        VStack {
             VStack {
                 SegNetTabPickerView(gallerySelection: $gallerySelection)
                     .padding(.top, 50)
@@ -37,7 +36,8 @@ struct GalleryView: View {
                 } else if gallerySelection == .DM3Gallery {
                     Text("Dm3 file coming soon")
                 }
+                
             }
-        }
     }
 }
+

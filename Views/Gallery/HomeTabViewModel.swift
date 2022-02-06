@@ -10,4 +10,5 @@ final class HomeTabViewModel: ObservableObject {
 
     @Published var importImage: UIImage?
     @Published var didLoadNewImage: Bool = false
+    @Published var copyingAssets: Bool = false
 }

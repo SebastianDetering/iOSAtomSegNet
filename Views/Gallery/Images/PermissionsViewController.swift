@@ -58,7 +58,7 @@ class PermissionsViewController: UIViewController {
 //
 //        photosAccessLevel.text = "Status: restricted"
     }
-    // Both these fetch Assets can only run once, I dont know why, maybe because
+    // Both these fetch Assets can only run once, I dont know why, maybe because you can only set preferences once at runtime.
     func showFullAccessUI() {
         let pCount = PHAsset.fetchAssets(with: nil).count // count of all the users photos
         isShowing.wrappedValue = false

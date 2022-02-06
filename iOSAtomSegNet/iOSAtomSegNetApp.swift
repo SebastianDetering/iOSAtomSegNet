@@ -1,10 +1,3 @@
-//
-//  iOSAtomSegNetApp.swift
-//  iOSAtomSegNet
-//
-//  Created by sebi d on 12/17/21.
-//
-
 import SwiftUI
 
 @main
@@ -19,6 +12,7 @@ struct iOSAtomSegNetApp: App {
             ZStack{
                 HomeTabView(processingViewModel: processingViewModel,
                             homeViewModel: homeViewModel)
+                    // add another alert for importing, exporting as part of Home View Model, or refactor processingViewModel
                     .alert(item: $processingViewModel.alertItem) {
                         alertItem in
                         Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)

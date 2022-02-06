@@ -43,13 +43,16 @@ struct ImageGalleryView: View {
                                 }
                         }
                     }
-                } .navigationBarHidden(true)
+                } .navigationBarHidden(galleryImages.count > 0)
+                .navigationBarTitle("no sources")
             }
             .sheet(isPresented: $processingViewModel.inspectingImage) {
                 ImageInspectView(homeVM: homeVM,
                                  processingVM: processingViewModel)
             }
-            ImageActionsView(isImportViewShowing: $homeVM.showingImagePicker, isPermissionsShowing: $homeVM.showingPermissionsSelector)
+            ImageActionsView(isImportViewShowing: $homeVM.showingImagePicker,
+                             isPermissionsShowing: $homeVM.showingPermissionsSelector,
+                             parent: self )
                 .padding(.bottom, 10)
         }  .onChange(of: homeVM.importImage) {
             newImage in
@@ -71,10 +74,10 @@ struct ImageGalleryView: View {
             homeVM.didLoadNewImage = false
             return
         }
-        var newDogImage = GalleryImage(context: viewContext)
-        newDogImage.imageData = imageToAdd.pngData()
-        newDogImage.date = Date()
-        newDogImage.id = UUID()
+        var newGalleryImage = GalleryImage(context: viewContext)
+        newGalleryImage.imageData = imageToAdd.pngData() // iphone camera roll images are jpeg, but this is working
+        newGalleryImage.date = Date()
+        newGalleryImage.id = UUID()
     
         saveContext()
         homeVM.didLoadNewImage = false
@@ -85,12 +88,36 @@ struct ImageGalleryView: View {
         }
         withAnimation {
             for galleryImage in galleryImages {
-            if galleryImage.id == uID {
-                viewContext.delete(galleryImage)
-                
-            }
+                if galleryImage.id == uID {
+                    viewContext.delete(galleryImage)
+                }
             }
             saveContext()
+        }
+    }
+    func getExampleAssets() {
+        var galleryImageIds: [UUID]  = []
+        for galleryImage in galleryImages {
+            if let id = galleryImage.id {
+            galleryImageIds.append(id)
+            }
+        }
+        for exampleImage in exampleImages {
+            if !(galleryImageIds.contains(exampleImage.id)) {
+                guard let imageToAdd = UIImage(named: exampleImage.name) as? UIImage
+                else {
+                    homeVM.importImage = nil
+                    homeVM.didLoadNewImage = false
+                    return
+                }
+                var newGalleryImage = GalleryImage(context: viewContext)
+                newGalleryImage.imageData = imageToAdd.pngData()
+                newGalleryImage.date = Date()
+                newGalleryImage.id = exampleImage.id
+            
+                saveContext()
+                homeVM.didLoadNewImage = false
+            }
         }
     }
 }
@@ -123,6 +150,7 @@ struct ImageActionsView: View {
     @State var importedImage: UIImage? = nil
     @Binding var isImportViewShowing: Bool
     @Binding var isPermissionsShowing: Bool
+    var parent: ImageGalleryView
     
     var body: some View{
         HStack {
@@ -132,10 +160,14 @@ struct ImageActionsView: View {
                 isPermissionsShowing = true
             },
                    label: {
-                    HStack{
-                        Text("Camera Roll")
-                Image(systemName: "photo.on.rectangle.angled")
+                        Label("Camera Roll", image: "photo.on.rectangle.angled")
                     }
+                   ) .padding(.trailing, 30)
+            
+            Button(action: {
+                parent.getExampleAssets()
+            }, label: {
+                Text("example images")
             })
         }
     }
