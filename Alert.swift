@@ -17,4 +17,8 @@ struct AlertContext {
     static let noSourceImage = AlertItem(title: "no source image",
                                                   message: "Please select a source image from the gallery.",
                                                   dismissButton: .default(Text("ok")))
+    
+    static let noOutputs     = AlertItem(title: "no outputs to save",
+                                        message: "process the source image first with \"run inference\"",
+                                        dismissButton: .default(Text("ok")))
 }

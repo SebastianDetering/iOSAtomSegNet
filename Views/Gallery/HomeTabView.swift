@@ -62,25 +62,28 @@ struct HomeTabView: View {
         }
     }
     func newOutputEntity() {
-        guard let imageToAdd = processingViewModel.sourceImage else { return }
+        guard let imageToAdd = processingViewModel.sourceImage else {
+            processingViewModel.alertItem = AlertContext.noSourceImage
+            return
+        }
+        guard let outputToAdd = processingViewModel.cgImageOutput
+        else {
+            processingViewModel.alertItem = AlertContext.noOutputs
+            return
+        }
         var newEntity = OutputEntity(context: viewContext)
         newEntity.sourceImage = UIImage(cgImage: imageToAdd).pngData()
+        newEntity.outputImage = UIImage(cgImage: outputToAdd).pngData()
         newEntity.date = Date()
         newEntity.id = UUID()
         newEntity.name = processingViewModel.workingImageName
     
         saveContext()
+       
     }
-    func deleteGalleryImage(uId: UUID?) {
-        guard let uID = uId as? UUID else {
-            return
-        }
+    func deleteEntities(offsets: IndexSet) {
         withAnimation {
-            for outputEntity in outputEntities {
-                if outputEntity.id == uID {
-                    viewContext.delete(outputEntity)
-                }
-            }
+            offsets.map { outputEntities[$0] }.forEach(viewContext.delete)
             saveContext()
         }
     }
