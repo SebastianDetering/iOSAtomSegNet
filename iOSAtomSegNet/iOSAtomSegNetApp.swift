@@ -19,12 +19,18 @@ struct iOSAtomSegNetApp: App {
                     }
                     .environment(\.managedObjectContext,
                                  persistenceController.container.viewContext)
+                    .sheet(isPresented: $homeViewModel.showingImagePicker) { ImagePicker(imageName: $homeViewModel.importImageName,
+                                                image: $homeViewModel.importImage,
+                                                isShowing: $homeViewModel.showingImagePicker,
+                                                hasImported: $homeViewModel.didLoadNewImage)
+                         }
                 if homeViewModel.hasRunPermissionSelector {
+                    
                     if homeViewModel.showingImagePicker {
-                        ImagePicker(imageName: $homeViewModel.importImageName,
-                                    image: $homeViewModel.importImage,
-                                    isShowing: $homeViewModel.showingImagePicker,
-                                    hasImported: $homeViewModel.didLoadNewImage)
+//                        ImagePicker(imageName: $homeViewModel.importImageName,
+//                                    image: $homeViewModel.importImage,
+//                                    isShowing: $homeViewModel.showingImagePicker,
+//                                    hasImported: $homeViewModel.didLoadNewImage)
                     }
                 } else {
                     if homeViewModel.showingPermissionsSelector{

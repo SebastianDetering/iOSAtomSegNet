@@ -14,6 +14,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         
         init(_ parent: ImagePicker) {
             self.parent = parent
+
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
@@ -47,6 +48,7 @@ struct ImagePicker: UIViewControllerRepresentable {
                 print("other case \(authorization.rawValue)")
                 parent.isShowing = false
             }
+            parent.isShowing = false
         }
     }
     
