@@ -172,7 +172,8 @@ class segmentationNetwork: ObservableObject {
     func getActivations( _ ofArray: MLMultiArray ) throws -> MLMultiArray {
         
         var output : MLMultiArray
-        if ofArray.shape == [1, 1, 512, 512] {
+        let shape = ofArray.shape
+        if shape == [1, 1, 512, 512] {
         do {
             switch _modelType {
             case .gaussianMask:
@@ -187,7 +188,7 @@ class segmentationNetwork: ObservableObject {
                 output = try (_getModelOutput( ofArray ) as! denoise_bgremoval_superresOutput)._324
             }
         } catch let error as MLModelError { throw error }
-        } else if ofArray.shape == [1, 1, 1024, 1024] {
+        } else if shape == [1, 1, 1024, 1024] {
             do {
                 switch _modelType {
                 case .gaussianMask:
@@ -202,7 +203,10 @@ class segmentationNetwork: ObservableObject {
                     output = try (_getModelOutput( ofArray ) as! denoise_bgremoval_superres_1024Output)._324
                 }
             } catch let error as MLModelError { throw error }
-        } else { throw ModelIOErrors.PoorlyConfiguredMLMultiArrayInputShape }
+        } else {
+            print("ERROR::bad shape: \(shape)")
+            throw ModelIOErrors.PoorlyConfiguredMLMultiArrayInputShape
+        }
         
         return output
         
