@@ -71,6 +71,7 @@
 		92A5AF492779568D0012A0EA /* RunInferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF482779568D0012A0EA /* RunInferenceButton.swift */; };
 		92A5AF4E277AA65A0012A0EA /* ImageInspectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */; };
 		92A5AF50277B89BE0012A0EA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */; };
+		92B0FB2627B8674100D4478E /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0FB2527B8674100D4478E /* UIScrollView.swift */; };
 		92C6998827AF1F2600B42FE4 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92C6998627AF1F2600B42FE4 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +156,7 @@
 		92A5AF4C277A74010012A0EA /* 20.40.16 Scanning Acquire_0000_2.ser */ = {isa = PBXFileReference; lastKnownFileType = file; name = "20.40.16 Scanning Acquire_0000_2.ser"; path = "iOSAtomSegNet/Assets.xcassets/20.40.16 Scanning Acquire_0000_2.dataset/20.40.16 Scanning Acquire_0000_2.ser"; sourceTree = SOURCE_ROOT; };
 		92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInspectView.swift; sourceTree = "<group>"; };
 		92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		92B0FB2527B8674100D4478E /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		92C6998727AF1F2600B42FE4 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,6 +204,7 @@
 		921916D127A8E24900A3FFE9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				92B0FB2527B8674100D4478E /* UIScrollView.swift */,
 				923279F627AD82270080F2EB /* PermissionsViewController.swift */,
 				923279F427AD82190080F2EB /* PermissionsView.swift */,
 				92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */,
@@ -509,6 +512,7 @@
 				92A5AEFA276D2F500012A0EA /* denoise&bgremoval.mlmodel in Sources */,
 				92A5AF4E277AA65A0012A0EA /* ImageInspectView.swift in Sources */,
 				92A5AEED276D2F3A0012A0EA /* MLModelLibrary.swift in Sources */,
+				92B0FB2627B8674100D4478E /* UIScrollView.swift in Sources */,
 				92A5AEEB276D2F3A0012A0EA /* ImageConverter.swift in Sources */,
 				92A5AF1727716F480012A0EA /* PickerButton.swift in Sources */,
 				92A5AF0D2770F7EC0012A0EA /* OutputsView.swift in Sources */,

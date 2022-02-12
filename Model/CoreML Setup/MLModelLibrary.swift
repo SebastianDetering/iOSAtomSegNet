@@ -212,12 +212,13 @@ class segmentationNetwork: ObservableObject {
         var mlArrayOutput = of
         do {
             mlArrayOutput = try self.getActivations(of)
-        } catch { throw error }
+        } catch {
+            throw error
+        }
             let width = Int( truncating: withShape[2] )
             let height = Int(truncating:  withShape[3] )
             let count = width * height
             let pointer = UnsafeMutablePointer<Float32>( OpaquePointer( mlArrayOutput.dataPointer ) )
-
             
             var floatArray = [Float32].init(repeating: 0, count: count )
             var matrix     = zeros(width, height)

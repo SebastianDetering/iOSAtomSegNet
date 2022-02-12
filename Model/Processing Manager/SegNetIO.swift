@@ -22,9 +22,9 @@ func getFloat32Activations(hDefCGImage: CGImage, modelType: MLModels) throws -> 
     }
     // if dimensions not exact
     if pad == true {
-        if imageWidth < 512 || imageHeight < 512 {
+        if imageWidth < 512 && imageHeight < 512 {
             // multiArrayShape remains same
-        } else if imageWidth < 1024  || imageHeight < 1024 {
+        } else if imageWidth < 1024  && imageHeight < 1024 {
             // one of the dimensions is greater than 512, and so we must change im2pad size to 1024x1024
             multiArrayShape = [1, 1, 1024, 1024]
         } else {
@@ -67,12 +67,13 @@ func getCGActivations(image: CGImage, modelType: MLModels) throws -> (Matrix?, C
         pad = false
     } else if imageWidth == 1024 && imageHeight == 1024 {
         pad = false
+        multiArrayShape = [1, 1, 1024, 1024]
     }
     // if dimensions not exact
     if pad == true {
-        if imageWidth < 512 || imageHeight < 512 {
+        if imageWidth < 512 && imageHeight < 512 {
             // multiArrayShape remains same
-        } else if imageWidth < 1024  || imageHeight < 1024 {
+        } else if imageWidth < 1024  && imageHeight < 1024 {
             // one of the dimensions is greater than 512, and so we must change im2pad size to 1024x1024
             multiArrayShape = [1, 1, 1024, 1024]
         } else {
@@ -83,7 +84,7 @@ func getCGActivations(image: CGImage, modelType: MLModels) throws -> (Matrix?, C
         var padding = zeros( Int(truncating: multiArrayShape[2]), Int(truncating: multiArrayShape[3]) )
         let imageMat = im2RGBA(cgImage: image)[0] // red component Matrix
         padding[0...Int(imageHeight)-1, 0...Int(imageWidth)-1] = imageMat // set the portion of the zeros matrix to the image matrix
-        rChannelData = padding.flat.map { UInt8( $0 ) }
+        rChannelData = padding.flat.map { UInt8( $0 ) } // override array data with padded version
     }
     
     do {

@@ -113,7 +113,7 @@ struct ImageConverter {
         
         do {
             pixelBuffer = try MLMultiArray( shape : imgArrayShape, dataType: .float32 )
-            
+    
             //can't use map here.
             for i in 0..<float32Array.count {
                 pixelBuffer[i] = NSNumber( value : float32Array[i] )

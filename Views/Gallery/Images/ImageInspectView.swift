@@ -14,58 +14,15 @@ struct ImageInspectView: View {
     @StateObject var processingVM: ProcessingViewModel
         
     @State var crosshairShowing: Bool = false
-    
-    @State var currentScale: CGFloat = 1.0
-    @State var previousScale: CGFloat = 1.0
-    
-    @State var currentOffset = CGSize.zero
-    @State var previousOffset = CGSize.zero
-    
-    let horizBound: CGFloat = 300
-    let vertBound:   CGFloat = 300
-    let maxZoom: CGFloat = 10
-    let minZoom: CGFloat = 1
         
     var body: some View {
         VStack{
             GeometryReader { geometry in
                 ZStack{
                     if processingVM.sourceImageLoaded {
-                        Image(uiImage: UIImage(cgImage: processingVM.sourceImage! ))
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .offset(x: self.currentOffset.width, y: self.currentOffset.height)
-                            .scaleEffect(max(self.currentScale,1.0))
-                            .gesture(DragGesture()
-                                        .onChanged { value in
-                                            let deltaX = value.translation.width - self.previousOffset.width
-                                            let deltaY = value.translation.height - self.previousOffset.height
-                                            self.previousOffset.width = value.translation.width
-                                            self.previousOffset.height = value.translation.height
-                                            //bounding movement
-                                            let newOffsetWidth = self.currentOffset.width + deltaX
-                                            if newOffsetWidth <= geometry.size.width - horizBound && newOffsetWidth > horizBound - geometry.size.width {
-                                                self.currentOffset.width = self.currentOffset.width + deltaX / self.currentScale
-                                            }
-                                            let newOffsetHeight = self.currentOffset.height + deltaY
-                                            if newOffsetHeight <= geometry.size.height - vertBound  && newOffsetHeight > vertBound - geometry.size.height {
-                                                self.currentOffset.height = self.currentOffset.height + deltaY / self.currentScale
-                                            }
-                                        }
-                                        .onEnded { value in self.previousOffset = CGSize.zero })
-                            
-                            .gesture(MagnificationGesture()
-                                        .onChanged { value in
-                                            let delta = value / self.previousScale
-                                            self.previousScale = value
-                                            self.currentScale = self.currentScale * delta
-                                        }
-                                        .onEnded { _ in
-                                            self.previousScale = 1.0
-                                            if currentScale < 1.0 {
-                                                self.currentScale = 1.0
-                                            }
-                                        })
+                        ZoomableScrollView<Image> {
+                            Image(uiImage: UIImage(cgImage: processingVM.sourceImage!))
+                        }
                     }
                     else {
                         LoadingView()
@@ -85,8 +42,6 @@ struct ImageInspectView: View {
                    alignment: .center)
         }
     
-            Text( String(format: "center: %.1f, %.1f",
-                         arguments: [currentOffset.height, currentOffset.width ] ) )
             HStack {
             Button(action:
                     {crosshairShowing = !crosshairShowing},

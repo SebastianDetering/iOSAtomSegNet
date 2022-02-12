@@ -5,7 +5,7 @@ import Foundation
 // This stack overflow user suggests extending the type you want to conform to a protocol (see ––– extension String : SomeProtocol {} ) in example code.
 //https://stackoverflow.com/questions/37216240/generic-function-taking-a-type-name-in-swift
 
- // Got some help from Eric Lippert here https://stackoverflow.com/users/88656/eric-lippert
+ // Got some help from Eric Lippert https://stackoverflow.com/users/88656/eric-lippert
 
 func formatArrDataForMLModel<Element>(dataSet: [Element]) throws -> [Float32]
 where Element: BinaryInteger {

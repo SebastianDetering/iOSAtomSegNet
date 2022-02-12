@@ -22,11 +22,6 @@ struct ProcessingView: View {
                             .font(.system(size: 10, weight: .regular, design: .serif))
                             .foregroundColor(.brandSecondary)
                     }
-                        
-                    BackButton(text: "back",
-                               isShowingView: $processingVM.imageInProcessing,
-                               previousView: $homeVM.previousSelection,
-                               currentView: $homeVM.selection)
                 }
                 
                 WorkingImageView(tabSelection: $homeVM.selection,
