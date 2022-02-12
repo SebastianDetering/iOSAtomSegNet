@@ -87,28 +87,28 @@ class SerBitmap {
             case 1:
                 // second tuple element will be null in all int cases and flipped for floats.
                 let dataset : ([UInt8]?, [Float16]?, SerMeta) = try fileSer_test!.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                arrayDataforImage = try ArrayFormatter.arrayForImage(dataSet: dataset.0 )
             case 2:
                 let dataset : ([UInt16]?, [Float16]?, SerMeta) = try fileSer_test!.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                arrayDataforImage = try ArrayFormatter.arrayForImage(dataSet: dataset.0 )
             case 3:
                 let dataset : ([UInt32]?, [Float16]?, SerMeta) = try fileSer_test!.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                arrayDataforImage = try ArrayFormatter.arrayForImage(dataSet: dataset.0 )
             case 4:
                 let dataset : ([Int8]?, [Float16]?, SerMeta) = try fileSer_test!.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                arrayDataforImage = try ArrayFormatter.arrayForImage(dataSet: dataset.0 )
             case 5:
                 let dataset : ([Int16]?, [Float16]?, SerMeta) = try fileSer_test!.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                arrayDataforImage = try ArrayFormatter.arrayForImage(dataSet: dataset.0 )
             case 6:
                 let dataset : ([Int32]?, [Float16]?, SerMeta) = try fileSer_test!.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.0 )
+                arrayDataforImage = try ArrayFormatter.arrayForImage(dataSet: dataset.0 )
             case 7:
                 let dataset : ([UInt8]?, [Float32]?, SerMeta) = try fileSer_test!.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.1 )
+                arrayDataforImage = try ArrayFormatter.arrayForImage(dataSet: dataset.1 )
             case 8:
                 let dataset : ([UInt8]?, [Float64]?, SerMeta) = try fileSer_test!.getDataset(index: 0,verbose: true)
-                arrayDataforImage = try formatArrayDataforImage(dataSet: dataset.1 )
+                arrayDataforImage = try ArrayFormatter.arrayForImage(dataSet: dataset.1 )
             case 9:
                 throw FileSERErrors.ComplexNotProgrammedYet
             case 10:
@@ -181,7 +181,7 @@ class SerBitmap {
                     
                 }
 
-                var processedImage = try formatArrayDataforImage(dataSet: floatArray )
+                var processedImage = try ArrayFormatter.arrayForImage(dataSet: floatArray )
                 let uInt8DataPointer = UnsafeMutablePointer<UInt8>.allocate(capacity: count)
                 uInt8DataPointer.initialize(from: &processedImage, count: count)
                 let bitsPerComponent = 8

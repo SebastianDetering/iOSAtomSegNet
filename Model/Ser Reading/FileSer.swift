@@ -817,36 +817,36 @@ class FileSer {
                 // second tuple element will be null in all int cases and flipped for floats.
                 let dataset : ([UInt8]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
                 guard let uint8DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
-                float32Arr = try formatArrDataForMLModel(dataSet: uint8DSet)
+                float32Arr = try ArrayFormatter.arrayForMLModel(dataSet: uint8DSet)
             case 2:
                 let dataset : ([UInt16]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
                 guard let uint16DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
-                float32Arr = try formatArrDataForMLModel(dataSet: uint16DSet )
+                float32Arr = try ArrayFormatter.arrayForMLModel(dataSet: uint16DSet )
             case 3:
                 let dataset : ([UInt32]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
                 guard let uint32DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
-                float32Arr = try formatArrDataForMLModel(dataSet: uint32DSet )
+                float32Arr = try ArrayFormatter.arrayForMLModel(dataSet: uint32DSet )
             case 4:
                 let dataset : ([Int8]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
                 guard let int8DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
-                float32Arr = try formatArrDataForMLModel(dataSet: int8DSet )
+                float32Arr = try ArrayFormatter.arrayForMLModel(dataSet: int8DSet )
             case 5:
                 let dataset : ([Int16]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
                 guard let int16DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
-                float32Arr = try formatArrDataForMLModel(dataSet: int16DSet )
+                float32Arr = try ArrayFormatter.arrayForMLModel(dataSet: int16DSet )
             case 6:
                 let dataset : ([Int32]?, [Float16]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
                 guard let int32DSet = dataset.0 else { throw FileSERErrors.DataReadFail }
-                float32Arr = try formatArrDataForMLModel(dataSet: int32DSet )
+                float32Arr = try ArrayFormatter.arrayForMLModel(dataSet: int32DSet )
             case 7:
                 let dataset : ([UInt8]?, [Float32]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
                 guard let float32DSet = dataset.1 else { throw FileSERErrors.DataReadFail }
-                float32Arr = try formatArrDataForMLModel(dataSet: float32DSet )
+                float32Arr = try ArrayFormatter.arrayForMLModel(dataSet: float32DSet )
             case 8:
                 let dataset : ([UInt8]?, [Float64]?, SerMeta) = try self.getDataset(index: 0,verbose: true)
                 guard let float64Dset = dataset.1 else { throw FileSERErrors.DataReadFail }
                 print("we may loose fidelity after processing, bit depth input is twice model input (32 bit vs 64 bit).")
-                float32Arr = try formatArrDataForMLModel(dataSet: float64Dset )
+                float32Arr = try ArrayFormatter.arrayForMLModel(dataSet: float64Dset )
             case 9:
                 throw FileSERErrors.ComplexNotProgrammedYet
             case 10:

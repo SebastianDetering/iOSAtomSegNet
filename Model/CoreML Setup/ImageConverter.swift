@@ -46,7 +46,7 @@ extension CGImage {
  }
 
 
-struct ImageConverter {
+class ImageConverter {
     
     static func hDefPixelBuffer( forImage image: CGImage, imgArrayShape: [NSNumber] = [1,1,512,512] ) throws -> MLMultiArray? {
         guard let imageArray = image.hDefPixelData() else { throw FileSERErrors.CGConversionError }
@@ -100,20 +100,17 @@ struct ImageConverter {
     }
     
     static func pixelBuffer( imageArray : [UInt8], imgArrayShape : [NSNumber] = [1, 1, 512, 512] ) throws -> MLMultiArray {
-
-        let min = imageArray.min()!
-        let max = imageArray.max()!
-        
-        var float32Array = imageArray.map { Float32( $0 -  min ) / Float32( max ) }
-        
-        let pointer = UnsafeMutablePointer<Float32>.allocate(capacity : float32Array.count )
-        pointer.initialize( from : &float32Array, count : float32Array.count  )
-        
         var pixelBuffer : MLMultiArray
-        
+
         do {
+            var float32Array = try ArrayFormatter.arrayForMLModel(dataSet: imageArray)
+            
+            let pointer = UnsafeMutablePointer<Float32>.allocate(capacity : float32Array.count )
+            pointer.initialize( from : &float32Array, count : float32Array.count  )
+            
+
             pixelBuffer = try MLMultiArray( shape : imgArrayShape, dataType: .float32 )
-    
+            
             //can't use map here.
             for i in 0..<float32Array.count {
                 pixelBuffer[i] = NSNumber( value : float32Array[i] )

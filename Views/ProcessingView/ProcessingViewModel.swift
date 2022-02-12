@@ -49,7 +49,7 @@ final class ProcessingViewModel: ObservableObject {
     }
     
     func clearOuputsImage() { // clear outputs if we move to the neural network with a new source image
-        if tempSourceID != currSourceID { // in case we returned to the original source image we had loaded
+        if tempSourceID != currSourceID { // different source image, clear outputs panel
             cgImageOutput = nil
         }
         currSourceID = tempSourceID
@@ -104,6 +104,7 @@ final class ProcessingViewModel: ObservableObject {
             isLoadingActivations = true
             // This queue setup is how to make the spinner view update the way you want to.
             // The idea is to do view updates on the main thread, and image processing/model call on the background thread.
+            // used to crash rarely (related to background threading, but it doesn't as of Jan 2022
             serialQueue.async {
                 if Thread.isMainThread {
                     print("main Thread task")

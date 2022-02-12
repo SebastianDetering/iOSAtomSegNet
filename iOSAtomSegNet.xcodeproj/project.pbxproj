@@ -31,7 +31,6 @@
 		92A5AEBB276D2DBB0012A0EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A5AEBA276D2DBB0012A0EA /* Preview Assets.xcassets */; };
 		92A5AEC4276D2E890012A0EA /* LASwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A5AEC3276D2E890012A0EA /* LASwift.framework */; };
 		92A5AEC5276D2E890012A0EA /* LASwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92A5AEC3276D2E890012A0EA /* LASwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		92A5AECB276D2EBB0012A0EA /* CGImageFromArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AEC8276D2EBB0012A0EA /* CGImageFromArray.swift */; };
 		92A5AECC276D2EBB0012A0EA /* MatrixFromImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AEC9276D2EBB0012A0EA /* MatrixFromImage.swift */; };
 		92A5AECD276D2EBB0012A0EA /* SegNetIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AECA276D2EBB0012A0EA /* SegNetIO.swift */; };
 		92A5AED3276D2EF50012A0EA /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AECF276D2EF50012A0EA /* GalleryViewModel.swift */; };
@@ -115,7 +114,6 @@
 		92A5AEBA276D2DBB0012A0EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		92A5AEBC276D2DBB0012A0EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92A5AEC3276D2E890012A0EA /* LASwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LASwift.framework; path = "Carthage/Build/LASwift.xcframework/ios-arm64_armv7/LASwift.framework"; sourceTree = "<group>"; };
-		92A5AEC8276D2EBB0012A0EA /* CGImageFromArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImageFromArray.swift; sourceTree = "<group>"; };
 		92A5AEC9276D2EBB0012A0EA /* MatrixFromImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixFromImage.swift; sourceTree = "<group>"; };
 		92A5AECA276D2EBB0012A0EA /* SegNetIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegNetIO.swift; sourceTree = "<group>"; };
 		92A5AECF276D2EF50012A0EA /* GalleryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
@@ -347,7 +345,6 @@
 				9286C838278E106100A3101E /* FileRead.swift */,
 				9286C837278E106100A3101E /* FileSer.swift */,
 				9286C839278E106100A3101E /* PythonPortHelpers.swift */,
-				92A5AEC8276D2EBB0012A0EA /* CGImageFromArray.swift */,
 				92A5AF2E2773C4890012A0EA /* Ser Test Files */,
 			);
 			path = "Ser Reading";
@@ -483,7 +480,6 @@
 				9286C83B278E106100A3101E /* FileRead.swift in Sources */,
 				92A5AEF8276D2F500012A0EA /* circularMask.mlmodel in Sources */,
 				92A5AED3276D2EF50012A0EA /* GalleryViewModel.swift in Sources */,
-				92A5AECB276D2EBB0012A0EA /* CGImageFromArray.swift in Sources */,
 				921916BC27A61C6500A3FFE9 /* SerDescriptionView.swift in Sources */,
 				92A5AF1127713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel in Sources */,
 				92A5AF06276EF3D50012A0EA /* circularMask_1024.mlmodel in Sources */,

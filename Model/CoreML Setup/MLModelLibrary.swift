@@ -232,7 +232,7 @@ class segmentationNetwork: ObservableObject {
                 }
             }
         
-            var processedImage = try formatArrayDataforImage(dataSet: floatArray )
+        var processedImage = try ArrayFormatter.arrayForImage(dataSet: floatArray )
 
             let uInt8DataPointer = UnsafeMutablePointer<UInt8>.allocate(capacity: count)
             uInt8DataPointer.initialize(from: &processedImage, count: count)

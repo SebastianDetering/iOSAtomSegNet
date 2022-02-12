@@ -84,15 +84,15 @@ final class SegNetIOManager {
         do {
             switch _sourceDType {
             case .Images:
-                let (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel)
-                completed(.success( _cgModelOutput! )) //MARK: unsafe
+                guard let (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel)  as? (Matrix, CGImage) else { throw ModelIOErrors.GetActivationsError }
+                    completed(.success( _cgModelOutput )) //MARK: unsafe
                 return
             case .SerFile:
-                let (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel)
-                completed(.success( _cgModelOutput! )) //MARK: unsafe
+                guard let (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel) as? (Matrix, CGImage) else { throw ModelIOErrors.GetActivationsError }
+                completed(.success( _cgModelOutput )) //MARK: unsafe
                 return
             case .DM3File:
-                completed(.failure(ModelIOErrors.MissingSourceImage   ))
+                completed(.failure(ModelIOErrors.NotConfigured   ))
             }
             
         } catch let error { completed(.failure( error )) }

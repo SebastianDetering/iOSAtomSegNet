@@ -7,14 +7,15 @@ import Foundation
 
  // Got some help from Eric Lippert https://stackoverflow.com/users/88656/eric-lippert
 
-func formatArrDataForMLModel<Element>(dataSet: [Element]) throws -> [Float32]
+final class ArrayFormatter {
+static func arrayForMLModel<Element>(dataSet: [Element]) throws -> [Float32]
 where Element: BinaryInteger {
     do {
-    return try formatArrDataForMLModel(dataSet: dataSet.map(Float.init))
+    return try arrayForMLModel(dataSet: dataSet.map(Float.init))
     } catch { throw error }
 }
 
-func formatArrDataForMLModel<Element>(dataSet: [Element]) throws -> [Float32]
+static func arrayForMLModel<Element>(dataSet: [Element]) throws -> [Float32]
 where Element: BinaryFloatingPoint {
     guard let max = dataSet.max() else { throw ForImageFormatError.MaxNotFound }
     guard let min = dataSet.min() else { throw ForImageFormatError.MinNotFound }
@@ -43,7 +44,7 @@ where Element: BinaryFloatingPoint {
     return []
 }
 
-func formatArrayDataforImage<Element>(dataSet: [Element]?) throws -> [UInt8]
+static func arrayForImage<Element>(dataSet: [Element]?) throws -> [UInt8]
 where Element: BinaryInteger  // <=== Note different `where` clause
 {
     if dataSet == nil {
@@ -51,12 +52,12 @@ where Element: BinaryInteger  // <=== Note different `where` clause
     }
     // Since this creates a [Float] it will call the other function
     do {
-        return try formatArrayDataforImage(dataSet: dataSet!.map(Float.init))
+        return try arrayForImage(dataSet: dataSet!.map(Float.init))
     }
     catch let error as ForImageFormatError { throw error }
 }
 
-func formatArrayDataforImage<Element>(dataSet: [Element]?) throws -> [UInt8] where Element: BinaryFloatingPoint {
+static func arrayForImage<Element>(dataSet: [Element]?) throws -> [UInt8] where Element: BinaryFloatingPoint {
     if dataSet == nil {
         throw "Nil dataset entered"
     }
@@ -91,6 +92,6 @@ func formatArrayDataforImage<Element>(dataSet: [Element]?) throws -> [UInt8] whe
     // dont see how it's possible to reach this
     return []
 }
-
+}
 
 //https://stackoverflow.com/questions/67205713/parallel-array-elements-assignment-causes-crash-in-swift  if you do stuff parallel with pointers again.

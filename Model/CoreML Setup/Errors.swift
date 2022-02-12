@@ -4,6 +4,8 @@ enum ModelIOErrors : Error {
     case MissingSourceImage
     case OversizedImageError
     case PoorlyConfiguredMLMultiArrayInputShape
+    case GetActivationsError
+    case NotConfigured
 }
 
 enum FileSERErrors : Error {
