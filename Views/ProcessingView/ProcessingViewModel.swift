@@ -54,7 +54,7 @@ final class ProcessingViewModel: ObservableObject {
         }
         currSourceID = tempSourceID
     }
-    func newSourceImage( sourceType: SegNetDataTypes, image: CGImage?, imageName: String, id: UUID?) {
+    func newSourceImage( sourceType: SegNetDataTypes, image: Data?, imageName: String, id: UUID?) {
         if (image != nil){
             guard let imageID = id as? UUID else { // note im not allowing any images to show if they dont have UUID
                 return
@@ -64,14 +64,13 @@ final class ProcessingViewModel: ObservableObject {
         switch sourceType {
         case .Images:
             sourceImageName = imageName
-            sourceImage = image
+            sourceImage = UIImage(data: image!)?.cgImage
             sourceImageLoaded = true
         case .SerFile:
             sourceImageName = imageName
             sourceImageLoaded = false
             imageDidProcess = false
             let serialQueue = DispatchQueue( label: "queue.Serial" )
-            self.imageInProcessing = true
             self.workingImageName = imageName
             serialQueue.async {
             SegNetIOManager.LoadSerImage() {
@@ -92,6 +91,7 @@ final class ProcessingViewModel: ObservableObject {
             print("DM3 file not programmed yet.")
         }
         } else {
+            fatalError("source Image data was nil")
             sourceImageLoaded = false
         }
     }

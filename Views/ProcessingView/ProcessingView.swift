@@ -18,7 +18,7 @@ struct ProcessingView: View {
                             .foregroundColor(.brandSecondary)
                     }
                     else {
-                        Text("no source image")
+                        Text("please select a source image to process")
                             .font(.system(size: 10, weight: .regular, design: .serif))
                             .foregroundColor(.brandSecondary)
                     }
@@ -44,7 +44,7 @@ struct ProcessingView: View {
                 default:
                     print("add a default alert")
                 }} },
-                label: { RunInferenceButtonLabel() })
+                label: { RunInferenceButtonLabel(sourceImage: $processingVM.sourceImage) })
                     
                     Button(action:
                             {

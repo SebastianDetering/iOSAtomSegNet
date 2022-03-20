@@ -5,6 +5,7 @@ struct iOSAtomSegNetApp: App {
 
     @StateObject var processingViewModel = ProcessingViewModel()
     @StateObject var homeViewModel = HomeTabViewModel()
+    // this way of doing it doesnt show the image picker right after permissions selector finished running
     let persistenceController = PersistenceController.shared
     
     var body: some Scene {
@@ -19,25 +20,19 @@ struct iOSAtomSegNetApp: App {
                     }
                     .environment(\.managedObjectContext,
                                  persistenceController.container.viewContext)
-                    .sheet(isPresented: $homeViewModel.showingImagePicker) { ImagePicker(imageName: $homeViewModel.importImageName,
+                    .sheet(isPresented: $homeViewModel.showingImagePicker) {
+                        ImagePicker(imageName: $homeViewModel.importImageName,
                                                 image: $homeViewModel.importImage,
                                                 isShowing: $homeViewModel.showingImagePicker,
-                                                hasImported: $homeViewModel.didLoadNewImage)
+                                                hasImported: $homeViewModel.didLoadNewImage
+                                               )
                          }
-                if homeViewModel.hasRunPermissionSelector {
-                    
-                    if homeViewModel.showingImagePicker {
-//                        ImagePicker(imageName: $homeViewModel.importImageName,
-//                                    image: $homeViewModel.importImage,
-//                                    isShowing: $homeViewModel.showingImagePicker,
-//                                    hasImported: $homeViewModel.didLoadNewImage)
-                    }
-                } else {
-                    if homeViewModel.showingPermissionsSelector{
+                
+                if homeViewModel.showingPermissionsSelector {
                         PermissionsView(isShowing: $homeViewModel.showingPermissionsSelector,
                                         gotPermission: $homeViewModel.hasRunPermissionSelector)
                     }
-                }
+                
             }
         }
     }

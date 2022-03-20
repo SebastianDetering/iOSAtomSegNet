@@ -31,7 +31,7 @@ enum FileSERErrors : Error {
 enum ForImageFormatError : Error {
     case MaxNotFound
     case MinNotFound
-    case MinMaxValuesDoNotExist
+    case AllZeros
     case FormatFail
 }
 

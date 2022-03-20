@@ -71,22 +71,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2CEA5672-14D7-40BA-B604-FF6081D18CE7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Model/CoreML Setup/FitData.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "arrayForImage(dataSet:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "738BF228-CCE1-4277-811E-A68540FEBCDE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -208,8 +192,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
             endingLineNumber = "112"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "modifyPermissions()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "9C7466C6-5288-4F58-AE8C-3DBBAE27696F - 94f60b7dd167e674"
@@ -256,8 +240,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "showFullAccessUI()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -272,8 +256,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
             endingLineNumber = "100"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "modifyPermissions()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -288,8 +272,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
             endingLineNumber = "109"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "modifyPermissions()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -304,8 +288,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
             endingLineNumber = "114"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "seeAll()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -320,8 +304,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "showLimitedAccessUI()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -352,24 +336,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C4FB4CB1-4601-42AD-BD25-3D8ECD892154"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Views/Gallery/Images/PermissionsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "showUI(for:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -384,8 +352,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "showLimitedAccessUI()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -400,8 +368,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
             endingLineNumber = "88"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "showAccessDeniedUI()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -416,8 +384,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "showAccessDeniedUI()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -446,8 +414,8 @@
             filePath = "Views/Gallery/Images/ImageGalleryView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -462,8 +430,8 @@
             filePath = "Views/Gallery/Images/ImageGalleryView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "getExampleAssets()"
             landmarkType = "7">
          </BreakpointContent>
@@ -478,8 +446,8 @@
             filePath = "Views/Gallery/Images/ImagePicker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "picker(_:didFinishPicking:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -494,8 +462,8 @@
             filePath = "Views/Gallery/Images/ImagePicker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "picker(_:didFinishPicking:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -776,7 +744,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "05C7050B-D19F-4BAC-88A2-B355DD05F37B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Model/CoreML Setup/ImageConverter.swift"
@@ -808,7 +776,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0789D30F-0D12-4F0B-AC3E-B430E6855874"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Model/CoreML Setup/MLModelLibrary.swift"
@@ -824,7 +792,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4A60286B-3607-4274-8F43-85B0B4D7BE95"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Model/CoreML Setup/MLModelLibrary.swift"
@@ -840,7 +808,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F40D91A3-762D-49AB-BD1F-6EBD40D2F4EC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Model/CoreML Setup/MLModelLibrary.swift"
@@ -866,6 +834,166 @@
             endingLineNumber = "105"
             landmarkName = "getCGActivations(image:modelType:)"
             landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE35BFEF-11CF-4CDE-B313-FBEE4D235B3F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Model/CoreML Setup/FitData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "arrayForImage(dataSet:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E47E9B5-1CDB-4C38-A2B5-2A8E1FAFA307"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Model/CoreML Setup/MLModelLibrary.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "getCGImageActivations(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2509E98E-1866-466D-A5A5-D6C92B3BB7D6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Model/CoreML Setup/MLModelLibrary.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "getCGImageActivations(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC45BCB9-89A0-44C6-921A-4BAC9FD1E3C6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Model/CoreML Setup/FitData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "arrayForMLModel(dataSet:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DC45BCB9-89A0-44C6-921A-4BAC9FD1E3C6 - 8a1f096573f6a3c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static iOSAtomSegNet.ArrayFormatter.arrayForMLModel&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.BinaryInteger&gt;(dataSet: Swift.Array&lt;&#x3c4;_0_0&gt;) throws -&gt; Swift.Array&lt;Swift.Float&gt;"
+                  moduleName = "iOSAtomSegNet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sebi/Dev/iOSAtomSegNet/Model/CoreML%20Setup/FitData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "DC45BCB9-89A0-44C6-921A-4BAC9FD1E3C6 - 297c40c28f96a162"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (&#x3c4;_0_0) -&gt; Swift.Float in static iOSAtomSegNet.ArrayFormatter.arrayForMLModel&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.BinaryInteger&gt;(dataSet: Swift.Array&lt;&#x3c4;_0_0&gt;) throws -&gt; Swift.Array&lt;Swift.Float&gt;"
+                  moduleName = "iOSAtomSegNet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sebi/Dev/iOSAtomSegNet/Model/CoreML%20Setup/FitData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B01C8AA-C824-49C7-B8B2-22CE1C086EA1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Model/Processing Manager/SegNetIO.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "getCGActivations(image:modelType:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D526DB8-56D7-4EF1-A5EF-5474C1F38BCE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Model/Processing Manager/SegNetIOManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "processImage(workingImage:completed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B2FE57A8-8F95-499C-A77D-4983C6829FCE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Views/ProcessingView/ProcessingViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "setWorkingImage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "144E9A9C-5160-4855-8E9F-5E8B27ED32BC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Views/ProcessingView/ProcessingViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "newSourceImage(sourceType:image:imageName:id:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

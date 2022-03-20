@@ -207,9 +207,7 @@
 				923279F427AD82190080F2EB /* PermissionsView.swift */,
 				92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */,
 				92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */,
-				92A5AEDE276D2F0F0012A0EA /* GalleryView.swift */,
 				921916C627A7908600A3FFE9 /* ImageGalleryView.swift */,
-				92A5AECF276D2EF50012A0EA /* GalleryViewModel.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -377,6 +375,8 @@
 		92A5AF3F2777D2890012A0EA /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				92A5AEDE276D2F0F0012A0EA /* GalleryView.swift */,
+				92A5AECF276D2EF50012A0EA /* GalleryViewModel.swift */,
 				92C699A927AF6A3F00B42FE4 /* Outputs View */,
 				92A5AED9276D2F0F0012A0EA /* HomeTabView.swift */,
 				921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */,
@@ -655,6 +655,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSAtomSegNet/Preview Content\"";
 				DEVELOPMENT_TEAM = W33KH9HRV5;
@@ -669,8 +670,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sebde.iOSAtomSegNet;
+				PRODUCT_BUNDLE_IDENTIFIER = sebastian.iOSAtomSegNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -684,9 +686,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSAtomSegNet/Preview Content\"";
-				DEVELOPMENT_TEAM = BG774WWHGB;
+				DEVELOPMENT_TEAM = W33KH9HRV5;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -698,8 +701,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sebde.iOSAtomSegNet;
+				PRODUCT_BUNDLE_IDENTIFIER = sebastian.iOSAtomSegNet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

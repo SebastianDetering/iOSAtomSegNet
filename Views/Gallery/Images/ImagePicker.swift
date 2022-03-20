@@ -14,11 +14,9 @@ struct ImagePicker: UIViewControllerRepresentable {
         
         init(_ parent: ImagePicker) {
             self.parent = parent
-
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            
             let authorization = PHPhotoLibrary.authorizationStatus()
             switch authorization {
             case .authorized:

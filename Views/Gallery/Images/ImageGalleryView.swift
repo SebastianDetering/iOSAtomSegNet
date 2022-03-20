@@ -37,7 +37,7 @@ struct ImageGalleryView: View {
                                     }
                                 .onTapGesture {
                                     processingViewModel.newSourceImage( sourceType: SegNetDataTypes.Images,
-                                                                        image: UIImage(data: galleryImage.imageData!)?.cgImage!,
+                                                                        image:  galleryImage.imageData,
                                                                         imageName: galleryImage.name ?? " No name ",
                                                                         id: galleryImage.id)
                                     processingViewModel.inspectingImage = true
@@ -52,6 +52,7 @@ struct ImageGalleryView: View {
                                  processingVM: processingViewModel)
             }
             ImageActionsView(isImportViewShowing: $homeVM.showingImagePicker,
+                             hasPermission: $homeVM.hasRunPermissionSelector,
                              isPermissionsShowing: $homeVM.showingPermissionsSelector,
                              parent: self )
                 .padding(.bottom, 10)
@@ -61,6 +62,11 @@ struct ImageGalleryView: View {
             newGalleryImage()
             }
         }
+        .onAppear(perform: {
+            if !(homeVM.loadedPackagedAssets) {
+                self.getExampleAssets() // attempted refactor, we'll see how this goes
+            }
+        })
     }
     private func saveContext() {
         do {
@@ -70,7 +76,7 @@ struct ImageGalleryView: View {
             fatalError("Unresolved Error: \(error)")
         }
     }
-    private func newGalleryImage() {
+    private func newGalleryImage() { // refactor to test if this will be a valid 
         guard let imageToAdd = homeVM.importImage as? UIImage
         else {
             homeVM.importImage = nil
@@ -101,13 +107,14 @@ struct ImageGalleryView: View {
         }
     }
     func getExampleAssets() {
+        homeVM.loadedPackagedAssets = true
         var galleryImageIds: [UUID]  = []
         for galleryImage in galleryImages {
             if let id = galleryImage.id {
             galleryImageIds.append(id)
             }
         }
-        for exampleImage in exampleImages {
+        for exampleImage in exampleImages { // refactor for first time running using user defaults.
             if !(galleryImageIds.contains(exampleImage.id)) {
                 guard let imageToAdd = UIImage(named: exampleImage.name) as? UIImage
                 else {
@@ -121,7 +128,7 @@ struct ImageGalleryView: View {
                 newGalleryImage.name  = exampleImage.name
                 newGalleryImage.id = exampleImage.id
                 saveContext()
-                homeVM.didLoadNewImage = false
+                homeVM.didLoadNewImage = true
             }
         }
     }
@@ -154,14 +161,18 @@ struct ImageIconView: View {
 struct ImageActionsView: View {
     @State var importedImage: UIImage? = nil
     @Binding var isImportViewShowing: Bool
+    @Binding var hasPermission: Bool
     @Binding var isPermissionsShowing: Bool
     var parent: ImageGalleryView
     
     var body: some View{
         HStack {
             Button(action: {
+                if hasPermission {
                 isImportViewShowing = true
+                } else {
                 isPermissionsShowing = true
+                }
             },
                    label: {
                     Text("Camera Roll")
@@ -169,7 +180,8 @@ struct ImageActionsView: View {
                    ) .padding(.trailing, 30)
             
             Button(action: {
-                parent.getExampleAssets()
+                
+                parent.getExampleAssets() // put in special settings (user can retrieve assets if deleted accidentally.)
             }, label: {
                 Text("example images")
             })

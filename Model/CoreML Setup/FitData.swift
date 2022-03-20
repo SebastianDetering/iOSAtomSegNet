@@ -48,7 +48,7 @@ static func arrayForImage<Element>(dataSet: [Element]?) throws -> [UInt8]
 where Element: BinaryInteger  // <=== Note different `where` clause
 {
     if dataSet == nil {
-        throw "Nil dataset entered"
+        throw ForImageFormatError.FormatFail
     }
     // Since this creates a [Float] it will call the other function
     do {
@@ -69,6 +69,9 @@ static func arrayForImage<Element>(dataSet: [Element]?) throws -> [UInt8] where 
     // assertions at least.
     // so in order to solve this  I need to assert that |min| < |max|, or use a different formula if |min| > |max|
     if abs( min ) <= max {
+        if min == max {
+            throw ForImageFormatError.AllZeros
+        }
         if min >= 0  {
             let balancer = max - min
         return dataSet!.map { UInt8(255 * ($0 - min) / balancer ) }
@@ -88,7 +91,9 @@ static func arrayForImage<Element>(dataSet: [Element]?) throws -> [UInt8] where 
             return dataSet!.map { UInt8(255 * ( $0 - min ) / balancer ) }
         }
     }
-    else { throw ForImageFormatError.FormatFail }
+    else {
+        return dataSet!.map { UInt8($0) }
+        throw ForImageFormatError.AllZeros }
     // dont see how it's possible to reach this
     return []
 }
