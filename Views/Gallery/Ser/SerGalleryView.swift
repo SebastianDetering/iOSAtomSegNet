@@ -22,14 +22,28 @@ struct SerGalleryView: View {
               
                 ForEach(serEntities) {
                     serEntity in
-                    Text(serEntity.name ?? "Ser File Name Missing")
+                    HStack {
+                        if serEntity.imageData != nil {
+                            Image(uiImage: UIImage(data: serEntity.imageData!) ?? UIImage())
+                                .resizable()
+                                .frame(width: 50, height: 50, alignment: .leading)
+                        } else {
+                            Image(systemName: "gyroscope")
+                                .resizable()
+                                .frame(width: 50, height: 50, alignment: .leading)
+                        }
+                        Text(serEntity.name ?? "Ser File Name Missing")
+                    }
                         .onTapGesture {
                             serObject = serEntity
                             inspecting = true
                         }
                 }
             } .sheet(isPresented: $inspecting) {
-                SerInspectView(processingVM: processingVM, entityInspecting: $serObject, serFileName: $serName)
+                SerInspectView(parent: self,
+                               processingVM: processingVM,
+                               entityInspecting: $serObject,
+                               serFileName: $serName)
             }.onAppear(perform: {
                 if !(homeVM.loadedPackagedSer) {
                     self.getExampleAssets() // attempted refactor, we'll see how this goes
@@ -68,7 +82,7 @@ struct SerGalleryView: View {
         }
         homeVM.loadedPackagedSer = true
     }
-    private func saveContext() {
+    func saveContext() {
         do {
             try viewContext.save()
         } catch {

@@ -2,46 +2,75 @@ import SwiftUI
 
 struct SerInspectView: View {
     
+    var parent: SerGalleryView
     @StateObject var processingVM: ProcessingViewModel
     
     @Binding var entityInspecting: SerEntity?
     @State private var _serHeader: SerHeader = SerHeader()
     @State private var _serHeaderDescription: SerHeaderDescription = SerHeaderDescription()
-    
+    @State private var _errorDescription: String?
+
     @Binding var serFileName: String
+    
     
     var body: some View {
         VStack {
-            Button( "Parse \(serFileName).ser",
-                   action:      {
-                    do {
-                        if entityInspecting != nil {
-                        SegNetIOManager.InitializeSer(serObject: entityInspecting!) {
-                            result in
-                                print("Ser File initialized successfully")
-                        }
-                        _serHeader = SegNetIOManager.getHeader()
-                        _serHeaderDescription = SegNetIOManager.getHeaderDescription()
-                            SegNetIOManager.LoadSerImage() {
-                                result in
-//                                processingVM.newSourceImage(sourceType: .SerFile,
-//                                                            image: result.pixelData(),
-//                                                            imageName: <#T##String#>,
-//                                                            id: <#T##UUID?#>)
-                            }
-                        }
-                    }
-                    catch { print("\(error)")} }
-                   )
-                   
             GroupBox {
                 VStack {
+                    if entityInspecting?.imageData == nil {
+                        if processingVM.loadingSourceImage {
+                            LoadingView()
+                        } else {
+                            Image(systemName: "square.slash")
+                                .resizable()
+                                .frame(width: 100, height: 100, alignment: .top)
+                        }
+                    } else {
+                        ZoomableScrollView {
+                            Image(uiImage: UIImage(data: entityInspecting!.imageData!) ?? UIImage())
+                                // will be "contradictory" (ideal will exceed max for the oversized images), but that is why the max constraint is there.
+                                .resizable()
+                                .scaledToFit()
+                                .frame(minWidth: 100,
+                                       idealWidth:  (CGFloat(processingVM.sourceImage?.width ?? 200) / 1.5),
+                                       maxWidth: 500,
+                                       minHeight: 100,
+                                       idealHeight:  (CGFloat(processingVM.sourceImage?.height ?? 200) / 1.5) ,
+                                       maxHeight: 500,
+                                       alignment: .center)
+                        }
+                    }
+                    if _errorDescription != nil {
+                    Text(_errorDescription!)
+                            .foregroundColor(.red)
+                    }
                     SerDescriptionView(headerDescription: $_serHeaderDescription)
-                    SerDetailView(serHeader: $_serHeader)
+                    //SerDetailView(serHeader: $_serHeader) not useful for humans
                
                 }
             }
+        } .onAppear {
+                _errorDescription = nil
+            do {
+                if entityInspecting != nil {
+                SegNetIOManager.InitializeSer(serObject: entityInspecting!) {
+                    result in
+                        print("Ser File initialized successfully")
+                }
+                _serHeader = SegNetIOManager.getHeader()
+                _serHeaderDescription = SegNetIOManager.getHeaderDescription()
+                    if entityInspecting?.imageData == nil { // write to ser Entity's image data the cgImage data
+                        processingVM.newSourceImage(sourceType: .SerFile,
+                                                    image: nil,
+                                                    imageName: entityInspecting?.name ?? "name nil!",
+                                                    id: entityInspecting?.id,
+                                                    serEntity: $entityInspecting)
+                        parent.saveContext()
+                    }
+                } else {
+                    _errorDescription = "Ser file was nil"
+                }
         }
     }
-    
+    }
 }

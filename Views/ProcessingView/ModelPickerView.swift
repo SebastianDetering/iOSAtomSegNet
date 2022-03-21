@@ -12,7 +12,6 @@ struct ModelPickerView: View {
     @Binding var currentModel: MLModels
     
         var body: some View {
-            
             Picker(selection: $currentModel, label:  ModelPickerLabelView(currentModel: $currentModel)  ){
                     ForEach(MLModels.allCases, id: \.self) {
                         Text( $0.rawValue ).tag( $0 )
@@ -28,8 +27,3 @@ struct ModelPickerLabelView: View {
     }
 }
 
-struct PickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        ModelPickerView(currentModel: .constant(MLModels.gaussianMask))
-    }
-}

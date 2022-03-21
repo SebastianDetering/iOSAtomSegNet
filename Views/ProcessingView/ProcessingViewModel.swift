@@ -20,6 +20,7 @@ final class ProcessingViewModel: ObservableObject {
     @Published var currentModel: MLModels = SegNetIOManager.getCurrentModel()
 
     @Published var inspectingImage   = false
+    @Published var loadingSourceImage = false
     @Published var sourceImageLoaded = false
     @Published var imageInProcessing = false
     @Published var isLoadingActivations = false
@@ -54,8 +55,8 @@ final class ProcessingViewModel: ObservableObject {
         }
         currSourceID = tempSourceID
     }
-    func newSourceImage( sourceType: SegNetDataTypes, image: Data?, imageName: String, id: UUID?) {
-        if (image != nil){
+    func newSourceImage( sourceType: SegNetDataTypes, image: Data?, imageName: String, id: UUID?, serEntity: Binding<SerEntity?> = .constant(nil)) {
+        loadingSourceImage = true
             guard let imageID = id as? UUID else { // note im not allowing any images to show if they dont have UUID (helps for core data management of assets)
                 return
             }
@@ -63,9 +64,14 @@ final class ProcessingViewModel: ObservableObject {
             sourceImageDType = sourceType
         switch sourceType {
         case .Images:
+            if (image != nil){
             sourceImageName = imageName
             sourceImage = UIImage(data: image!)?.cgImage
             sourceImageLoaded = true
+            } else {
+                print("source Image data was nil")
+                sourceImageLoaded = false
+            }
         case .SerFile:
             sourceImageName = imageName
             sourceImageLoaded = false
@@ -73,26 +79,25 @@ final class ProcessingViewModel: ObservableObject {
             let serialQueue = DispatchQueue( label: "queue.Serial" )
             self.workingImageName = imageName
             serialQueue.async {
-            SegNetIOManager.LoadSerImage() {
-                result in
-                DispatchQueue.main.async {
-                switch result {
-                case .success(let cgOut):
-                    self.sourceImage = cgOut
-                    self.sourceImageLoaded = true
-                case .failure(let error):
-                    print(error.localizedDescription)
-               }
+                SegNetIOManager.LoadSerImage() {
+                    result in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success(let cgOut):
+                            print("successfully read Ser image data")
+                            serEntity.wrappedValue?.imageData = UIImage(cgImage: cgOut).pngData()
+                            self.sourceImage = cgOut
+                            self.sourceImageLoaded = true
+                            self.loadingSourceImage = false
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                            self.loadingSourceImage = false
+                        }
+                    }
                 }
             }
-            }
-            print("ser source")
         case .DM3File:
             print("DM3 file not programmed yet.")
-        }
-        } else {
-            fatalError("source Image data was nil")
-            sourceImageLoaded = false
         }
     }
     
@@ -106,11 +111,6 @@ final class ProcessingViewModel: ObservableObject {
             // The idea is to do view updates on the main thread, and image processing/model call on the background thread.
             // used to crash rarely (related to background threading, but it doesn't as of Jan 2022
             serialQueue.async {
-                if Thread.isMainThread {
-                    print("main Thread task")
-                }
-                else { print("Background thread task")}
-                
                 SegNetIOManager.processImage(workingImage: self.workingImage) {
                     result in
                     DispatchQueue.main.async {
