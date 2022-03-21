@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/LASwift-Swift.h</key>
 		<data>
-		DV/JpIE1V+/1OeN1XjrczvKjOAs=
+		NC7Mqc0bJe6CyR2NMajejDivd+g=
 		</data>
 		<key>Headers/LASwift-watchOS-umbrella.h</key>
 		<data>
@@ -14,79 +14,43 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PwPbAg70QaUB8VbktJ0waQJ1nek=
+		RIbURj43VFm25jsAw8OopJRNXIM=
 		</data>
 		<key>Modules/LASwift.swiftmodule/Project/arm64-apple-watchos-simulator.swiftsourceinfo</key>
 		<data>
-		2Naac4el3y2eCCeXbEB4GROKXCI=
-		</data>
-		<key>Modules/LASwift.swiftmodule/Project/arm64.swiftsourceinfo</key>
-		<data>
-		2Naac4el3y2eCCeXbEB4GROKXCI=
+		vQ5lyweOwmdAy07oPjBKOqAKvVU=
 		</data>
 		<key>Modules/LASwift.swiftmodule/Project/i386-apple-watchos-simulator.swiftsourceinfo</key>
 		<data>
-		2hXkNrxTwzsoaKYaPRSIWaUo55g=
-		</data>
-		<key>Modules/LASwift.swiftmodule/Project/i386.swiftsourceinfo</key>
-		<data>
-		2hXkNrxTwzsoaKYaPRSIWaUo55g=
+		0vpKdEbFr+VnbyTbv/fEqzmhP8c=
 		</data>
 		<key>Modules/LASwift.swiftmodule/Project/x86_64-apple-watchos-simulator.swiftsourceinfo</key>
 		<data>
-		QA1YLWsoo+HWYTn0toi9KA1UiwQ=
-		</data>
-		<key>Modules/LASwift.swiftmodule/Project/x86_64.swiftsourceinfo</key>
-		<data>
-		QA1YLWsoo+HWYTn0toi9KA1UiwQ=
+		hTZuSinm/ljvstCefaSxD/+frd4=
 		</data>
 		<key>Modules/LASwift.swiftmodule/arm64-apple-watchos-simulator.swiftdoc</key>
 		<data>
-		pqwoqwk9fUHQ9cWD3dgr22rypUw=
+		PbQPVuYoOr58QN0Q0vzY8T2kiz4=
 		</data>
 		<key>Modules/LASwift.swiftmodule/arm64-apple-watchos-simulator.swiftmodule</key>
 		<data>
-		FmwGvAh8YbONqoogOptGwRH6nhc=
-		</data>
-		<key>Modules/LASwift.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		pqwoqwk9fUHQ9cWD3dgr22rypUw=
-		</data>
-		<key>Modules/LASwift.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		FmwGvAh8YbONqoogOptGwRH6nhc=
+		4L+YUe7xJf+IaPWEm09ppmFzMI0=
 		</data>
 		<key>Modules/LASwift.swiftmodule/i386-apple-watchos-simulator.swiftdoc</key>
 		<data>
-		IlDnx/Gj1xCOnu1i+decc/J3C+k=
+		pXDq7IDXdi+erbXYhXXWQA3OMC8=
 		</data>
 		<key>Modules/LASwift.swiftmodule/i386-apple-watchos-simulator.swiftmodule</key>
 		<data>
-		C+T25e/7CmwTX40eggbeEfJzIqU=
-		</data>
-		<key>Modules/LASwift.swiftmodule/i386.swiftdoc</key>
-		<data>
-		IlDnx/Gj1xCOnu1i+decc/J3C+k=
-		</data>
-		<key>Modules/LASwift.swiftmodule/i386.swiftmodule</key>
-		<data>
-		C+T25e/7CmwTX40eggbeEfJzIqU=
+		lMgEaRM1Cvdy1C//vWPMsVb97DY=
 		</data>
 		<key>Modules/LASwift.swiftmodule/x86_64-apple-watchos-simulator.swiftdoc</key>
 		<data>
-		waC5Z0Q6dvnwoPy6S2Ux/T9RiMU=
+		pZDaTT8iA6jEsEi4isVUxFfzsE4=
 		</data>
 		<key>Modules/LASwift.swiftmodule/x86_64-apple-watchos-simulator.swiftmodule</key>
 		<data>
-		XYG9efAVPzFUWQ+eR/9CtWxHRI0=
-		</data>
-		<key>Modules/LASwift.swiftmodule/x86_64.swiftdoc</key>
-		<data>
-		waC5Z0Q6dvnwoPy6S2Ux/T9RiMU=
-		</data>
-		<key>Modules/LASwift.swiftmodule/x86_64.swiftmodule</key>
-		<data>
-		XYG9efAVPzFUWQ+eR/9CtWxHRI0=
+		QeG5rjJpaHC0ryWLu+J5uNMPzTY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -99,11 +63,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DV/JpIE1V+/1OeN1XjrczvKjOAs=
+			NC7Mqc0bJe6CyR2NMajejDivd+g=
 			</data>
 			<key>hash2</key>
 			<data>
-			uQ/DQ+kr34v/AhVCCQhuu26iLUypMvfI/EwNbHatqEI=
+			9i4/ChBe6jHo5mA5fzhyobVlQ1+gEQYt3eprQ6uRTpY=
 			</data>
 		</dict>
 		<key>Headers/LASwift-watchOS-umbrella.h</key>
@@ -121,198 +85,99 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2Naac4el3y2eCCeXbEB4GROKXCI=
+			vQ5lyweOwmdAy07oPjBKOqAKvVU=
 			</data>
 			<key>hash2</key>
 			<data>
-			vd7l3h6Wxshe44ryl+Z1DHAHwN6aW6az9kvgD6nN2EI=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/Project/arm64.swiftsourceinfo</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2Naac4el3y2eCCeXbEB4GROKXCI=
-			</data>
-			<key>hash2</key>
-			<data>
-			vd7l3h6Wxshe44ryl+Z1DHAHwN6aW6az9kvgD6nN2EI=
+			PqO0u2m8FRDlIZXKvL99o1rpB+HyigObuBPYIypJfz0=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/Project/i386-apple-watchos-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2hXkNrxTwzsoaKYaPRSIWaUo55g=
+			0vpKdEbFr+VnbyTbv/fEqzmhP8c=
 			</data>
 			<key>hash2</key>
 			<data>
-			uDme2dpC2ovVblSpyMiKWMqbqaclXFGGAe6nh+UIKmY=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/Project/i386.swiftsourceinfo</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2hXkNrxTwzsoaKYaPRSIWaUo55g=
-			</data>
-			<key>hash2</key>
-			<data>
-			uDme2dpC2ovVblSpyMiKWMqbqaclXFGGAe6nh+UIKmY=
+			2XddytkkKmQ1YqEFa/75WswVcJG+U/1QImD+WTpBjjs=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/Project/x86_64-apple-watchos-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QA1YLWsoo+HWYTn0toi9KA1UiwQ=
+			hTZuSinm/ljvstCefaSxD/+frd4=
 			</data>
 			<key>hash2</key>
 			<data>
-			XGNnpkk2r6+8LiNVaPdm9vNgJxMxGS2Qq4id0GpKLbs=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/Project/x86_64.swiftsourceinfo</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QA1YLWsoo+HWYTn0toi9KA1UiwQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			XGNnpkk2r6+8LiNVaPdm9vNgJxMxGS2Qq4id0GpKLbs=
+			lsP7MBzs5gylHEKtRwUoSpWRM7J23UabT68+B34dE0Q=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/arm64-apple-watchos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pqwoqwk9fUHQ9cWD3dgr22rypUw=
+			PbQPVuYoOr58QN0Q0vzY8T2kiz4=
 			</data>
 			<key>hash2</key>
 			<data>
-			kgkCUmr/tcWZ5flh20hMo3TotoCBOKD8HETdHmNcdDw=
+			mw445k3/OVCKHG+CCRWzi0dDega/eNJ73uBoql8bnVM=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/arm64-apple-watchos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FmwGvAh8YbONqoogOptGwRH6nhc=
+			4L+YUe7xJf+IaPWEm09ppmFzMI0=
 			</data>
 			<key>hash2</key>
 			<data>
-			G5WUhErys6kLLlCp44wp2DrrBT92DUEvL7AG/lvL0Lo=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			pqwoqwk9fUHQ9cWD3dgr22rypUw=
-			</data>
-			<key>hash2</key>
-			<data>
-			kgkCUmr/tcWZ5flh20hMo3TotoCBOKD8HETdHmNcdDw=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FmwGvAh8YbONqoogOptGwRH6nhc=
-			</data>
-			<key>hash2</key>
-			<data>
-			G5WUhErys6kLLlCp44wp2DrrBT92DUEvL7AG/lvL0Lo=
+			5NR3+xyrO57zG+A7Eq4HujGq/Sm+MB8FXJR/fK4K46s=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/i386-apple-watchos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IlDnx/Gj1xCOnu1i+decc/J3C+k=
+			pXDq7IDXdi+erbXYhXXWQA3OMC8=
 			</data>
 			<key>hash2</key>
 			<data>
-			NhQ4Lfeh1fBnHR/ov+0iCME+XoHlEWKcktckhUrCsL4=
+			OohahEKEJ92coUs0fHVCDAVLy19MAR7eWODI7QqC0xA=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/i386-apple-watchos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			C+T25e/7CmwTX40eggbeEfJzIqU=
+			lMgEaRM1Cvdy1C//vWPMsVb97DY=
 			</data>
 			<key>hash2</key>
 			<data>
-			wvtDbtUosZXbi112iQmVrH3KWSjgyhav2PpunBt8tug=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/i386.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			IlDnx/Gj1xCOnu1i+decc/J3C+k=
-			</data>
-			<key>hash2</key>
-			<data>
-			NhQ4Lfeh1fBnHR/ov+0iCME+XoHlEWKcktckhUrCsL4=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/i386.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			C+T25e/7CmwTX40eggbeEfJzIqU=
-			</data>
-			<key>hash2</key>
-			<data>
-			wvtDbtUosZXbi112iQmVrH3KWSjgyhav2PpunBt8tug=
+			ffZfb+thv1sEJQ/tCD9jNdVHz+EEmFxhIiwl0VzlCjA=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/x86_64-apple-watchos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			waC5Z0Q6dvnwoPy6S2Ux/T9RiMU=
+			pZDaTT8iA6jEsEi4isVUxFfzsE4=
 			</data>
 			<key>hash2</key>
 			<data>
-			gUpeTTobwJpNHENUbCjVRb8WdxoDYXiblcFWT2jKk6A=
+			05MZUAleDLRQ9V3MQ/6U0Xka+RUXV7VKNeIa9q5cIB4=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/x86_64-apple-watchos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XYG9efAVPzFUWQ+eR/9CtWxHRI0=
+			QeG5rjJpaHC0ryWLu+J5uNMPzTY=
 			</data>
 			<key>hash2</key>
 			<data>
-			zjVplsN+VTpgtWQFDT4Olebr2BPyrvw/PFjITjj+PWQ=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/x86_64.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			waC5Z0Q6dvnwoPy6S2Ux/T9RiMU=
-			</data>
-			<key>hash2</key>
-			<data>
-			gUpeTTobwJpNHENUbCjVRb8WdxoDYXiblcFWT2jKk6A=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/x86_64.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			XYG9efAVPzFUWQ+eR/9CtWxHRI0=
-			</data>
-			<key>hash2</key>
-			<data>
-			zjVplsN+VTpgtWQFDT4Olebr2BPyrvw/PFjITjj+PWQ=
+			BhcZPrVG4xiyNr30BEejzlIGKOogmcuzyNxBcpCfJ7k=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

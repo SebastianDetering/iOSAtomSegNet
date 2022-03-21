@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/LASwift-Swift.h</key>
 		<data>
-		cxAKDxTre6KRpSGzitlkGLUXB5o=
+		eHEJXn1/6hCYQCQIolVDmauxniA=
 		</data>
 		<key>Headers/LASwift-tvOS-umbrella.h</key>
 		<data>
@@ -14,55 +14,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		l1g0/Vgl1akZNcUsuh2FyPUiYSM=
+		j/OMdJdb3eOM8ywpan9O7I5Ae+g=
 		</data>
 		<key>Modules/LASwift.swiftmodule/Project/arm64-apple-tvos-simulator.swiftsourceinfo</key>
 		<data>
-		5rBriVyvgRtagbuX1ASro8MQFkA=
-		</data>
-		<key>Modules/LASwift.swiftmodule/Project/arm64.swiftsourceinfo</key>
-		<data>
-		5rBriVyvgRtagbuX1ASro8MQFkA=
+		qngSG8sxGJ/p6mKNVXenAAds43U=
 		</data>
 		<key>Modules/LASwift.swiftmodule/Project/x86_64-apple-tvos-simulator.swiftsourceinfo</key>
 		<data>
-		zW0uUq9WzsKFiP+70LFgGTFfdmg=
-		</data>
-		<key>Modules/LASwift.swiftmodule/Project/x86_64.swiftsourceinfo</key>
-		<data>
-		zW0uUq9WzsKFiP+70LFgGTFfdmg=
+		t3HAxRO7ocRRaT1BqZMitK1CSUQ=
 		</data>
 		<key>Modules/LASwift.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		ClQSwOBfp3sZG9/it2L/OjNAfsc=
+		Xs7EwCWM0nS24usrAhPrF8RbbsQ=
 		</data>
 		<key>Modules/LASwift.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		2vz+Dug0pUFOY48wCOcSoEhczoo=
-		</data>
-		<key>Modules/LASwift.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		ClQSwOBfp3sZG9/it2L/OjNAfsc=
-		</data>
-		<key>Modules/LASwift.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		2vz+Dug0pUFOY48wCOcSoEhczoo=
+		Jq58/3rdA0jmxIuS91LS/s5L6LI=
 		</data>
 		<key>Modules/LASwift.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		d2qnUJ/hQCqvf7mtkC+AT0DVv/U=
+		gjWyvimSa5WQaefjEKYzG79xkic=
 		</data>
 		<key>Modules/LASwift.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		WYSZBEmo8EEF1iVyF9uG8LMkJXI=
-		</data>
-		<key>Modules/LASwift.swiftmodule/x86_64.swiftdoc</key>
-		<data>
-		d2qnUJ/hQCqvf7mtkC+AT0DVv/U=
-		</data>
-		<key>Modules/LASwift.swiftmodule/x86_64.swiftmodule</key>
-		<data>
-		WYSZBEmo8EEF1iVyF9uG8LMkJXI=
+		DkMukYf+kvDTKBnHD82xudNw6/c=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -75,11 +51,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cxAKDxTre6KRpSGzitlkGLUXB5o=
+			eHEJXn1/6hCYQCQIolVDmauxniA=
 			</data>
 			<key>hash2</key>
 			<data>
-			GPoUW9EWUY44HiBtIPVZo17VRYNFWRXk73gJuti4cLU=
+			TJkc1zRjTQjcpurlfCQ14A7lPScQ7RceCTniUaU8Aeo=
 			</data>
 		</dict>
 		<key>Headers/LASwift-tvOS-umbrella.h</key>
@@ -97,132 +73,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5rBriVyvgRtagbuX1ASro8MQFkA=
+			qngSG8sxGJ/p6mKNVXenAAds43U=
 			</data>
 			<key>hash2</key>
 			<data>
-			zaEtrh9F3SwRTNn4Jar0kbFPW+kjL+7nlkMZhDnV2Ng=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/Project/arm64.swiftsourceinfo</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			5rBriVyvgRtagbuX1ASro8MQFkA=
-			</data>
-			<key>hash2</key>
-			<data>
-			zaEtrh9F3SwRTNn4Jar0kbFPW+kjL+7nlkMZhDnV2Ng=
+			63h4etFFk8y0FLxJ318N6+Axkz4YHPV2AmFpaV97450=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/Project/x86_64-apple-tvos-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zW0uUq9WzsKFiP+70LFgGTFfdmg=
+			t3HAxRO7ocRRaT1BqZMitK1CSUQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			4yoFTGoT39WPd+eyjUkPVoV9qXeOmy3p6qCJFlsthO4=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/Project/x86_64.swiftsourceinfo</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zW0uUq9WzsKFiP+70LFgGTFfdmg=
-			</data>
-			<key>hash2</key>
-			<data>
-			4yoFTGoT39WPd+eyjUkPVoV9qXeOmy3p6qCJFlsthO4=
+			L+JpmRkg63hgPgvWGsZZ/3SwNQuhAkP0KaQGHLRffO4=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ClQSwOBfp3sZG9/it2L/OjNAfsc=
+			Xs7EwCWM0nS24usrAhPrF8RbbsQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			DXx613djWtTQkMN6AbNaeeZ07FyV/TiVCsUU25PeZR8=
+			h3IHv+dUPHGi+Uwo6RzJeHQBSza0itc0/FHV4j6PcvY=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2vz+Dug0pUFOY48wCOcSoEhczoo=
+			Jq58/3rdA0jmxIuS91LS/s5L6LI=
 			</data>
 			<key>hash2</key>
 			<data>
-			n+JQlAkHNP19bKnTdWXjbxOrY7qaPSPgfCVyWvLVM7U=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ClQSwOBfp3sZG9/it2L/OjNAfsc=
-			</data>
-			<key>hash2</key>
-			<data>
-			DXx613djWtTQkMN6AbNaeeZ07FyV/TiVCsUU25PeZR8=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2vz+Dug0pUFOY48wCOcSoEhczoo=
-			</data>
-			<key>hash2</key>
-			<data>
-			n+JQlAkHNP19bKnTdWXjbxOrY7qaPSPgfCVyWvLVM7U=
+			29E09pTHzZkK+2cbTM9gryT2ANrQdgV/ujfkE2PTk5o=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			d2qnUJ/hQCqvf7mtkC+AT0DVv/U=
+			gjWyvimSa5WQaefjEKYzG79xkic=
 			</data>
 			<key>hash2</key>
 			<data>
-			vZf7OUPu3Yl8HMd/Va/cQSPRFAgt1fvNzl3xUaVVGKY=
+			B9dqjRe8MByNO8OYsDrHRLABR4wvARBDAl2y3Fgw428=
 			</data>
 		</dict>
 		<key>Modules/LASwift.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WYSZBEmo8EEF1iVyF9uG8LMkJXI=
+			DkMukYf+kvDTKBnHD82xudNw6/c=
 			</data>
 			<key>hash2</key>
 			<data>
-			OPd7LqnM6SPvTwrunsN6oUQQEh2jiKohdRZN3L38JHk=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/x86_64.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			d2qnUJ/hQCqvf7mtkC+AT0DVv/U=
-			</data>
-			<key>hash2</key>
-			<data>
-			vZf7OUPu3Yl8HMd/Va/cQSPRFAgt1fvNzl3xUaVVGKY=
-			</data>
-		</dict>
-		<key>Modules/LASwift.swiftmodule/x86_64.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WYSZBEmo8EEF1iVyF9uG8LMkJXI=
-			</data>
-			<key>hash2</key>
-			<data>
-			OPd7LqnM6SPvTwrunsN6oUQQEh2jiKohdRZN3L38JHk=
+			MBqktkiDAyjRQgWDp5kBvtHF+mw5Ztzy0wSrAz3dNs4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

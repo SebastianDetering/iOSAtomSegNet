@@ -63,7 +63,7 @@ struct ImageGalleryView: View {
             }
         }
         .onAppear(perform: {
-            if !(homeVM.loadedPackagedAssets) {
+            if !(homeVM.loadedPackagedImages) {
                 self.getExampleAssets() // attempted refactor, we'll see how this goes
             }
         })
@@ -107,7 +107,6 @@ struct ImageGalleryView: View {
         }
     }
     func getExampleAssets() {
-        homeVM.loadedPackagedAssets = true
         var galleryImageIds: [UUID]  = []
         for galleryImage in galleryImages {
             if let id = galleryImage.id {
@@ -131,6 +130,7 @@ struct ImageGalleryView: View {
                 homeVM.didLoadNewImage = true
             }
         }
+        homeVM.loadedPackagedImages = true
     }
 }
 

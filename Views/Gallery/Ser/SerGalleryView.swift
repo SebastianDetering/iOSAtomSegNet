@@ -6,7 +6,7 @@ struct SerGalleryView: View {
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SerEntity.date, ascending: false)])
 
-    private var galleryImages: FetchedResults<SerEntity>
+    private var serEntities: FetchedResults<SerEntity>
 
     @StateObject var homeVM: HomeTabViewModel
     @State private var fileSelected = Set<UUID>()
@@ -16,27 +16,39 @@ struct SerGalleryView: View {
     var body: some View {
         NavigationView {
             List(selection: $fileSelected) {
-                ForEach(exampleSerFiles)  { fileName in
-                    Text(fileName.name)
-                    .onTapGesture {
-                        serName = fileName.name
-                        inspecting = true
-            //            serViewModel.newSerSource(sourceName: $0.name)
-                    }  }
+              
+                ForEach(serEntities) {
+                    serEntity in
+                    Text(serEntity.name ?? "Ser File Name Missing")
+                        .onTapGesture {
+                            inspecting = true
+                        }
+                }
             } .sheet(isPresented: $inspecting) {
                 SerImportView(serFileName: $serName)
-            }
-        } 
+            }.onAppear(perform: {
+                if !(homeVM.loadedPackagedSer) {
+                    self.getExampleAssets() // attempted refactor, we'll see how this goes
+                }
+            })
+            
+        }
+        SerActionsView( parent: self)
     }
     
     func getExampleAssets() {
-        homeVM.loadedPackagedAssets = true
-        var serFileIds: [UUID]  = []
-        for serFile in exampleSerFiles {
-            serFileIds.append(serFile.id)
+        print("\(serEntities.count) ser Entities")
+        var loadedIds: [UUID]  = []
+        for entity in serEntities {
+            if let id = entity.id {
+            loadedIds.append(id)
+            } else {
+                print("WARNING serEntity id missing")
+            }
         }
+        print(loadedIds)
         for exampleSer in exampleSerFiles { // refactor for first time running using user defaults.
-            if !(serFileIds.contains(exampleSer.id)) {
+            if !(loadedIds.contains(exampleSer.id)) {
                 guard let serDataToAdd = NSDataAsset(name: exampleSer.name)
                 else {
                     fatalError("Error loading bundled ser file from asset catalogue:: \(exampleSer.name)")
@@ -50,6 +62,7 @@ struct SerGalleryView: View {
                 saveContext()
             }
         }
+        homeVM.loadedPackagedSer = true
     }
     private func saveContext() {
         do {
@@ -61,6 +74,22 @@ struct SerGalleryView: View {
     }
 }
 
+struct SerActionsView: View {
+
+    var parent: SerGalleryView
+    
+    var body: some View{
+        HStack {
+            
+            Button(action: {
+                
+                parent.getExampleAssets() // put in special settings (user can retrieve assets if deleted accidentally.)
+            }, label: {
+                Text("example ser files")
+            })
+        }
+    }
+}
 
 struct FileView: View {
     let serName: String

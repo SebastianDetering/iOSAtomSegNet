@@ -5,7 +5,8 @@ final class HomeTabViewModel: ObservableObject {
 
     @AppStorage("imageAuthorizationAnswered") var hasRunPermissionSelector = false
     
-    @AppStorage("loadedExampleImages") var loadedPackagedAssets = false
+    @AppStorage("loadedExampleImages") var loadedPackagedImages = false
+    @AppStorage("loadedExampleSer")    var loadedPackagedSer    = false
     
     @Published var previousSelection: HomeTabs = .Gallery
     

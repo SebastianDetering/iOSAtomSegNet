@@ -1,8 +1,8 @@
 {
   "Mac" : [
     {
-      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
-      "hash" : "b015aa97df9f92ed303971899660e53494547bc526b07fa477a4536a064b8aef",
+      "swiftToolchainVersion" : "5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)",
+      "hash" : "a47647bf9be8cb9f091e2edebb16a6d5a93eaa1bfb690f8b53a10b71284396f8",
       "name" : "LASwift",
       "container" : "LASwift.xcframework",
       "identifier" : "macos-arm64_x86_64"
@@ -10,48 +10,48 @@
   ],
   "watchOS" : [
     {
-      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
-      "hash" : "1c68fa0798b3d894baef313fe7ed21605df278ea5a5bb4f9b36fc00c347f0648",
-      "name" : "LASwift",
-      "container" : "LASwift.xcframework",
-      "identifier" : "watchos-arm64_32_armv7k"
-    },
-    {
-      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
-      "hash" : "54b35d70d8ac13bfdca738598833b8470a14ecfeb15b84b3d50d255f755b0076",
+      "swiftToolchainVersion" : "5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)",
+      "hash" : "c39643ce1a3017cc4b6c54e0100eae73edf232553c54831a5332c4e379f70cf4",
       "name" : "LASwift",
       "container" : "LASwift.xcframework",
       "identifier" : "watchos-arm64_i386_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)",
+      "hash" : "8ca474b7574c2f1025782dfada64e6d93a47ce949d00a20157a1e27c323b6149",
+      "name" : "LASwift",
+      "container" : "LASwift.xcframework",
+      "identifier" : "watchos-arm64_32_armv7k"
     }
   ],
   "tvOS" : [
     {
-      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
-      "hash" : "0b293dcc7c14a3998bddacf17251b825ff0c96035d4cd6aba1ed98dc38bf60f1",
-      "name" : "LASwift",
-      "container" : "LASwift.xcframework",
-      "identifier" : "tvos-arm64"
-    },
-    {
-      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
-      "hash" : "64a891d4b67aa84af5123a9111074a12c4bd0e9c9e1a28d3818078c0c546b23d",
+      "swiftToolchainVersion" : "5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)",
+      "hash" : "e4bee1f805c99a92457f595f20a490f19078c57ec9b2f3fd45642cfb72b99c01",
       "name" : "LASwift",
       "container" : "LASwift.xcframework",
       "identifier" : "tvos-arm64_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)",
+      "hash" : "abbb8a7956c7552bc75daf9f75fad449ddffb86c8335c9dd9f7cc1d0d5b30c8c",
+      "name" : "LASwift",
+      "container" : "LASwift.xcframework",
+      "identifier" : "tvos-arm64"
     }
   ],
   "commitish" : "0.2.5",
   "iOS" : [
     {
-      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
-      "hash" : "89af5425ee2e82e02fe41a7c6d469da10b3ff8b1d116450755cd879883419fb4",
+      "swiftToolchainVersion" : "5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)",
+      "hash" : "8e77b8c292cc952734aeb3ce811c18dd0c24b1747cd18476dc837183446a8eae",
       "name" : "LASwift",
       "container" : "LASwift.xcframework",
       "identifier" : "ios-arm64_i386_x86_64-simulator"
     },
     {
-      "swiftToolchainVersion" : "5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)",
-      "hash" : "ddcadb2fb3b534aed809a05bc08a053abb17e14beb61ce4533bbd94f9951d481",
+      "swiftToolchainVersion" : "5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)",
+      "hash" : "7678762c030f8a387bfeacf49c5cff743e65044e0caf1baf2f296ad1bad18098",
       "name" : "LASwift",
       "container" : "LASwift.xcframework",
       "identifier" : "ios-arm64_armv7"
