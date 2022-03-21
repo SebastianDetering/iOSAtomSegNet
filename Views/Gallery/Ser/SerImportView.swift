@@ -21,7 +21,7 @@ struct SerImportView: View {
                         SegNetIOManager.InitializeSerInfo(serFileName: serFileName) {
                             result in
                                 print("Got a CGOutput from this image.")
-                            
+                            print(UUID())
                         }
                         fileDocument = SerDocument(rawData:  SegNetIOManager.getBinary())
                         _serHeader = SegNetIOManager.getHeader()

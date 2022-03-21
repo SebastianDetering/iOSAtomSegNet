@@ -56,7 +56,7 @@ final class ProcessingViewModel: ObservableObject {
     }
     func newSourceImage( sourceType: SegNetDataTypes, image: Data?, imageName: String, id: UUID?) {
         if (image != nil){
-            guard let imageID = id as? UUID else { // note im not allowing any images to show if they dont have UUID
+            guard let imageID = id as? UUID else { // note im not allowing any images to show if they dont have UUID (helps for core data management of assets)
                 return
             }
             tempSourceID = imageID

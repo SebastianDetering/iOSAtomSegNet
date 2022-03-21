@@ -2,9 +2,10 @@ import SwiftUI
 
 
 struct SerFile: Hashable, Identifiable {
-    var id = UUID()
+    var id: UUID
     
     var name: String
+    var date: Date
 }
 
 struct ExampleImage: Hashable, Identifiable {
@@ -15,9 +16,17 @@ struct ExampleImage: Hashable, Identifiable {
     var uiimage: UIImage?
 }
 
-var exampleSerFiles: [SerFile] = [SerFile(name: "20.40.16 Scanning Acquire_0000_1"),
-                                  SerFile(name: "20.40.16 Scanning Acquire_0000_2" )]
-                                                                                                               
+var exampleSerFiles: [SerFile] = [SerFile(id: UUID(uuidString: "276E29B6-AF73-4992-B4FB-65A8CA6E3659")!,
+                                          name: "20.40.16 Scanning Acquire_0000_1",
+                                          date: Date(timeIntervalSince1970: 1644111302.434362)),
+                                  SerFile(id: UUID(uuidString: "CEAE6C3B-25AA-4196-B3DE-E526D6F83CFE")!,
+                                          name: "20.40.16 Scanning Acquire_0000_2",
+                                          date: Date(timeIntervalSince1970: 1644111302.434362)),
+                                  SerFile(id: UUID(uuidString: "C8ACB5C8-D2E5-4A80-B787-2032DFCD6452")!,
+                                          name: "20.40.16 Scanning Acquire_0000",
+                                          date: Date(timeIntervalSince1970: 1644111302.434362))
+]
+
                                      
 var exampleImages: [ExampleImage] = [ExampleImage(id: UUID(uuidString: "777F5628-A6FA-4DCF-B3D8-0F03863DBDD7")!,
                                                   name: "tem2",
