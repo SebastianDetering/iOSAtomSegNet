@@ -22,9 +22,11 @@ struct ImageGalleryView: View {
                                 .contextMenu {
                                     HStack {
                                         Button {
-                                            print("cancel delete \(galleryImage.id)")
+                                            moveToProcessingView(image: galleryImage.imageData,
+                                                                 imageName: galleryImage.name ?? "missing name",
+                                                                 id: galleryImage.id)
                                         } label: {
-                                            Label("cancel", systemImage: "trash.slash")
+                                            Label("process", systemImage: "gearshape")
                                         }
 
                                         Button {
@@ -131,6 +133,16 @@ struct ImageGalleryView: View {
             }
         }
         homeVM.loadedPackagedImages = true
+    }
+    private func moveToProcessingView(image: Data?, imageName: String, id: UUID?) { // moving the source to processing, and some cleanup
+        processingViewModel.newSourceImage(sourceType: .Images,
+                                           image: image,
+                                           imageName: imageName,
+                                           id: id)
+            processingViewModel.setWorkingImage()
+            processingViewModel.clearOuputsImage()
+            homeVM.selection = .NeuralNet
+            processingViewModel.inspectingImage = false
     }
 }
 

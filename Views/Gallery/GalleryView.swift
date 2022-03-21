@@ -31,7 +31,8 @@ struct GalleryView: View {
                         .environment(\.managedObjectContext,
                                      persistenceController.container.viewContext)
                 } else if gallerySelection == .SerGallery {
-                    SerGalleryView(homeVM: homeVM)
+                    SerGalleryView(homeVM: homeVM,
+                                   processingVM: processingViewModel)
                 } else if gallerySelection == .DM3Gallery {
                     Text("Dm3 file coming soon")
                 }

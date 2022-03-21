@@ -55,7 +55,7 @@ class FileSer {
     
     var MetaArray : [SerMeta] = []
     
-    init(filename : Any?, verbose : Bool = false, mobileBundle : Bool = true ) throws {
+    init(fileName : Any?, verbose : Bool = false, mobileBundle : Bool = true ) {
 
         // necessary declarations, if something fails
         self._file_hdl = nil
@@ -67,39 +67,27 @@ class FileSer {
         self.metaArray = nil
        
         // try opening the file
-        do
-        {
-            // for mobile, use Assets catalogue
-            if mobileBundle {
-                
-                if let asset = NSDataAsset(name: filename! as! String) {
+        do {
+            if mobileBundle {  // if we want to grab from asset catalogue.
+                if let asset = NSDataAsset(name: fileName! as! String) {
                     self._file_hdl = fRead(data: asset.data)
                 }
                 else {
-                    print("File \(filename) not found in main bundle or NSDataAsset not initialized")
+                    fatalError("Ser file not found in main bundle or NSDataAsset not initialized:: \(filename)")
                 }
             } else {
-                // check filename type
-                if filename is String {
-                    guard let url = Bundle.main.url(forResource: (filename as! String), withExtension: ".ser" ) else { throw FileSERErrors.FileMissing }
-                    self._file_hdl = fRead( data : try Data(contentsOf: url ))
-                }
-                else if filename is URL {
-                    self._file_hdl = fRead( data : try Data(contentsOf : self.filename as! URL) )
-                }
-                else {
-                    throw FileSERErrors.FilenameinputTypeUnidentified
-                }
+                // we initialize the data in a different way (see convenience init below.)
             }
         }
-        catch let error as NSError {
-            throw error
-        }
-        
         // self.head = self.readHeader(verbose : true)
-        
         // self.read_emi()
     }
+    
+    convenience init(serObject: SerEntity) {
+        self.init(fileName: serObject.name, mobileBundle: false)
+        _file_hdl = fRead(data: serObject.serBinary)
+    }
+    
     func getData() -> Data {
         return _file_hdl!.data!
     }

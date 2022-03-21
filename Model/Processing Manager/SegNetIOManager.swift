@@ -34,15 +34,15 @@ final class SegNetIOManager {
     static private var _sourceDType: SegNetDataTypes = .Images
     static private var _workingDType: SegNetDataTypes = .SerFile
 
-    static func InitializeSerInfo( serFileName: String,
-        completed: @escaping ( Result<SerHeaderDescription, Error> ) -> Void ) {
+    static func InitializeSer( serObject: SerEntity,
+        completed: @escaping ( Result<(SerHeader, SerHeaderDescription), Error> ) -> Void ) {
         do {
-            _serReader = try FileSer.init(filename: serFileName, mobileBundle: false)
+            _serReader = try FileSer.init(serObject: serObject)
             try _serReader?.readHeader()
             _serHeader = _serReader?.Head
             _headerDescription = _serReader?.getHeaderDescription()
             _sourceDType = .SerFile
-            completed(.success( _headerDescription! ))
+            completed(.success( (_serHeader, _headerDescription) ))
         }
         catch { completed(.failure(error)) }
         

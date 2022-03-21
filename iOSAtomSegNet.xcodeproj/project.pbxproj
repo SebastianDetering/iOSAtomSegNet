@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9209D3BD27A391A8008DEAFF /* SerImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209D3BC27A391A8008DEAFF /* SerImportView.swift */; };
 		9209D3C127A391E0008DEAFF /* SerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209D3C027A391E0008DEAFF /* SerDetailView.swift */; };
 		9209D3C327A39DFE008DEAFF /* SerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209D3C227A39DFE008DEAFF /* SerDocument.swift */; };
 		921916BC27A61C6500A3FFE9 /* SerDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916BB27A61C6500A3FFE9 /* SerDescriptionView.swift */; };
@@ -18,6 +17,8 @@
 		921916CC27A795A900A3FFE9 /* SerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916CB27A795A900A3FFE9 /* SerViewModel.swift */; };
 		921916D327A8E31D00A3FFE9 /* SourceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916D227A8E31D00A3FFE9 /* SourceImageView.swift */; };
 		921916D527A9CC9000A3FFE9 /* HomeTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */; };
+		9220387027E9256F0020919A /* SerInspectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220386F27E9256F0020919A /* SerInspectView.swift */; };
+		9220387227E925A00020919A /* SerImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220387127E925A00020919A /* SerImportView.swift */; };
 		923279F527AD82190080F2EB /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923279F427AD82190080F2EB /* PermissionsView.swift */; };
 		923279F727AD82270080F2EB /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923279F627AD82270080F2EB /* PermissionsViewController.swift */; };
 		9286C83A278E106100A3101E /* FileSer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C837278E106100A3101E /* FileSer.swift */; };
@@ -89,7 +90,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9209D3BC27A391A8008DEAFF /* SerImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerImportView.swift; sourceTree = "<group>"; };
 		9209D3C027A391E0008DEAFF /* SerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerDetailView.swift; sourceTree = "<group>"; };
 		9209D3C227A39DFE008DEAFF /* SerDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerDocument.swift; sourceTree = "<group>"; };
 		921916BB27A61C6500A3FFE9 /* SerDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerDescriptionView.swift; sourceTree = "<group>"; };
@@ -100,6 +100,8 @@
 		921916CB27A795A900A3FFE9 /* SerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerViewModel.swift; sourceTree = "<group>"; };
 		921916D227A8E31D00A3FFE9 /* SourceImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceImageView.swift; sourceTree = "<group>"; };
 		921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewModel.swift; sourceTree = "<group>"; };
+		9220386F27E9256F0020919A /* SerInspectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerInspectView.swift; sourceTree = "<group>"; };
+		9220387127E925A00020919A /* SerImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerImportView.swift; sourceTree = "<group>"; };
 		923279F427AD82190080F2EB /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
 		923279F627AD82270080F2EB /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
 		9286C837278E106100A3101E /* FileSer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSer.swift; sourceTree = "<group>"; };
@@ -192,9 +194,10 @@
 				921916BE27A61C8200A3FFE9 /* Ser Detail Views */,
 				921916C827A790B800A3FFE9 /* SerGalleryView.swift */,
 				9209D3C227A39DFE008DEAFF /* SerDocument.swift */,
-				9209D3BC27A391A8008DEAFF /* SerImportView.swift */,
 				921916CB27A795A900A3FFE9 /* SerViewModel.swift */,
 				921916D227A8E31D00A3FFE9 /* SourceImageView.swift */,
+				9220386F27E9256F0020919A /* SerInspectView.swift */,
+				9220387127E925A00020919A /* SerImportView.swift */,
 			);
 			path = Ser;
 			sourceTree = "<group>";
@@ -484,7 +487,6 @@
 				92A5AF1127713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel in Sources */,
 				92A5AF06276EF3D50012A0EA /* circularMask_1024.mlmodel in Sources */,
 				92A5AECC276D2EBB0012A0EA /* MatrixFromImage.swift in Sources */,
-				9209D3BD27A391A8008DEAFF /* SerImportView.swift in Sources */,
 				921916CC27A795A900A3FFE9 /* SerViewModel.swift in Sources */,
 				921916C027A7877B00A3FFE9 /* SegNetTabPickerView.swift in Sources */,
 				92A5AED4276D2EF50012A0EA /* ExampleSources.swift in Sources */,
@@ -499,9 +501,11 @@
 				921916D527A9CC9000A3FFE9 /* HomeTabViewModel.swift in Sources */,
 				92A5AEE0276D2F0F0012A0EA /* HomeTabView.swift in Sources */,
 				92A5AF1327713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel in Sources */,
+				9220387227E925A00020919A /* SerImportView.swift in Sources */,
 				92A5AF50277B89BE0012A0EA /* ImagePicker.swift in Sources */,
 				9286C83A278E106100A3101E /* FileSer.swift in Sources */,
 				92A5AEF7276D2F500012A0EA /* gaussianMask.mlmodel in Sources */,
+				9220387027E9256F0020919A /* SerInspectView.swift in Sources */,
 				92C6998827AF1F2600B42FE4 /* DataModel.xcdatamodeld in Sources */,
 				92A5AF492779568D0012A0EA /* RunInferenceButton.swift in Sources */,
 				92A5AEE3276D2F0F0012A0EA /* GalleryView.swift in Sources */,

@@ -9,10 +9,13 @@ struct SerGalleryView: View {
     private var serEntities: FetchedResults<SerEntity>
 
     @StateObject var homeVM: HomeTabViewModel
+    @StateObject var processingVM: ProcessingViewModel
+    
     @State private var fileSelected = Set<UUID>()
     @State private var inspecting = false
     @State private var serName: String = ""
-        
+    @State private var serObject: SerEntity?
+    
     var body: some View {
         NavigationView {
             List(selection: $fileSelected) {
@@ -21,11 +24,12 @@ struct SerGalleryView: View {
                     serEntity in
                     Text(serEntity.name ?? "Ser File Name Missing")
                         .onTapGesture {
+                            serObject = serEntity
                             inspecting = true
                         }
                 }
             } .sheet(isPresented: $inspecting) {
-                SerImportView(serFileName: $serName)
+                SerInspectView(processingVM: processingVM, entityInspecting: $serObject, serFileName: $serName)
             }.onAppear(perform: {
                 if !(homeVM.loadedPackagedSer) {
                     self.getExampleAssets() // attempted refactor, we'll see how this goes
