@@ -85,7 +85,7 @@ class PermissionsViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in self.isShowing.wrappedValue = false } )
         actionSheet.addAction(cancelAction)
         
-        present(actionSheet, animated: true, completion: nil )
+        present(actionSheet, animated: true, completion: { self.isShowing.wrappedValue = false } )
     }
     func modifyPermissions() {
         let actionSheet = UIAlertController(title: "",

@@ -11,42 +11,25 @@ struct SerInspectView: View {
     @State private var _errorDescription: String?
 
     @Binding var serFileName: String
-    
-    
+        
     var body: some View {
         VStack {
             GroupBox {
                 VStack {
-                    if entityInspecting?.imageData == nil {
-                        if processingVM.loadingSourceImage {
-                            LoadingView()
-                        } else {
-                            Image(systemName: "square.slash")
-                                .resizable()
-                                .frame(width: 100, height: 100, alignment: .top)
-                        }
-                    } else {
-                        ZoomableScrollView {
-                            Image(uiImage: UIImage(data: entityInspecting!.imageData!) ?? UIImage())
-                                // will be "contradictory" (ideal will exceed max for the oversized images), but that is why the max constraint is there.
-                                .resizable()
-                                .scaledToFit()
-                                .frame(minWidth: 100,
-                                       idealWidth:  (CGFloat(processingVM.sourceImage?.width ?? 200) / 1.5),
-                                       maxWidth: 500,
-                                       minHeight: 100,
-                                       idealHeight:  (CGFloat(processingVM.sourceImage?.height ?? 200) / 1.5) ,
-                                       maxHeight: 500,
-                                       alignment: .center)
-                        }
-                    }
+                    
                     if _errorDescription != nil {
                     Text(_errorDescription!)
                             .foregroundColor(.red)
                     }
                     SerDescriptionView(headerDescription: $_serHeaderDescription)
                     //SerDetailView(serHeader: $_serHeader) not useful for humans
-               
+                    SerImageDataView(serEntity: $entityInspecting,
+                                     loading: $processingVM.loadingSourceImage,
+                                     sourceImage: $processingVM.sourceImage)
+                    BackButton(text: "close",
+                               isShowingView: $processingVM.inspectingImage,
+                               previousView: .constant(HomeTabs.Gallery),
+                               currentView: .constant(HomeTabs.Gallery) )
                 }
             }
         } .onAppear {
@@ -72,5 +55,39 @@ struct SerInspectView: View {
                 }
         }
     }
+    }
+}
+
+struct SerImageDataView: View {
+    
+    @Binding var serEntity: SerEntity?
+    @Binding var loading: Bool
+    @Binding var sourceImage: CGImage?
+    
+    var body: some View {
+        if serEntity?.imageData == nil {
+            if  loading {
+                LoadingView()
+                    .frame(width: 100, height: 100, alignment: .top)
+            } else {
+                Image(systemName: "square.slash")
+                    .resizable()
+                    .frame(width: 100, height: 100, alignment: .top)
+            }
+        } else {
+            ZoomableScrollView {
+                Image(uiImage: UIImage(data: serEntity!.imageData!) ?? UIImage())
+                    // will be "contradictory" (ideal will exceed max for the oversized images), but that is why the max constraint is there.
+                    .resizable()
+                    .scaledToFit()
+                    .frame(minWidth: 100,
+                           idealWidth:  (CGFloat(sourceImage?.width ?? 200) / 1.5),
+                           maxWidth: 500,
+                           minHeight: 100,
+                           idealHeight:  (CGFloat(sourceImage?.height ?? 200) / 1.5) ,
+                           maxHeight: 500,
+                           alignment: .top)
+            }
+        }
     }
 }

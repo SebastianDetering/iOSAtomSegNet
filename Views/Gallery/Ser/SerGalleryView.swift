@@ -10,16 +10,17 @@ struct SerGalleryView: View {
 
     @StateObject var homeVM: HomeTabViewModel
     @StateObject var processingVM: ProcessingViewModel
+    @StateObject var importViewModel: SerImportViewModel = SerImportViewModel()
     
     @State private var fileSelected = Set<UUID>()
-    @State private var inspecting = false
     @State private var serName: String = ""
     @State private var serObject: SerEntity?
     
     var body: some View {
+        ZStack {
+            SerImportView(importViewModel: importViewModel)
         NavigationView {
             List(selection: $fileSelected) {
-              
                 ForEach(serEntities) {
                     serEntity in
                     HStack {
@@ -36,10 +37,10 @@ struct SerGalleryView: View {
                     }
                         .onTapGesture {
                             serObject = serEntity
-                            inspecting = true
+                            processingVM.inspectingImage = true
                         }
                 }
-            } .sheet(isPresented: $inspecting) {
+            } .sheet(isPresented: $processingVM.inspectingImage) {
                 SerInspectView(parent: self,
                                processingVM: processingVM,
                                entityInspecting: $serObject,
@@ -52,6 +53,7 @@ struct SerGalleryView: View {
             
         }
         SerActionsView( parent: self)
+        }
     }
     
     func getExampleAssets() {
@@ -90,6 +92,10 @@ struct SerGalleryView: View {
             fatalError("Unresolved Error: \(error)")
         }
     }
+    
+    func importSerFile() {
+        importViewModel.isImporting = true
+    }
 }
 
 struct SerActionsView: View {
@@ -98,6 +104,12 @@ struct SerActionsView: View {
     
     var body: some View{
         HStack {
+            Button(action: {
+                parent.importSerFile()
+            },
+                   label: {
+                Text("import ser files")
+            })
             
             Button(action: {
                 

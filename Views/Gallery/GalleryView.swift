@@ -25,6 +25,7 @@ struct GalleryView: View {
             VStack {
                 SegNetTabPickerView(gallerySelection: $gallerySelection)
                     .padding(.top, 50)
+                    .frame( alignment: .top)
                 if gallerySelection == .ImageGallery {
                     ImageGalleryView(homeVM: homeVM,
                                      processingViewModel: processingViewModel)
@@ -35,6 +36,7 @@ struct GalleryView: View {
                                    processingVM: processingViewModel)
                 } else if gallerySelection == .DM3Gallery {
                     Text("Dm3 file coming soon")
+                    Spacer()
                 }
             } .background(Color.brandBackground)
 
