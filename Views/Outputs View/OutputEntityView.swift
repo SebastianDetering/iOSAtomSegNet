@@ -1,15 +1,17 @@
 import SwiftUI
+import UIKit
 
 struct OutputEntityView: View {
     var outputEntity: OutputEntity
     @State var isOverlayed = false
+    @State private var isSharing = false
     
     var body: some View {
         VStack {
+            
         Text(outputEntity.name ?? "")
             if !isOverlayed {
         VStack {
-            Text("source")
             if outputEntity.sourceImage != nil {
               
                 ZoomableScrollView  {
@@ -35,7 +37,7 @@ struct OutputEntityView: View {
                 Image(systemName: "square.slash")
                     .frame(width: 100, height: 100)
             }
-        } .animation(.easeInOut, value: isOverlayed)
+        }
             }
             else {
                 ZStack {
@@ -67,13 +69,15 @@ struct OutputEntityView: View {
                             .frame(width: 100, height: 100)
                     }
                         }
-                    }
-                } .animation(.easeInOut, value: isOverlayed)
+                    }.animation(.easeInOut, value: isOverlayed)
+                }
             }
-            Button(action: { isOverlayed.toggle() },
-               label: {
-                Text("overlay")
-               })
+            OutputActionsView(isOverlayed: $isOverlayed, isSharing: $isSharing)
+               
+            Spacer()
+        } .sheet(isPresented: $isSharing, content: {
+            ActivityView(activityItems: [outputEntity.outputImage!, outputEntity.sourceImage!])
+        })
         }
-        }
+ 
 }

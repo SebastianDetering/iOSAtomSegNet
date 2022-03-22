@@ -17,9 +17,8 @@ struct OutputsView: View {
                             NavigationLink(
                                 destination: OutputEntityView(outputEntity: outputEntity)) {
                                 HStack{
-                                    
                                     Image(systemName: "folder.fill")
-                                    Text( (outputEntity.name ?? "") + " \(outputEntity.modelUsed ?? "")")
+                                    Text( (outputEntity.name ?? "") + "_\(outputEntity.modelUsed ?? "")")
                                 }
                             }
                         }.onDelete(perform: { indexSet in

@@ -18,15 +18,13 @@ struct ModelPickerView: View {
                 .foregroundColor(.primary)
             Spacer()
         
-                Picker( selection: $currentModel, label: HStack{ Text(currentModel.rawValue);  Image("chevron.up")}){
+                Picker( selection: $currentModel, label: HStack{ Text(currentModel.rawValue);  Image(systemName: "chevron.up")}){
                     ForEach(MLModels.allCases, id: \.self) {
                         Text( $0.rawValue ).tag( $0 )
                     }
             } .pickerStyle(MenuPickerStyle())
                     .foregroundColor(.red)
                        
-                    
-                
                 Spacer()
             }.frame(width: 400, height: 60, alignment: .trailing)
                 .background(Color(.systemBackground))

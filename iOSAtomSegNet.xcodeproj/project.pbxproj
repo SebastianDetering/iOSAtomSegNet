@@ -20,8 +20,11 @@
 		9220387227E925A00020919A /* SerImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220387127E925A00020919A /* SerImportView.swift */; };
 		923279F527AD82190080F2EB /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923279F427AD82190080F2EB /* PermissionsView.swift */; };
 		923279F727AD82270080F2EB /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923279F627AD82270080F2EB /* PermissionsViewController.swift */; };
+		9234ACE427EA80470038F330 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234ACE327EA80470038F330 /* ShareButton.swift */; };
+		9234ACE627EA81640038F330 /* OutputActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234ACE527EA81640038F330 /* OutputActionsView.swift */; };
+		9234ACE827EA84300038F330 /* UIActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234ACE727EA84300038F330 /* UIActivityView.swift */; };
 		923F52AE27EA1982007D16E5 /* ImageActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52AD27EA1982007D16E5 /* ImageActionsView.swift */; };
-		923F52B027EA33CF007D16E5 /* OutPutEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52AF27EA33CF007D16E5 /* OutPutEntityView.swift */; };
+		923F52B027EA33CF007D16E5 /* OutputEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52AF27EA33CF007D16E5 /* OutputEntityView.swift */; };
 		923F52B227EA355B007D16E5 /* ProcessStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B127EA355B007D16E5 /* ProcessStatusView.swift */; };
 		923F52B527EA3D03007D16E5 /* GalleryTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B427EA3D03007D16E5 /* GalleryTypeButton.swift */; };
 		923F52B727EA40B5007D16E5 /* ProcessActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B627EA40B5007D16E5 /* ProcessActionsView.swift */; };
@@ -65,7 +68,6 @@
 		92A5AF0F27713A640012A0EA /* denoise_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF0E27713A640012A0EA /* denoise_1024.mlmodel */; };
 		92A5AF1127713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1027713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel */; };
 		92A5AF1327713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1227713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel */; };
-		92A5AF1727716F480012A0EA /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1627716F480012A0EA /* PickerButton.swift */; };
 		92A5AF19277260CD0012A0EA /* WorkingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF18277260CD0012A0EA /* WorkingImageView.swift */; };
 		92A5AF1B277261D80012A0EA /* ModelOutputsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF1A277261D80012A0EA /* ModelOutputsView.swift */; };
 		92A5AF362773C48A0012A0EA /* 20.40.16 Scanning Acquire_0000.emi in Resources */ = {isa = PBXBuildFile; fileRef = 92A5AF2F2773C4890012A0EA /* 20.40.16 Scanning Acquire_0000.emi */; };
@@ -107,8 +109,11 @@
 		9220387127E925A00020919A /* SerImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerImportView.swift; sourceTree = "<group>"; };
 		923279F427AD82190080F2EB /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
 		923279F627AD82270080F2EB /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
+		9234ACE327EA80470038F330 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
+		9234ACE527EA81640038F330 /* OutputActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputActionsView.swift; sourceTree = "<group>"; };
+		9234ACE727EA84300038F330 /* UIActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityView.swift; sourceTree = "<group>"; };
 		923F52AD27EA1982007D16E5 /* ImageActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageActionsView.swift; sourceTree = "<group>"; };
-		923F52AF27EA33CF007D16E5 /* OutPutEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutPutEntityView.swift; sourceTree = "<group>"; };
+		923F52AF27EA33CF007D16E5 /* OutputEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputEntityView.swift; sourceTree = "<group>"; };
 		923F52B127EA355B007D16E5 /* ProcessStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusView.swift; sourceTree = "<group>"; };
 		923F52B427EA3D03007D16E5 /* GalleryTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTypeButton.swift; sourceTree = "<group>"; };
 		923F52B627EA40B5007D16E5 /* ProcessActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessActionsView.swift; sourceTree = "<group>"; };
@@ -153,7 +158,6 @@
 		92A5AF0E27713A640012A0EA /* denoise_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = denoise_1024.mlmodel; path = ../../GuassianONNXtoMATLAB/denoise_1024.mlmodel; sourceTree = "<group>"; };
 		92A5AF1027713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "denoise&bgremoval_1024.mlmodel"; path = "../../GuassianONNXtoMATLAB/denoise&bgremoval_1024.mlmodel"; sourceTree = "<group>"; };
 		92A5AF1227713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "denoise&bgremoval&superres_1024.mlmodel"; path = "../../GuassianONNXtoMATLAB/denoise&bgremoval&superres_1024.mlmodel"; sourceTree = "<group>"; };
-		92A5AF1627716F480012A0EA /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
 		92A5AF18277260CD0012A0EA /* WorkingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingImageView.swift; sourceTree = "<group>"; };
 		92A5AF1A277261D80012A0EA /* ModelOutputsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelOutputsView.swift; sourceTree = "<group>"; };
 		92A5AF2F2773C4890012A0EA /* 20.40.16 Scanning Acquire_0000.emi */ = {isa = PBXFileReference; lastKnownFileType = file; path = "20.40.16 Scanning Acquire_0000.emi"; sourceTree = "<group>"; };
@@ -227,9 +231,9 @@
 			isa = PBXGroup;
 			children = (
 				92A5AEDB276D2F0F0012A0EA /* BackButton.swift */,
-				92A5AF1627716F480012A0EA /* PickerButton.swift */,
 				92A5AF482779568D0012A0EA /* RunInferenceButton.swift */,
 				923F52B427EA3D03007D16E5 /* GalleryTypeButton.swift */,
+				9234ACE327EA80470038F330 /* ShareButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -405,7 +409,9 @@
 			isa = PBXGroup;
 			children = (
 				92A5AF0C2770F7EC0012A0EA /* OutputsView.swift */,
-				923F52AF27EA33CF007D16E5 /* OutPutEntityView.swift */,
+				923F52AF27EA33CF007D16E5 /* OutputEntityView.swift */,
+				9234ACE527EA81640038F330 /* OutputActionsView.swift */,
+				9234ACE727EA84300038F330 /* UIActivityView.swift */,
 			);
 			path = "Outputs View";
 			sourceTree = "<group>";
@@ -485,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9234ACE427EA80470038F330 /* ShareButton.swift in Sources */,
 				92A5AECD276D2EBB0012A0EA /* SegNetIO.swift in Sources */,
 				92A5AEFB276D2F500012A0EA /* denoise.mlmodel in Sources */,
 				92A5AED6276D2EF50012A0EA /* Appearance.swift in Sources */,
@@ -519,7 +526,7 @@
 				9286C83A278E106100A3101E /* FileSer.swift in Sources */,
 				92A5AEF7276D2F500012A0EA /* gaussianMask.mlmodel in Sources */,
 				9220387027E9256F0020919A /* SerInspectView.swift in Sources */,
-				923F52B027EA33CF007D16E5 /* OutPutEntityView.swift in Sources */,
+				923F52B027EA33CF007D16E5 /* OutputEntityView.swift in Sources */,
 				92C6998827AF1F2600B42FE4 /* DataModel.xcdatamodeld in Sources */,
 				923F52B527EA3D03007D16E5 /* GalleryTypeButton.swift in Sources */,
 				92A5AF492779568D0012A0EA /* RunInferenceButton.swift in Sources */,
@@ -530,11 +537,12 @@
 				92A5AEED276D2F3A0012A0EA /* MLModelLibrary.swift in Sources */,
 				92B0FB2627B8674100D4478E /* UIScrollView.swift in Sources */,
 				92A5AEEB276D2F3A0012A0EA /* ImageConverter.swift in Sources */,
-				92A5AF1727716F480012A0EA /* PickerButton.swift in Sources */,
 				92A5AF0D2770F7EC0012A0EA /* OutputsView.swift in Sources */,
 				92A5AEE1276D2F0F0012A0EA /* BackButton.swift in Sources */,
 				92A5AEFD276D68E00012A0EA /* LoadingView.swift in Sources */,
+				9234ACE627EA81640038F330 /* OutputActionsView.swift in Sources */,
 				9209D3C327A39DFE008DEAFF /* SerDocument.swift in Sources */,
+				9234ACE827EA84300038F330 /* UIActivityView.swift in Sources */,
 				921916C927A790B800A3FFE9 /* SerGalleryView.swift in Sources */,
 				92A5AF19277260CD0012A0EA /* WorkingImageView.swift in Sources */,
 				929336DA27A0A106002E14A0 /* MessageDocument.swift in Sources */,
