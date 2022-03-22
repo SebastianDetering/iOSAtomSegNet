@@ -39,7 +39,7 @@ func getFloat32Activations(hDefCGImage: CGImage, modelType: MLModels) throws -> 
     }
     
     do {
-        SegmentationNetwork.setCurrentModel(modelType)
+        SegmentationNetwork.setCurrentModel(modelType, hResDesired: (multiArrayShape == [1,1,1024,1024]))
         let multiArray = try ImageConverter.arr2MLPixelBuffer(f32Padded, shape: multiArrayShape)!
         var (matrix, mlArrayOutput, cgOut) = try SegmentationNetwork.getCGImageActivations(multiArray, multiArrayShape)
         if pad {
@@ -87,7 +87,7 @@ func getCGActivations(image: CGImage, modelType: MLModels) throws -> (Matrix?, C
     }
     
     do {
-        SegmentationNetwork.setCurrentModel(modelType)
+        SegmentationNetwork.setCurrentModel(modelType, hResDesired: (multiArrayShape == [1,1,1024,1024]) )
         var multiArray = try MLMultiArray.init(shape: multiArrayShape, dataType: .float32)
         multiArray = try ImageConverter.pixelBuffer(imageArray: rChannelData, imgArrayShape: multiArrayShape)
         var (matrix, mlArrayOutput, cgOut) = try SegmentationNetwork.getCGImageActivations(multiArray, multiArrayShape)

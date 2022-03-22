@@ -20,11 +20,6 @@ enum ProcessingStatus {
 }
 
 final class ProcessingViewModel: ObservableObject {
-    @Environment(\.managedObjectContext) private var viewContext
-    
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \OutputEntity.date, ascending: false)])
-    
-    private var outputEntities: FetchedResults<OutputEntity>
     
     @Published var currentModel: MLModels = SegNetIOManager.getCurrentModel()
 
