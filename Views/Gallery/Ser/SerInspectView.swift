@@ -40,7 +40,9 @@ struct SerInspectView: View {
                     result in
                         print("Ser File initialized successfully")
                 }
-                _serHeader = SegNetIOManager.getHeader()
+                    if let fetchedHeader = SegNetIOManager.getHeader() {
+                        _serHeader = fetchedHeader
+                    }
                 _serHeaderDescription = SegNetIOManager.getHeaderDescription()
                     if entityInspecting?.imageData == nil { // write to ser Entity's image data the cgImage data
                         processingVM.newSourceImage(sourceType: .SerFile,

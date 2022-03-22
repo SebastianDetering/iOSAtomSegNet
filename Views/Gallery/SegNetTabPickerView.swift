@@ -5,26 +5,20 @@ struct SegNetTabPickerView: View {
     
     var body: some View {
         HStack {
-            GroupBox {
-        HStack {
-            Image(systemName: "photo")
-                .foregroundColor(gallerySelection == .ImageGallery ? Color.red : Color.black)
-            Text("images")
-        }
-            }
-        .onTapGesture {
-            self.gallerySelection = .ImageGallery
-        }
-            GroupBox {
-        HStack {
-            Image(systemName: "doc.text")
-                .foregroundColor(gallerySelection == .SerGallery ? Color.red : Color.black)
-            Text("ser files")
-        }
-            }
-        .onTapGesture {
-            self.gallerySelection = .SerGallery
-        }
+            GalleryTypeButton(text: "images",
+                              systemName: "photo",
+                              galleryType: .ImageGallery,
+                              gallerySelection: $gallerySelection)
+                .onTapGesture {
+                    self.gallerySelection = .ImageGallery
+                }
+            GalleryTypeButton(text: "ser files",
+                              systemName: "doc.text",
+                              galleryType: .SerGallery,
+                              gallerySelection: $gallerySelection)
+                .onTapGesture {
+                    self.gallerySelection = .SerGallery
+                }
 //            GroupBox {
 //        HStack {
 //            Image(systemName: "doc.text.fill")

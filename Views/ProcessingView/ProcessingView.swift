@@ -25,65 +25,61 @@ struct ProcessingView: View {
                 }
                 
                 WorkingImageView(tabSelection: $homeVM.selection,
-                                workingImage: processingVM.workingImage,
-                                imageInProcessing: $processingVM.imageInProcessing)
+                                 workingImage: processingVM.workingImage,
+                                 imageInProcessing: $processingVM.imageInProcessing)
                 
                 ModelOutputsView(imageDidProcess: $processingVM.imageDidProcess,
                                  cgImageOutput: $processingVM.cgImageOutput,
                                  isLoadingActivations: $processingVM.isLoadingActivations)
-                HStack {
-                Button(action:   {do {
-                    try processingVM.processImage()
-                } catch { switch error {
-                case ModelIOErrors.MissingSourceImage:
-                    processingVM.alertItem = AlertContext.noSourceImage
-                case ModelIOErrors.OversizedImageError:
-                    processingVM.alertItem = AlertContext.missizedImageInput
-                case ModelIOErrors.PoorlyConfiguredMLMultiArrayInputShape:
-                    processingVM.alertItem = AlertContext.invalidImageInput
-                default:
-                    print("add a default alert")
-                }} },
-                label: { RunInferenceButtonLabel(sourceImage: $processingVM.sourceImage) })
-                    
-                    Button(action:
-                            {
-                                parent.newOutputEntity()
-                            },
-                           label:
-                            {
-                                HStack{
-                                    Text("save output")
-                                    Image(systemName: "tray.and.arrow.down")
-                                }
-                            }
-                           )
-                }
-                HStack{
-                    Text("current model")
-                        .padding(.leading, 10)
-                        .foregroundColor(.primary)
-                    Spacer()
-                    ModelPickerView(currentModel: $processingVM.currentModel)
-                        .foregroundColor(.secondary)
-                        .padding(.trailing, 10)
-                }.frame(width: 400, height: 60, alignment: .trailing)
-                .background(Color(.systemBackground))
-                .cornerRadius(4)
+                ProcessStatusView(processStatus: $processingVM.processStatus)
+                    .frame(width: 400, height: 10, alignment: .center)
+                ProcessActionsView(processingVM: processingVM, homeTabViewParent: parent)
+            }
+            .frame(minWidth: 500, idealWidth: .greatestFiniteMagnitude, maxWidth: .greatestFiniteMagnitude, minHeight: 1800, idealHeight: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .center)
+            .scaledToFill()
+            .background(LinearGradient(gradient: Gradient(colors: [processingVM.topGradientColor, processingVM.bottomGradientColor]), startPoint: .top, endPoint: .bottom))
+        }
+    }
+}
+
+    struct ProcessActionsView: View {
+
+        @StateObject var processingVM: ProcessingViewModel
+        var homeTabViewParent: HomeTabView
+        
+        var body: some View {
+            VStack {
+            HStack {
+                Button(action:  { processSource()  },
+                       label: { ProcessActionButton(text: "run inference", systemName: "gearshape.fill", relatedImage: $processingVM.sourceImage) })
+                .padding(.trailing, 20)
+                Button(action: { homeTabViewParent.newOutputEntity() },
+                       label: { ProcessActionButton(text: "save", systemName: "tray.and.arrow.down", relatedImage: $processingVM.cgImageOutput) } )
+            }
+            
+            ModelPickerView(currentModel: $processingVM.currentModel)
             }.alert(item: $processingVM.alertItem) {
                 alertItem in
                 Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
             }
         }
-        .frame(minWidth: 500, idealWidth: .greatestFiniteMagnitude, maxWidth: .greatestFiniteMagnitude, minHeight: 1800, idealHeight: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .center)
-        .scaledToFill()
-        .background(LinearGradient(gradient: Gradient(colors: [processingVM.topGradientColor, processingVM.bottomGradientColor]), startPoint: .top, endPoint: .bottom))
+        
+        private func processSource() {
+            do {
+                try processingVM.processImage()
+            } catch { switch error {
+            case ModelIOErrors.MissingSourceImage:
+                processingVM.alertItem = AlertContext.noSourceImage
+            case ModelIOErrors.OversizedImageError:
+                processingVM.alertItem = AlertContext.missizedImageInput
+            case ModelIOErrors.PoorlyConfiguredMLMultiArrayInputShape:
+                processingVM.alertItem = AlertContext.invalidImageInput
+            default:
+                print("add a default alert")
+            }
+            }
+        }
     }
-    
-    
-}
-
-
 
 
 

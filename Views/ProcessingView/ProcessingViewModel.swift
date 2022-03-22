@@ -10,6 +10,14 @@ import CoreML
 import SwiftUI
 import UIKit
 
+enum ProcessingStatus {
+    case NoSource
+    case ReadyToProcess
+    case ProcessCompleted
+    case Oversized
+    case ProcessError
+}
+
 final class ProcessingViewModel: ObservableObject {
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -39,6 +47,7 @@ final class ProcessingViewModel: ObservableObject {
     @Published var sourceImageName: String?
     
     @Published var alertItem: AlertItem?
+    @Published var processStatus: ProcessingStatus = .NoSource
 
     let topGradientColor = Color.brandBackground
     let bottomGradientColor = Color.brandBackground2
@@ -99,6 +108,11 @@ final class ProcessingViewModel: ObservableObject {
         case .DM3File:
             print("DM3 file not programmed yet.")
         }
+        if (sourceImage?.width ?? 1000 <= 512) && (sourceImage?.height ?? 1000 <= 512) {
+            processStatus = .ReadyToProcess
+        } else {
+            processStatus = .Oversized
+        }
     }
     
     func processImage() throws {
@@ -119,8 +133,10 @@ final class ProcessingViewModel: ObservableObject {
                         case .success(let cgOut):
                             self.imageDidProcess = true
                             self.cgImageOutput = cgOut
+                            self.processStatus = .ProcessCompleted
                         case .failure(let error):
                             self.isLoadingActivations = false
+                            self.processStatus = .ProcessError
                             print(error.localizedDescription)
                         }
                     }

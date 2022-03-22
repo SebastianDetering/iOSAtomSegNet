@@ -1,37 +1,23 @@
 
 import SwiftUI
 
-struct RunInferenceButtonLabel: View {
+struct ProcessActionButton: View {
     
-    @Binding var sourceImage: CGImage?
+    var text: String
+    var systemName: String
+    @Binding var relatedImage: CGImage?
     
     var body: some View {
-    
-           
-        if sourceImage == nil {
-            HStack {
-                Text("run inference")
-                    .font(.system(size: 20, weight: .bold))
-                    .foregroundColor(.gray)
-                Image(systemName: "gearshape.2.fill")
-                    .foregroundColor(.gray)
-            }
-            .padding(4)
-            .background(Color(.label))
-            .cornerRadius(2)
-        } else {
-            HStack {
-                Text("run inference")
-                    .font(.system(size: 20, weight: .bold))
-                    .foregroundColor(.accentColor)
-                Image(systemName: "gearshape.2.fill")
-                    .foregroundColor(.accentColor)
-            }
-            .padding(4)
-            .background(Color(.label))
-            .cornerRadius(2)
+        HStack {
+            Text(text)
+                .font(.system(size: 20, weight: .bold))
+                .foregroundColor( (relatedImage == nil) ? .gray : .primary)
+            Image(systemName: systemName)
+                .foregroundColor(.gray)
         }
-        
+        .padding(4)
+        .background(Color(.label))
+        .cornerRadius(2)
     }
 }
 

@@ -27,3 +27,14 @@ struct ModelPickerLabelView: View {
     }
 }
 
+//HStack{
+//    Text("current model")
+//        .padding(.leading, 10)
+//        .foregroundColor(.primary)
+//    Spacer()
+//    ModelPickerView(currentModel: $processingVM.currentModel)
+//        .foregroundColor(.secondary)
+//        .padding(.trailing, 10)
+//}.frame(width: 400, height: 60, alignment: .trailing)
+//    .background(Color(.systemBackground))
+//    .cornerRadius(4)

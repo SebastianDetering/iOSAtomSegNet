@@ -67,7 +67,7 @@ final class SegNetIOManager {
         _workingBinaryData = _serReader.getData()
         return _workingBinaryData
     }
-    static func getHeader() -> SerHeader {
+    static func getHeader() -> SerHeader? {
         return _serHeader
     }
     static func getHeaderDescription() -> SerHeaderDescription {
