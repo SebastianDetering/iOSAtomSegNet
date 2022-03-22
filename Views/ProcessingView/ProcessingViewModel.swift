@@ -16,6 +16,7 @@ enum ProcessingStatus {
     case ProcessCompleted
     case Oversized
     case ProcessError
+    case Saved
 }
 
 final class ProcessingViewModel: ObservableObject {
@@ -39,9 +40,11 @@ final class ProcessingViewModel: ObservableObject {
     
     @Published var tempSourceID: UUID?
     @Published var currSourceID: UUID?
+    @Published var outputEntityID: UUID?
     @Published var sourceImage: CGImage? // inspecting
     @Published var workingImage: CGImage? // process source
     @Published var cgImageOutput : CGImage? // outputs
+    
 
     @Published var workingImageName: String?
     @Published var sourceImageName: String?
@@ -134,6 +137,7 @@ final class ProcessingViewModel: ObservableObject {
                             self.imageDidProcess = true
                             self.cgImageOutput = cgOut
                             self.processStatus = .ProcessCompleted
+                            self.outputEntityID = UUID()
                         case .failure(let error):
                             self.isLoadingActivations = false
                             self.processStatus = .ProcessError

@@ -22,6 +22,7 @@ final class SegNetIOManager {
     static private var _workingBinaryData: Data! // ser file binary
     
     static private var _currentModel     : MLModels = MLModels.gaussianMask
+    
 //    static private var _mlMatrixOutput   : Matrix!
 //    static private var _cgModelOutput    : CGImage!     // outputs of model.
 //    static private var _cgSegments       : CGImage!

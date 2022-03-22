@@ -34,6 +34,8 @@ struct ProcessingView: View {
                 ProcessStatusView(processStatus: $processingVM.processStatus)
                     .frame(width: 400, height: 10, alignment: .center)
                 ProcessActionsView(processingVM: processingVM, homeTabViewParent: parent)
+                ModelPickerView(currentModel: $processingVM.currentModel)
+                
             }
             .frame(minWidth: 500, idealWidth: .greatestFiniteMagnitude, maxWidth: .greatestFiniteMagnitude, minHeight: 1800, idealHeight: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .center)
             .scaledToFill()
@@ -41,45 +43,3 @@ struct ProcessingView: View {
         }
     }
 }
-
-    struct ProcessActionsView: View {
-
-        @StateObject var processingVM: ProcessingViewModel
-        var homeTabViewParent: HomeTabView
-        
-        var body: some View {
-            VStack {
-            HStack {
-                Button(action:  { processSource()  },
-                       label: { ProcessActionButton(text: "run inference", systemName: "gearshape.fill", relatedImage: $processingVM.sourceImage) })
-                .padding(.trailing, 20)
-                Button(action: { homeTabViewParent.newOutputEntity() },
-                       label: { ProcessActionButton(text: "save", systemName: "tray.and.arrow.down", relatedImage: $processingVM.cgImageOutput) } )
-            }
-            
-            ModelPickerView(currentModel: $processingVM.currentModel)
-            }.alert(item: $processingVM.alertItem) {
-                alertItem in
-                Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
-            }
-        }
-        
-        private func processSource() {
-            do {
-                try processingVM.processImage()
-            } catch { switch error {
-            case ModelIOErrors.MissingSourceImage:
-                processingVM.alertItem = AlertContext.noSourceImage
-            case ModelIOErrors.OversizedImageError:
-                processingVM.alertItem = AlertContext.missizedImageInput
-            case ModelIOErrors.PoorlyConfiguredMLMultiArrayInputShape:
-                processingVM.alertItem = AlertContext.invalidImageInput
-            default:
-                print("add a default alert")
-            }
-            }
-        }
-    }
-
-
-

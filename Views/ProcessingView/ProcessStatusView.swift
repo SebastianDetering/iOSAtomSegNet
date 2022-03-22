@@ -20,6 +20,8 @@ struct ProcessStatusView: View {
         case .ProcessCompleted:
             Text("Success! ready to save output")
                 .foregroundColor(.green)
+        case .Saved:
+            Text("Success! saved output")
         }
     }
 }

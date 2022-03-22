@@ -39,10 +39,9 @@ func getFloat32Activations(hDefCGImage: CGImage, modelType: MLModels) throws -> 
     }
     
     do {
-        let model = try segmentationNetwork()
-        model.setCurrentModel(modelType)
+        SegmentationNetwork.setCurrentModel(modelType)
         let multiArray = try ImageConverter.arr2MLPixelBuffer(f32Padded, shape: multiArrayShape)!
-        var (matrix, mlArrayOutput, cgOut) = try model.getCGImageActivations(multiArray, multiArrayShape)
+        var (matrix, mlArrayOutput, cgOut) = try SegmentationNetwork.getCGImageActivations(multiArray, multiArrayShape)
         if pad {
             cgOut = cgOut.cropping(to: CGRect(x: 0, y: 0, width: Int(imageWidth), height: Int(imageHeight)))!
         }
@@ -88,11 +87,10 @@ func getCGActivations(image: CGImage, modelType: MLModels) throws -> (Matrix?, C
     }
     
     do {
-        let model = try segmentationNetwork()
-        model.setCurrentModel(modelType)
+        SegmentationNetwork.setCurrentModel(modelType)
         var multiArray = try MLMultiArray.init(shape: multiArrayShape, dataType: .float32)
         multiArray = try ImageConverter.pixelBuffer(imageArray: rChannelData, imgArrayShape: multiArrayShape)
-        var (matrix, mlArrayOutput, cgOut) = try model.getCGImageActivations(multiArray, multiArrayShape)
+        var (matrix, mlArrayOutput, cgOut) = try SegmentationNetwork.getCGImageActivations(multiArray, multiArrayShape)
         if pad {
             cgOut = cgOut.cropping(to: CGRect(x: 0, y: 0, width: Int(imageWidth), height: Int(imageHeight)))!
         }

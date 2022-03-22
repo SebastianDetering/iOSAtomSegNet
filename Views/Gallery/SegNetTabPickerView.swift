@@ -19,16 +19,13 @@ struct SegNetTabPickerView: View {
                 .onTapGesture {
                     self.gallerySelection = .SerGallery
                 }
-//            GroupBox {
-//        HStack {
-//            Image(systemName: "doc.text.fill")
-//                .foregroundColor(gallerySelection == .DM3Gallery ? Color.red : Color.black)
-//            Text("dm3 files")
-//        }
-//            }
-        .onTapGesture {
-            self.gallerySelection = .DM3Gallery
-        }
+//            GalleryTypeButton(text: "dm3 files",
+//                              systemName: "doc.text.fill",
+//                              galleryType: .DM3Gallery,
+//                              gallerySelection: $gallerySelection)
+//                .onTapGesture {
+//                    self.gallerySelection = .DM3Gallery
+//                }
         }
     }
 }

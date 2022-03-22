@@ -24,6 +24,7 @@
 		923F52B027EA33CF007D16E5 /* OutPutEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52AF27EA33CF007D16E5 /* OutPutEntityView.swift */; };
 		923F52B227EA355B007D16E5 /* ProcessStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B127EA355B007D16E5 /* ProcessStatusView.swift */; };
 		923F52B527EA3D03007D16E5 /* GalleryTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B427EA3D03007D16E5 /* GalleryTypeButton.swift */; };
+		923F52B727EA40B5007D16E5 /* ProcessActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B627EA40B5007D16E5 /* ProcessActionsView.swift */; };
 		9286C83A278E106100A3101E /* FileSer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C837278E106100A3101E /* FileSer.swift */; };
 		9286C83B278E106100A3101E /* FileRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C838278E106100A3101E /* FileRead.swift */; };
 		9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C839278E106100A3101E /* PythonPortHelpers.swift */; };
@@ -110,6 +111,7 @@
 		923F52AF27EA33CF007D16E5 /* OutPutEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutPutEntityView.swift; sourceTree = "<group>"; };
 		923F52B127EA355B007D16E5 /* ProcessStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusView.swift; sourceTree = "<group>"; };
 		923F52B427EA3D03007D16E5 /* GalleryTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTypeButton.swift; sourceTree = "<group>"; };
+		923F52B627EA40B5007D16E5 /* ProcessActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessActionsView.swift; sourceTree = "<group>"; };
 		9286C837278E106100A3101E /* FileSer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSer.swift; sourceTree = "<group>"; };
 		9286C838278E106100A3101E /* FileRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRead.swift; sourceTree = "<group>"; };
 		9286C839278E106100A3101E /* PythonPortHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PythonPortHelpers.swift; sourceTree = "<group>"; };
@@ -224,6 +226,9 @@
 		923F52B327EA3CB5007D16E5 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				92A5AEDB276D2F0F0012A0EA /* BackButton.swift */,
+				92A5AF1627716F480012A0EA /* PickerButton.swift */,
+				92A5AF482779568D0012A0EA /* RunInferenceButton.swift */,
 				923F52B427EA3D03007D16E5 /* GalleryTypeButton.swift */,
 			);
 			path = Buttons;
@@ -310,19 +315,8 @@
 			children = (
 				92A5AF3F2777D2890012A0EA /* Gallery */,
 				92A5AF3E2777D27E0012A0EA /* ProcessingView */,
-				92A5AEDA276D2F0F0012A0EA /* Button */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		92A5AEDA276D2F0F0012A0EA /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				92A5AEDB276D2F0F0012A0EA /* BackButton.swift */,
-				92A5AF1627716F480012A0EA /* PickerButton.swift */,
-				92A5AF482779568D0012A0EA /* RunInferenceButton.swift */,
-			);
-			path = Button;
 			sourceTree = "<group>";
 		};
 		92A5AEE4276D2F3A0012A0EA /* CoreML Setup */ = {
@@ -380,9 +374,10 @@
 		92A5AF3E2777D27E0012A0EA /* ProcessingView */ = {
 			isa = PBXGroup;
 			children = (
+				92A5AEFE276D6AAA0012A0EA /* ProcessingViewModel.swift */,
 				923F52B127EA355B007D16E5 /* ProcessStatusView.swift */,
 				92A5AEDC276D2F0F0012A0EA /* ProcessingView.swift */,
-				92A5AEFE276D6AAA0012A0EA /* ProcessingViewModel.swift */,
+				923F52B627EA40B5007D16E5 /* ProcessActionsView.swift */,
 				92A5AED8276D2F0F0012A0EA /* ModelPickerView.swift */,
 				92A5AF18277260CD0012A0EA /* WorkingImageView.swift */,
 				92A5AF1A277261D80012A0EA /* ModelOutputsView.swift */,
@@ -530,6 +525,7 @@
 				92A5AF492779568D0012A0EA /* RunInferenceButton.swift in Sources */,
 				92A5AEE3276D2F0F0012A0EA /* GalleryView.swift in Sources */,
 				92A5AEFA276D2F500012A0EA /* denoise&bgremoval.mlmodel in Sources */,
+				923F52B727EA40B5007D16E5 /* ProcessActionsView.swift in Sources */,
 				92A5AF4E277AA65A0012A0EA /* ImageInspectView.swift in Sources */,
 				92A5AEED276D2F3A0012A0EA /* MLModelLibrary.swift in Sources */,
 				92B0FB2627B8674100D4478E /* UIScrollView.swift in Sources */,

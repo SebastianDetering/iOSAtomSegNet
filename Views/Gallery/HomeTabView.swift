@@ -71,15 +71,23 @@ struct HomeTabView: View {
             processingViewModel.alertItem = AlertContext.noOutputs
             return
         }
+        var outputIds: [UUID] = []
+        for entity in outputEntities {
+            if entity.id != nil {
+            outputIds.append(entity.id!)
+            }
+        }
+        guard let newID = processingViewModel.outputEntityID else { return } // prevent accidentally saving many copies
+        if !(outputIds.contains(newID)){
         var newEntity = OutputEntity(context: viewContext)
         newEntity.sourceImage = UIImage(cgImage: imageToAdd).pngData()
         newEntity.outputImage = UIImage(cgImage: outputToAdd).pngData()
         newEntity.date = Date()
-        newEntity.id = UUID()
+        newEntity.id = newID
         newEntity.name = processingViewModel.workingImageName
-    
+            processingViewModel.processStatus = .Saved
         saveContext()
-       
+        }
     }
     func deleteEntities(offsets: IndexSet) {
         withAnimation {

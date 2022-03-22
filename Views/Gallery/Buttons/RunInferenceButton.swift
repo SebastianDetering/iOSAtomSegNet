@@ -11,7 +11,7 @@ struct ProcessActionButton: View {
         HStack {
             Text(text)
                 .font(.system(size: 20, weight: .bold))
-                .foregroundColor( (relatedImage == nil) ? .gray : .primary)
+                .foregroundColor( (relatedImage == nil) ? .gray : .accentColor)
             Image(systemName: systemName)
                 .foregroundColor(.gray)
         }

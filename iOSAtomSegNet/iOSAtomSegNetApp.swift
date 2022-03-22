@@ -33,6 +33,8 @@ struct iOSAtomSegNetApp: App {
                                         gotPermission: $homeViewModel.hasRunPermissionSelector)
                     }
                 
+            }.onAppear {
+                MLModelLibrary.fillLibrary()
             }
         }
     }

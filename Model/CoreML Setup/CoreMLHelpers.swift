@@ -47,9 +47,9 @@ class SerBitmap {
 //                arrayDataforImage = self.inputCGImage?
                 let input  = try ImageConverter.pixelBuffer( imageArray: arrayDataforImage! )
                 
-                let model  = try segmentationNetwork()
+                let model  = try SegmentationNetwork()
                 
-                let output = try model.getActivations( input )
+                let output = try SegmentationNetwork.getActivations( input )
                                 
                 let serImage = CGImage.init(width: width, height: height,
                                             bitsPerComponent: bitsPerComponent,   // 1 byte for UInt8 * 8 bits per byte

@@ -33,18 +33,12 @@ func getHResModel(_ of: MLModels) -> hResMLModels {
     }
 }
 
-let applicationMLModelLibrary = MLModelLibrary()
-
-class MLModelLibrary {
+final class MLModelLibrary {
     // model loading is Memory intensive so I added a helper function to get memory and to be smarter about when to deallocate the models.
-    private var _library : [ MLModels : Any ] = [:]
-    private var _hResLibrary : [hResMLModels : Any] = [:]
+    static private var _library : [ MLModels : Any ] = [:]
+    static private var _hResLibrary : [hResMLModels : Any] = [:]
     
-    init() {
-        fillLibrary()
-    }
-    
-    func fillLibrary() {
+    static func fillLibrary() {
             do {
             // '&' in file name replaced with '_'
                 try _library.updateValue( gaussianMask(), forKey: .gaussianMask)
@@ -58,9 +52,25 @@ class MLModelLibrary {
             } catch { fatalError(error.localizedDescription) }
     }
     
-    func getMLModel( model: MLModels) -> ( Any, Any ) {   // ( 512x512 model, 1024x1024 model )
+    static func getMLModel( model: MLModels) -> ( Any, Any ) {   // ( 512x512 model, 1024x1024 model )
+        // caching all models consumes too much memory in ios 15 even for regular models.
         let hResModel = getHResModel( model )
-        // caching all hResModels consumes too much memory.
+        if !_library.keys.contains( model )  {
+            _library = [:]
+            do {
+            switch model {
+            case .gaussianMask:
+                try _library.updateValue( gaussianMask(),               forKey: .gaussianMask)
+            case .circularMask:
+                try _library.updateValue( circularMask(),               forKey: .circularMask)
+            case .denoise:
+                try _library.updateValue( denoise(),                    forKey: .denoise)
+            case .denoise_bgremoval:
+                try _library.updateValue( denoise_bgremoval(),          forKey: .denoise_bgremoval)
+            case .denoise_bgremoval_superres:
+                try _library.updateValue( denoise_bgremoval_superres(), forKey: .denoise_bgremoval_superres)
+            }} catch { print(error.localizedDescription)}
+        }
         if !_hResLibrary.keys.contains( hResModel )  {
             _hResLibrary = [:]
             do {
@@ -79,32 +89,31 @@ class MLModelLibrary {
         }
         return ( _library[model], _hResLibrary[ hResModel ] )
     }
-    
 }
 
-class segmentationNetwork: ObservableObject {
+final class SegmentationNetwork: ObservableObject {
     
-    private var _modelType : MLModels = .gaussianMask
-    private var _currentModel : Any
-    private var _currentHResModel : Any
+    static private var _modelType : MLModels = .gaussianMask
+    static private var _currentModel : Any? = nil
+    static private var _currentHResModel : Any? = nil
     
     init() throws {
         do {
-            ( self._currentModel, self._currentHResModel ) = applicationMLModelLibrary.getMLModel( model: _modelType )
+            ( SegmentationNetwork._currentModel, SegmentationNetwork._currentHResModel ) = MLModelLibrary.getMLModel( model: SegmentationNetwork._modelType )
         } catch let error as MLModelError { throw error }
     }
     
-    func getCurrentModel() -> MLModels {
+    static func getCurrentModel() -> MLModels {
         report_memory()
         return _modelType
     }
     
-    func setCurrentModel(_ model: MLModels) {
+    static func setCurrentModel(_ model: MLModels) {
         report_memory()
         _modelType = model
-        ( self._currentModel, self._currentHResModel )  = applicationMLModelLibrary.getMLModel(model: _modelType)
+        ( _currentModel, _currentHResModel )  = MLModelLibrary.getMLModel(model: _modelType)
     }
-    private func report_memory() {
+    static private func report_memory() {
         var info = mach_task_basic_info()
         let MACH_TASK_BASIC_INFO_COUNT = MemoryLayout<mach_task_basic_info>.stride/MemoryLayout<natural_t>.stride
         var count = mach_msg_type_number_t(MACH_TASK_BASIC_INFO_COUNT)
@@ -127,7 +136,7 @@ class segmentationNetwork: ObservableObject {
         }
     }
     
-    private func _getModelOutput( _ input: MLMultiArray ) throws -> Any {
+    static private func _getModelOutput( _ input: MLMultiArray ) throws -> Any {
         var predictResults : Any
 
         if input.shape == [1, 1, 512, 512] {
@@ -169,7 +178,7 @@ class segmentationNetwork: ObservableObject {
         return predictResults
     }
     
-    func getActivations( _ ofArray: MLMultiArray ) throws -> MLMultiArray {
+    static func getActivations( _ ofArray: MLMultiArray ) throws -> MLMultiArray {
         
         var output : MLMultiArray
         let shape = ofArray.shape
@@ -212,7 +221,7 @@ class segmentationNetwork: ObservableObject {
         
     }
     
-    func getCGImageActivations( _ of: MLMultiArray, _ withShape: [NSNumber] ) throws -> (Matrix, MLMultiArray, CGImage) {
+    static func getCGImageActivations( _ of: MLMultiArray, _ withShape: [NSNumber] ) throws -> (Matrix, MLMultiArray, CGImage) {
         var mlArrayOutput = of
         do {
             mlArrayOutput = try self.getActivations(of)
