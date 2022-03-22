@@ -315,6 +315,7 @@
 			children = (
 				92A5AF3F2777D2890012A0EA /* Gallery */,
 				92A5AF3E2777D27E0012A0EA /* ProcessingView */,
+				92C699A927AF6A3F00B42FE4 /* Outputs View */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -391,7 +392,6 @@
 				923F52B327EA3CB5007D16E5 /* Buttons */,
 				92A5AEDE276D2F0F0012A0EA /* GalleryView.swift */,
 				92A5AECF276D2EF50012A0EA /* GalleryViewModel.swift */,
-				92C699A927AF6A3F00B42FE4 /* Outputs View */,
 				92A5AED9276D2F0F0012A0EA /* HomeTabView.swift */,
 				921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */,
 				921916D127A8E24900A3FFE9 /* Images */,

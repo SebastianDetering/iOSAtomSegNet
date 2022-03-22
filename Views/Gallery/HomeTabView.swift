@@ -80,6 +80,8 @@ struct HomeTabView: View {
         guard let newID = processingViewModel.outputEntityID else { return } // prevent accidentally saving many copies
         if !(outputIds.contains(newID)){
         var newEntity = OutputEntity(context: viewContext)
+            newEntity.modelUsed = processingViewModel.modelUsed?.replacingOccurrences(of: " ", with: "")
+            print("Model used \(processingViewModel.modelUsed)")
         newEntity.sourceImage = UIImage(cgImage: imageToAdd).pngData()
         newEntity.outputImage = UIImage(cgImage: outputToAdd).pngData()
         newEntity.date = Date()

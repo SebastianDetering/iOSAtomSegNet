@@ -19,7 +19,7 @@ struct OutputsView: View {
                                 HStack{
                                     
                                     Image(systemName: "folder.fill")
-                                    Text( (outputEntity.name ?? "") + " \(outputEntity.date!)")
+                                    Text( (outputEntity.name ?? "") + " \(outputEntity.modelUsed ?? "")")
                                 }
                             }
                         }.onDelete(perform: { indexSet in

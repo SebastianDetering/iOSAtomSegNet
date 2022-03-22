@@ -17,6 +17,7 @@ enum ProcessingStatus {
     case Oversized
     case ProcessError
     case Saved
+    case Processing
 }
 
 final class ProcessingViewModel: ObservableObject {
@@ -43,6 +44,7 @@ final class ProcessingViewModel: ObservableObject {
 
     @Published var workingImageName: String?
     @Published var sourceImageName: String?
+    @Published var modelUsed: String?
     
     @Published var alertItem: AlertItem?
     @Published var processStatus: ProcessingStatus = .NoSource
@@ -57,12 +59,15 @@ final class ProcessingViewModel: ObservableObject {
     }
     
     func clearOuputsImage() { // clear outputs if we move to the neural network with a new source image
+        
         if tempSourceID != currSourceID { // different source image, clear outputs panel
             cgImageOutput = nil
         }
         currSourceID = tempSourceID
     }
-    func newSourceImage( sourceType: SegNetDataTypes, image: Data?, imageName: String, id: UUID?, serEntity: Binding<SerEntity?> = .constant(nil)) {
+    func newSourceImage( sourceType: SegNetDataTypes,
+                         image: Data?, imageName: String,
+                         id: UUID?, serEntity: Binding<SerEntity?> = .constant(nil)) {
         loadingSourceImage = true
             guard let imageID = id as? UUID else { // note im not allowing any images to show if they dont have UUID (helps for core data management of assets)
                 return
@@ -114,6 +119,7 @@ final class ProcessingViewModel: ObservableObject {
     }
     
     func processImage() throws {
+        processStatus = .Processing
         if workingImage != nil {
             SegNetIOManager.setCurrentModel( currentModel )
             let serialQueue = DispatchQueue( label: "queue.Serial" )
@@ -133,6 +139,7 @@ final class ProcessingViewModel: ObservableObject {
                             self.cgImageOutput = cgOut
                             self.processStatus = .ProcessCompleted
                             self.outputEntityID = UUID()
+                            self.modelUsed = self.currentModel.rawValue
                         case .failure(let error):
                             self.isLoadingActivations = false
                             self.processStatus = .ProcessError
