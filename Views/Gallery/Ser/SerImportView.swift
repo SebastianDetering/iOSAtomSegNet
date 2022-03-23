@@ -46,9 +46,11 @@ struct SerImportView: View {
                 guard let selectedFile: URL = try result.get().first else { return }
                 let data = try Data(contentsOf: selectedFile)
 
-                importViewModel.fileDocument.binary = data
-            } catch {
+                importViewModel.fileDocument?.binary = data
+            } catch let error {
                 // Handle failure.
+                print("error getting file")
+                print(error.localizedDescription)
             }
         }
     }

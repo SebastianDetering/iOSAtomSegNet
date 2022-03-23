@@ -2,7 +2,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct SerDocument: FileDocument {
+struct SerDocument: FileDocument, Equatable {
     
     static var readableContentTypes: [UTType] { [.data] }
 

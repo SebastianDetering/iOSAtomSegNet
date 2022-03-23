@@ -13,64 +13,66 @@ struct ImageGalleryView: View {
     @StateObject var viewModel = GalleryViewModel()
     
     var body: some View {
-        VStack {
-            NavigationView {
-                ScrollView {
-                    LazyVGrid(columns: viewModel.columns) {
-                        ForEach(galleryImages) { galleryImage in
-                            ImageIconView(galleryImage: galleryImage)
-                                .contextMenu {
-                                    HStack {
-                                        Button {
-                                            moveToProcessingView(image: galleryImage.imageData,
-                                                                 imageName: galleryImage.name ?? "missing name",
-                                                                 id: galleryImage.id)
-                                        } label: {
-                                            Label("process", systemImage: "gearshape")
-                                        }
+            VStack {
+                NavigationView {
+                    ScrollView {
+                        LazyVGrid(columns: viewModel.columns) {
+                            ForEach(galleryImages) { galleryImage in
+                                ImageIconView(galleryImage: galleryImage)
+                                    .contextMenu {
+                                        HStack {
+                                            Button {
+                                                moveToProcessingView(image: galleryImage.imageData,
+                                                                     imageName: galleryImage.name ?? "missing name",
+                                                                     id: galleryImage.id)
+                                            } label: {
+                                                Label("process", systemImage: "gearshape")
+                                            }
 
-                                        Button {
-                                            deleteGalleryImage(uId: galleryImage.id)
-                                        } label: {
-                                            Label("remove image", systemImage: "trash.fill")
-                                                .foregroundColor(.red)
+                                            Button {
+                                                deleteGalleryImage(uId: galleryImage.id)
+                                            } label: {
+                                                Label("remove image", systemImage: "trash.fill")
+                                                    .foregroundColor(.red)
+                                            }
                                         }
                                     }
+                                    
+                                    .onTapGesture {
+                                        processingViewModel.newSourceImage( sourceType: SegNetDataTypes.Images,
+                                                                            image:  galleryImage.imageData,
+                                                                            imageName: galleryImage.name ?? " No name ",
+                                                                            id: galleryImage.id)
+                                        processingViewModel.inspectingImage = true
                                     }
-                                .onTapGesture {
-                                    processingViewModel.newSourceImage( sourceType: SegNetDataTypes.Images,
-                                                                        image:  galleryImage.imageData,
-                                                                        imageName: galleryImage.name ?? " No name ",
-                                                                        id: galleryImage.id)
-                                    processingViewModel.inspectingImage = true
-                                }
+                            }
                         }
-                    }
-                } .navigationBarHidden(galleryImages.count > 0)
-                .navigationBarTitle("no sources")
+                    } .navigationBarHidden(galleryImages.count > 0)
+                    .navigationBarTitle("no sources")
+                }
+                ImageActionsView(isImportViewShowing: $homeVM.showingImagePicker,
+                                 hasPermission: $homeVM.hasRunPermissionSelector,
+                                 isPermissionsShowing: $homeVM.showingPermissionsSelector,
+                                 parent: self )
+                    .padding(.bottom, 10)
+            }.sheet(isPresented: $processingViewModel.inspectingImage) {
+                ImageInspectView(homeVM: homeVM,
+                                 processingVM: processingViewModel)
             }
-            ImageActionsView(isImportViewShowing: $homeVM.showingImagePicker,
-                             hasPermission: $homeVM.hasRunPermissionSelector,
-                             isPermissionsShowing: $homeVM.showingPermissionsSelector,
-                             parent: self )
-                .padding(.bottom, 10)
-        }.sheet(isPresented: $processingViewModel.inspectingImage) {
-            ImageInspectView(homeVM: homeVM,
-                             processingVM: processingViewModel)
-        }
-        .onChange(of: homeVM.importImage) {
-            newImage in
-            withAnimation {
-            newGalleryImage()
+            .onChange(of: homeVM.importImage) {
+                newImage in
+                withAnimation {
+                newGalleryImage()
+                }
             }
-        }
-        .onAppear(perform: {
-            if !(homeVM.loadedPackagedImages) {
-                self.getExampleAssets() // attempted refactor, we'll see how this goes
-            }
-        })
+            .onAppear(perform: {
+                if !(homeVM.loadedPackagedImages) {
+                    getExampleAssets() // attempted refactor, we'll see how this goes
+                }
+            })
     }
-    private func saveContext() {
+        
+    func saveContext() {
         do {
             try viewContext.save()
         } catch {
@@ -78,7 +80,8 @@ struct ImageGalleryView: View {
             fatalError("Unresolved Error: \(error)")
         }
     }
-    private func newGalleryImage() { // refactor to test if this will be a valid 
+        
+    func newGalleryImage() { // refactor to test if this will be a valid
         guard let imageToAdd = homeVM.importImage as? UIImage
         else {
             homeVM.importImage = nil
@@ -95,7 +98,7 @@ struct ImageGalleryView: View {
         saveContext()
         homeVM.didLoadNewImage = false
     }
-    private func deleteGalleryImage(uId: UUID?) {
+    func deleteGalleryImage(uId: UUID?) {
         guard let uID = uId as? UUID else {
             return
         }
@@ -134,7 +137,7 @@ struct ImageGalleryView: View {
         }
         homeVM.loadedPackagedImages = true
     }
-    private func moveToProcessingView(image: Data?, imageName: String, id: UUID?) { // moving the source to processing, and some cleanup
+    func moveToProcessingView(image: Data?, imageName: String, id: UUID?) { // moving the source to processing, and some cleanup
             processingViewModel.inspectingImage = false
             processingViewModel.newSourceImage(sourceType: .Images,
                                            image: image,

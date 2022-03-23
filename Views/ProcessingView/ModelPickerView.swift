@@ -7,14 +7,14 @@ struct ModelPickerView: View {
         var body: some View {
             HStack {
             Text("model")
-                .padding(.leading, 10)
                 .foregroundColor(.primary)
+                .font(.caption)
                 Spacer()
                 Picker( selection: $currentModel, label:  Image(systemName: "chevron.up")){
                     ForEach(MLModels.allCases, id: \.self) {
                         Text( $0.rawValue ).tag( $0 )
                     }
-                } .pickerStyle(.menu)
+                } .pickerStyle(.segmented)
                 Spacer()
             }.frame(width: 400, height: 60, alignment: .center)
                 .background(Color(.systemBackground))

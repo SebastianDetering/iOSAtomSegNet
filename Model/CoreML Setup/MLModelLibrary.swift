@@ -3,11 +3,11 @@ import LASwift
 // strategy pattern
 
 enum MLModels: String, CaseIterable {
-    case gaussianMask = "Gaussian Mask"
-    case circularMask = "Circular Mask"
-    case denoise      = "Denoise"
-    case denoise_bgremoval = "Denoise and Background Removal"
-    case denoise_bgremoval_superres = "Denoise and Background Removal and Super Resolution"
+    case gaussianMask = "gaussian"
+    case circularMask = "circular"
+    case denoise      = "denoise"
+    case denoise_bgremoval = "bgremove"
+    case denoise_bgremoval_superres = "superres"
 }
 
 enum hResMLModels: String {

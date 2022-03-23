@@ -53,7 +53,22 @@ struct SerGalleryView: View {
             
         }
         SerActionsView( parent: self)
+        } .onChange(of: importViewModel.fileDocument) {
+            newSer in
+            withAnimation {
+            newSerEntity()
+            }
         }
+    }
+    func newSerEntity() { // refactor to test if this will be a valid
+        guard let serToAdd = importViewModel.fileDocument?.binary else { return }
+        var newSer = SerEntity(context: viewContext)
+        newSer.serBinary = serToAdd
+        newSer.date = Date()
+        newSer.id = UUID()
+        newSer.name  =  importViewModel.fileDocument.debugDescription
+        saveContext()
+        homeVM.didLoadNewImage = false
     }
     
     func getExampleAssets() {

@@ -7,7 +7,6 @@ struct ProcessActionsView: View {
     var homeTabViewParent: HomeTabView
     
     var body: some View {
-       
             HStack {
                 Button(action:  { if processingVM.sourceImage != nil { processSource() } },
                        label: { ProcessActionButton(text: "run inference",
@@ -23,7 +22,7 @@ struct ProcessActionsView: View {
             }
         .alert(item: $processingVM.alertItem) {
             alertItem in
-            Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
+                Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
         }
     }
     
