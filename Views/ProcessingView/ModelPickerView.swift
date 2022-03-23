@@ -16,7 +16,7 @@ struct ModelPickerView: View {
                     }
                 } .pickerStyle(.wheel)
                 Spacer()
-            }.frame(width: 400, height: 60, alignment: .trailing)
+            }.frame(width: 400, height: 220, alignment: .trailing)
                 .background(Color(.systemBackground))
                 .cornerRadius(4)
         }

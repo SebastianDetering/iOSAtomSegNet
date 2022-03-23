@@ -34,11 +34,11 @@ struct ProcessingView: View {
                 ProcessStatusView(processStatus: $processingVM.processStatus)
                     .frame(width: 400, height: 10, alignment: .center)
                 ProcessActionsView(processingVM: processingVM, homeTabViewParent: parent)
-                
+                    Spacer()
                 ModelPickerView(currentModel: $processingVM.currentModel)
-                
+                   
             }
-            .frame(minWidth: 500, idealWidth: .greatestFiniteMagnitude, maxWidth: .greatestFiniteMagnitude, minHeight: 500, idealHeight: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .center)
+            .frame(minWidth: 500, idealWidth: .greatestFiniteMagnitude, maxWidth: .greatestFiniteMagnitude, minHeight: 800, idealHeight: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .center)
             .scaledToFill()
             .background(LinearGradient(gradient: Gradient(colors: [processingVM.topGradientColor, processingVM.bottomGradientColor]), startPoint: .top, endPoint: .bottom))
         }

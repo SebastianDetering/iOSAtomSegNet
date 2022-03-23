@@ -6,14 +6,14 @@ struct ProcessStatusView: View {
     var body: some View {
         switch processStatus {
         case .NoSource:
-            Text("No Source")
-                .foregroundColor(.secondary)
+            ProcessLabelView(text: "no source",
+                             color: .gray)
         case .ReadyToProcess:
-            Text("Ready")
-                .foregroundColor(.green)
+            ProcessLabelView(text: "Ready",
+                             color: .green)
         case .Oversized:
-            Text("Oversized (512x512 recommended)")
-                .foregroundColor(.gray)
+            ProcessLabelView(text: "Oversized (512x512 recommended)",
+                             color: .gray)
         case .ProcessError:
             Text("Error")
                 .foregroundColor(.red)
@@ -25,5 +25,19 @@ struct ProcessStatusView: View {
         case .Processing:
             Text("Processing...")
         }
+    }
+}
+
+struct ProcessLabelView: View {
+    
+    var text: String
+    var color: Color
+    var body: some View {
+        Text(text)
+            .foregroundColor(color)
+            .frame(width: 300, height: 40, alignment: .center)
+                .background(Color(.systemBackground))
+                .cornerRadius(4)
+                .padding(50)
     }
 }
