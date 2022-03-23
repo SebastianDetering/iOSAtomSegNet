@@ -14,9 +14,9 @@ struct ModelPickerView: View {
                     ForEach(MLModels.allCases, id: \.self) {
                         Text( $0.rawValue ).tag( $0 )
                     }
-                } .pickerStyle(.wheel)
+                } .pickerStyle(.menu)
                 Spacer()
-            }.frame(width: 400, height: 220, alignment: .trailing)
+            }.frame(width: 400, height: 60, alignment: .center)
                 .background(Color(.systemBackground))
                 .cornerRadius(4)
         }

@@ -38,6 +38,6 @@ struct ProcessLabelView: View {
             .frame(width: 300, height: 40, alignment: .center)
                 .background(Color(.systemBackground))
                 .cornerRadius(4)
-                .padding(50)
+                .padding(5)
     }
 }

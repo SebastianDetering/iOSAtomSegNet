@@ -20,7 +20,7 @@ struct ProcessActionsView: View {
                                                     systemName: "tray.and.arrow.down",
                                                     relatedImage: $processingVM.cgImageOutput)
                 } )
-            } .padding(10)
+            }
         .alert(item: $processingVM.alertItem) {
             alertItem in
             Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
