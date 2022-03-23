@@ -49,16 +49,16 @@ struct ImageGalleryView: View {
                 } .navigationBarHidden(galleryImages.count > 0)
                 .navigationBarTitle("no sources")
             }
-            .sheet(isPresented: $processingViewModel.inspectingImage) {
-                ImageInspectView(homeVM: homeVM,
-                                 processingVM: processingViewModel)
-            }
             ImageActionsView(isImportViewShowing: $homeVM.showingImagePicker,
                              hasPermission: $homeVM.hasRunPermissionSelector,
                              isPermissionsShowing: $homeVM.showingPermissionsSelector,
                              parent: self )
                 .padding(.bottom, 10)
-        }  .onChange(of: homeVM.importImage) {
+        }.sheet(isPresented: $processingViewModel.inspectingImage) {
+            ImageInspectView(homeVM: homeVM,
+                             processingVM: processingViewModel)
+        }
+        .onChange(of: homeVM.importImage) {
             newImage in
             withAnimation {
             newGalleryImage()
@@ -135,14 +135,14 @@ struct ImageGalleryView: View {
         homeVM.loadedPackagedImages = true
     }
     private func moveToProcessingView(image: Data?, imageName: String, id: UUID?) { // moving the source to processing, and some cleanup
-        processingViewModel.newSourceImage(sourceType: .Images,
+            processingViewModel.inspectingImage = false
+            processingViewModel.newSourceImage(sourceType: .Images,
                                            image: image,
                                            imageName: imageName,
                                            id: id)
             processingViewModel.setWorkingImage()
             processingViewModel.clearOuputsImage()
             homeVM.selection = .NeuralNet
-            processingViewModel.inspectingImage = false
     }
 }
 

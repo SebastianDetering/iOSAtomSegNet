@@ -1,10 +1,3 @@
-//
-//  ModelOutputsView.swift
-//  iOSAtomSegNet
-//
-//  Created by sebi d on 12/21/21.
-//
-
 import SwiftUI
 
 struct ModelOutputsView: View {

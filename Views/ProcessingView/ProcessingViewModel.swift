@@ -41,7 +41,6 @@ final class ProcessingViewModel: ObservableObject {
     @Published var workingImage: CGImage? // process source
     @Published var cgImageOutput : CGImage? // outputs
     
-
     @Published var workingImageName: String?
     @Published var sourceImageName: String?
     @Published var modelUsed: String?

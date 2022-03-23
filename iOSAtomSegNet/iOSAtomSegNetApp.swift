@@ -13,20 +13,21 @@ struct iOSAtomSegNetApp: App {
             ZStack{
                 HomeTabView(processingViewModel: processingViewModel,
                             homeViewModel: homeViewModel)
-                    // add another alert for importing, exporting as part of Home View Model, or refactor processingViewModel
-                    .alert(item: $processingViewModel.alertItem) {
-                        alertItem in
-                        Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
-                    }
-                    .environment(\.managedObjectContext,
-                                 persistenceController.container.viewContext)
-                    .sheet(isPresented: $homeViewModel.showingImagePicker) {
-                        ImagePicker(imageName: $homeViewModel.importImageName,
-                                                image: $homeViewModel.importImage,
-                                                isShowing: $homeViewModel.showingImagePicker,
-                                                hasImported: $homeViewModel.didLoadNewImage
-                                               )
-                         }
+                .environment(\.managedObjectContext,
+                              persistenceController.container.viewContext)
+                // add another alert for importing, exporting as part of Home View Model, or refactor processingViewModel
+                .alert(item: $processingViewModel.alertItem) {
+                    alertItem in
+                    Alert(title: Text(alertItem.title), message: Text(alertItem.message), dismissButton: alertItem.dismissButton)
+                }
+                
+                .sheet(isPresented: $homeViewModel.showingImagePicker) {
+                    ImagePicker(imageName: $homeViewModel.importImageName,
+                                image: $homeViewModel.importImage,
+                                isShowing: $homeViewModel.showingImagePicker,
+                                hasImported: $homeViewModel.didLoadNewImage
+                    )
+                }
                 
                 if homeViewModel.showingPermissionsSelector {
                         PermissionsView(isShowing: $homeViewModel.showingPermissionsSelector,

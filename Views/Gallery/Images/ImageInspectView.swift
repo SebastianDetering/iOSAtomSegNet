@@ -51,18 +51,15 @@ struct ImageInspectView: View {
                         
                        }
                 )
-            BackButton(text: "close",
-                       isShowingView: $processingVM.inspectingImage,
-                       previousView: .constant(HomeTabs.Gallery),
-                       currentView: .constant(HomeTabs.Gallery) )
+            CloseButton(isShowingView: $processingVM.inspectingImage )
             }
         }
     }
     private func moveToProcessingView() { // moving the source to processing, and some cleanup
-            processingVM.setWorkingImage()
-            processingVM.clearOuputsImage()
-            homeVM.selection = .NeuralNet
-            processingVM.inspectingImage = false
+        processingVM.inspectingImage = false
+        processingVM.setWorkingImage()
+        processingVM.clearOuputsImage()
+        homeVM.selection = .NeuralNet
     }
 }
 

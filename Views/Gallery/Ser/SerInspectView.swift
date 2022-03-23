@@ -26,10 +26,7 @@ struct SerInspectView: View {
                     SerImageDataView(serEntity: $entityInspecting,
                                      loading: $processingVM.loadingSourceImage,
                                      sourceImage: $processingVM.sourceImage)
-                    BackButton(text: "close",
-                               isShowingView: $processingVM.inspectingImage,
-                               previousView: .constant(HomeTabs.Gallery),
-                               currentView: .constant(HomeTabs.Gallery) )
+                    CloseButton(isShowingView: $processingVM.inspectingImage )
                 }
             }
         } .onAppear {
@@ -42,8 +39,8 @@ struct SerInspectView: View {
                 }
                     if let fetchedHeader = SegNetIOManager.getHeader() {
                         _serHeader = fetchedHeader
+                        _serHeaderDescription = SegNetIOManager.getHeaderDescription()
                     }
-                _serHeaderDescription = SegNetIOManager.getHeaderDescription()
                     if entityInspecting?.imageData == nil { // write to ser Entity's image data the cgImage data
                         processingVM.newSourceImage(sourceType: .SerFile,
                                                     image: nil,
