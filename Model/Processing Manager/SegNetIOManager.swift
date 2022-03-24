@@ -14,7 +14,7 @@ import LASwift
 enum SegNetDataTypes {
     case Images
     case SerFile
-    case DM3File
+    case EmiFile
 }
 
 final class SegNetIOManager {
@@ -92,7 +92,7 @@ final class SegNetIOManager {
                 guard let (_mlMatrixOutput, _cgModelOutput) = try getCGActivations(image: inputImage, modelType: _currentModel) as? (Matrix, CGImage) else { throw ModelIOErrors.GetActivationsError }
                 completed(.success( _cgModelOutput )) //MARK: unsafe
                 return
-            case .DM3File:
+            case .EmiFile:
                 completed(.failure(ModelIOErrors.NotConfigured   ))
             }
             

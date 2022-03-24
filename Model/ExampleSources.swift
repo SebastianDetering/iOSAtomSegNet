@@ -31,9 +31,9 @@ var exampleSerFiles: [SerFile] = [SerFile(id: UUID(uuidString: "276E29B6-AF73-49
 var exampleImages: [ExampleImage] = [ExampleImage(id: UUID(uuidString: "777F5628-A6FA-4DCF-B3D8-0F03863DBDD7")!,
                                                   name: "tem2",
                                                   date: Date(timeIntervalSince1970: 1644111302.434362)),
-                                     ExampleImage(id: UUID(uuidString: "C18E24C0-B344-449A-A39D-6FA8110AD544")!,
-                                                  name: "tem-12",
-                                                  date: Date(timeIntervalSince1970: 1644111302.434362)),
+//                                     ExampleImage(id: UUID(uuidString: "C18E24C0-B344-449A-A39D-6FA8110AD544")!,
+//                                                  name: "tem-12",
+//                                                  date: Date(timeIntervalSince1970: 1644111302.434362)), // Mar 24 tem-12 has a bug, zeros on the pixel data when input to model somehow which is very strange
                                      ExampleImage(id: UUID(uuidString: "98BC0215-6EE1-4D17-9AA9-571BE2E975C6")!,
                                                   name:"12219",
                                                   date: Date(timeIntervalSince1970: 1644111302.434362)),

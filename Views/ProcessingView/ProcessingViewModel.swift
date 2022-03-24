@@ -107,8 +107,8 @@ final class ProcessingViewModel: ObservableObject {
                     }
                 }
             }
-        case .DM3File:
-            print("DM3 file not programmed yet.")
+        case .EmiFile:
+            print("emi file not programmed yet.")
         }
         if (sourceImage?.width ?? 1000 <= 512) && (sourceImage?.height ?? 1000 <= 512) {
             processStatus = .ReadyToProcess

@@ -10,7 +10,7 @@ import SwiftUI
 enum GalleryTabs {
     case ImageGallery
     case SerGallery
-    case DM3Gallery
+    case EmiGallery
 }
 
 struct GalleryView: View {
@@ -34,8 +34,8 @@ struct GalleryView: View {
                 } else if gallerySelection == .SerGallery {
                     SerGalleryView(homeVM: homeVM,
                                    processingVM: processingViewModel)
-                } else if gallerySelection == .DM3Gallery {
-                    Text("Dm3 file coming soon")
+                } else if gallerySelection == .EmiGallery {
+                    Text("emi file coming soon")
                     Spacer()
                 }
             } .background(Color.brandBackground)

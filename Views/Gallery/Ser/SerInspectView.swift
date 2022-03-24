@@ -32,7 +32,6 @@ struct SerInspectView: View {
                             isSharing = true
                         }
                     }, label: {SerShareButton(serEntity: $entityInspecting)})
-                    
                         CloseButton(isShowingView: $processingVM.inspectingImage ) }
                 }
             }

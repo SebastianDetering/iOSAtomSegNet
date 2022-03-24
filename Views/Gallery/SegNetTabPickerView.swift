@@ -19,12 +19,12 @@ struct SegNetTabPickerView: View {
                 .onTapGesture {
                     self.gallerySelection = .SerGallery
                 }
-//            GalleryTypeButton(text: "dm3 files",
+//            GalleryTypeButton(text: "emi files",
 //                              systemName: "doc.text.fill",
-//                              galleryType: .DM3Gallery,
+//                              galleryType: .EmiGallery,
 //                              gallerySelection: $gallerySelection)
 //                .onTapGesture {
-//                    self.gallerySelection = .DM3Gallery
+//                    self.gallerySelection = .EmiGallery
 //                }
         }
     }
