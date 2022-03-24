@@ -52,7 +52,9 @@ struct ImageInspectView: View {
                        }
                 )
             CloseButton(isShowingView: $processingVM.inspectingImage )
-            }
+            } .zIndex(-1)
+            .frame(minWidth: 600, idealWidth: .greatestFiniteMagnitude, maxWidth: .greatestFiniteMagnitude, minHeight: 1200, idealHeight: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .center)
+                .background(LinearGradient(gradient: Gradient(colors: [processingVM.topGradientColor, processingVM.bottomGradientColor]), startPoint: .top, endPoint: .bottom))
         }
     }
     private func moveToProcessingView() { // moving the source to processing, and some cleanup

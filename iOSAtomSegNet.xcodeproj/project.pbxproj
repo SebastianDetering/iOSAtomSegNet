@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		9234ACE427EA80470038F330 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234ACE327EA80470038F330 /* ShareButton.swift */; };
 		9234ACE627EA81640038F330 /* OutputActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234ACE527EA81640038F330 /* OutputActionsView.swift */; };
 		9234ACE827EA84300038F330 /* UIActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234ACE727EA84300038F330 /* UIActivityView.swift */; };
+		9234ACF227EB8E050038F330 /* PermissionsSwiftUIPhoto in Frameworks */ = {isa = PBXBuildFile; productRef = 9234ACF127EB8E050038F330 /* PermissionsSwiftUIPhoto */; };
 		923F52AE27EA1982007D16E5 /* ImageActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52AD27EA1982007D16E5 /* ImageActionsView.swift */; };
 		923F52B027EA33CF007D16E5 /* OutputEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52AF27EA33CF007D16E5 /* OutputEntityView.swift */; };
 		923F52B227EA355B007D16E5 /* ProcessStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B127EA355B007D16E5 /* ProcessStatusView.swift */; };
@@ -177,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9234ACF227EB8E050038F330 /* PermissionsSwiftUIPhoto in Frameworks */,
 				92A5AEC4276D2E890012A0EA /* LASwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +435,9 @@
 			dependencies = (
 			);
 			name = iOSAtomSegNet;
+			packageProductDependencies = (
+				9234ACF127EB8E050038F330 /* PermissionsSwiftUIPhoto */,
+			);
 			productName = iOSAtomSegNet;
 			productReference = 92A5AEB0276D2DBA0012A0EA /* iOSAtomSegNet.app */;
 			productType = "com.apple.product-type.application";
@@ -461,6 +466,9 @@
 				Base,
 			);
 			mainGroup = 92A5AEA7276D2DBA0012A0EA;
+			packageReferences = (
+				9234ACF027EB8E050038F330 /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */,
+			);
 			productRefGroup = 92A5AEB1276D2DBA0012A0EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -760,6 +768,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9234ACF027EB8E050038F330 /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jevonmao/PermissionsSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9234ACF127EB8E050038F330 /* PermissionsSwiftUIPhoto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9234ACF027EB8E050038F330 /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUIPhoto;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		92C6998627AF1F2600B42FE4 /* DataModel.xcdatamodeld */ = {

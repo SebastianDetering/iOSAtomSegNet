@@ -1,4 +1,5 @@
 import SwiftUI
+import PermissionsSwiftUIPhoto
 
 struct SerGalleryView: View {
     
@@ -10,15 +11,15 @@ struct SerGalleryView: View {
 
     @StateObject var homeVM: HomeTabViewModel
     @StateObject var processingVM: ProcessingViewModel
-    @StateObject var importViewModel: SerImportViewModel = SerImportViewModel()
     
+    @State  var isImporting: Bool = false
     @State private var fileSelected = Set<UUID>()
     @State private var serName: String = ""
     @State private var serObject: SerEntity?
+    @State var fileDocument: SerDocument? = nil  // refactoring into View Model Broke this setup
     
     var body: some View {
-        ZStack {
-            SerImportView(importViewModel: importViewModel)
+        VStack {
         NavigationView {
             List(selection: $fileSelected) {
                 ForEach(serEntities) {
@@ -53,20 +54,39 @@ struct SerGalleryView: View {
             
         }
         SerActionsView( parent: self)
-        } .onChange(of: importViewModel.fileDocument) {
-            newSer in
-            withAnimation {
-            newSerEntity()
+        } .fileImporter(
+            isPresented: $isImporting,
+            allowedContentTypes: [.data, .plainText],
+            allowsMultipleSelection: false
+        ) { result in
+            do {
+                    guard let selectedFile: URL = try result.get().first else { return }
+                    if selectedFile.startAccessingSecurityScopedResource() {
+                        let data = try Data(contentsOf: selectedFile)
+                        defer { selectedFile.stopAccessingSecurityScopedResource()}
+                        fileDocument = SerDocument(rawData: data)
+                    } else {
+                        print("No permission for this url")
+                        throw "problem, denied by startAccessingSecurityScopedResource"
+                    }
+            } catch let error {
+                // Handle failure.
+                print("error getting file")
+                print(error.localizedDescription)
             }
+        }
+            .onChange(of: fileDocument) {
+            newSer in
+            newSerEntity()
         }
     }
     func newSerEntity() { // refactor to test if this will be a valid
-        guard let serToAdd = importViewModel.fileDocument?.binary else { return }
+        guard let serToAdd = fileDocument?.binary else { return }
         var newSer = SerEntity(context: viewContext)
         newSer.serBinary = serToAdd
         newSer.date = Date()
         newSer.id = UUID()
-        newSer.name  =  importViewModel.fileDocument.debugDescription
+        newSer.name  =  fileDocument.debugDescription
         saveContext()
         homeVM.didLoadNewImage = false
     }
@@ -109,7 +129,7 @@ struct SerGalleryView: View {
     }
     
     func importSerFile() {
-        importViewModel.isImporting = true
+        isImporting.toggle()
     }
 }
 
@@ -127,7 +147,6 @@ struct SerActionsView: View {
             })
             
             Button(action: {
-                
                 parent.getExampleAssets() // put in special settings (user can retrieve assets if deleted accidentally.)
             }, label: {
                 Text("example ser files")

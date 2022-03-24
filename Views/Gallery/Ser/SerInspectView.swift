@@ -47,7 +47,6 @@ struct SerInspectView: View {
                                                     imageName: entityInspecting?.name ?? "name nil!",
                                                     id: entityInspecting?.id,
                                                     serEntity: $entityInspecting)
-                        parent.saveContext()
                     }
                 } else {
                     _errorDescription = "Ser file was nil"
