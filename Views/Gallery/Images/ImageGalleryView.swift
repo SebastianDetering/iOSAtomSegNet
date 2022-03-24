@@ -51,7 +51,6 @@ struct ImageGalleryView: View {
                     .navigationBarTitle("no sources")
                 }
                 ImageActionsView(isImportViewShowing: $homeVM.showingImagePicker,
-                                 hasPermission: $homeVM.hasRunPermissionSelector,
                                  isPermissionsShowing: $homeVM.showingPermissionsSelector,
                                  parent: self )
                     .padding(.bottom, 10)

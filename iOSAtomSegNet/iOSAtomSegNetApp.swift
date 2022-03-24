@@ -28,11 +28,9 @@ struct iOSAtomSegNetApp: App {
                                 hasImported: $homeViewModel.didLoadNewImage
                     )
                 }
+                    PermissionsView(isShowing: $homeViewModel.showingPermissionsSelector)
                 
-                if homeViewModel.showingPermissionsSelector {
-                        PermissionsView(isShowing: $homeViewModel.showingPermissionsSelector,
-                                        gotPermission: $homeViewModel.hasRunPermissionSelector)
-                    }
+                    TestLimitedLibraryPicker(isPresented: $homeViewModel.showingLimitedSelector)
                 
             }.onAppear {
                 MLModelLibrary.fillLibrary()
