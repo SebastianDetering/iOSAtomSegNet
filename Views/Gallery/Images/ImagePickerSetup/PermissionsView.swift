@@ -5,8 +5,7 @@ struct PermissionsView: UIViewControllerRepresentable {
     @Binding var isShowing: Bool
     
     func makeUIViewController(context: Context) -> PermissionsViewController {
-        guard let permissionsVC = PermissionsViewController(showing: $isShowing) else { fatalError("Could not make the permissions view controller")}
-        return permissionsVC
+        return PermissionsViewController()
     }
     
     func updateUIViewController(_ uiViewController: PermissionsViewController, context: Context) {

@@ -22,9 +22,9 @@ var exampleSerFiles: [SerFile] = [SerFile(id: UUID(uuidString: "276E29B6-AF73-49
                                   SerFile(id: UUID(uuidString: "CEAE6C3B-25AA-4196-B3DE-E526D6F83CFE")!,
                                           name: "20.40.16 Scanning Acquire_0000_2",
                                           date: Date(timeIntervalSince1970: 1644111302.434362)),
-                                  SerFile(id: UUID(uuidString: "C8ACB5C8-D2E5-4A80-B787-2032DFCD6452")!,
-                                          name: "20.40.16 Scanning Acquire_0000",
-                                          date: Date(timeIntervalSince1970: 1644111302.434362))
+//                                  SerFile(id: UUID(uuidString: "C8ACB5C8-D2E5-4A80-B787-2032DFCD6452")!,
+//                                          name: "20.40.16 Scanning Acquire_0000",
+//                                          date: Date(timeIntervalSince1970: 1644111302.434362))  // this was .emi
 ]
 
                                      

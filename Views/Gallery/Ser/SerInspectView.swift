@@ -9,7 +9,8 @@ struct SerInspectView: View {
     @State private var _serHeader: SerHeader = SerHeader()
     @State private var _serHeaderDescription: SerHeaderDescription = SerHeaderDescription()
     @State private var _errorDescription: String?
-
+    @State private var isSharing = false
+    
     @Binding var serFileName: String
         
     var body: some View {
@@ -26,7 +27,13 @@ struct SerInspectView: View {
                     SerImageDataView(serEntity: $entityInspecting,
                                      loading: $processingVM.loadingSourceImage,
                                      sourceImage: $processingVM.sourceImage)
-                    CloseButton(isShowingView: $processingVM.inspectingImage )
+                    HStack {Button(action: {
+                        if entityInspecting?.imageData != nil {
+                            isSharing = true
+                        }
+                    }, label: {SerShareButton(serEntity: $entityInspecting)})
+                    
+                        CloseButton(isShowingView: $processingVM.inspectingImage ) }
                 }
             }
         } .onAppear {
@@ -53,6 +60,9 @@ struct SerInspectView: View {
                 }
         }
     }
+        .sheet(isPresented: $isSharing, content: {
+            ActivityView(activityItems: [entityInspecting?.imageData])
+        })
     }
 }
 

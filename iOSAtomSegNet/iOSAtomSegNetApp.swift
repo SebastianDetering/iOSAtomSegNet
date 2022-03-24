@@ -28,10 +28,10 @@ struct iOSAtomSegNetApp: App {
                                 hasImported: $homeViewModel.didLoadNewImage
                     )
                 }
-                    PermissionsView(isShowing: $homeViewModel.showingPermissionsSelector)
-                
+             //       PermissionsView(isShowing: $homeViewModel.showingPermissionsSelector)
+                .sheet(isPresented: $homeViewModel.showingLimitedSelector) {
                     TestLimitedLibraryPicker(isPresented: $homeViewModel.showingLimitedSelector)
-                
+                }
             }.onAppear {
                 MLModelLibrary.fillLibrary()
             }

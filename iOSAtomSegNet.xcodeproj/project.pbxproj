@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,7 +23,6 @@
 		9234ACE427EA80470038F330 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234ACE327EA80470038F330 /* ShareButton.swift */; };
 		9234ACE627EA81640038F330 /* OutputActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234ACE527EA81640038F330 /* OutputActionsView.swift */; };
 		9234ACE827EA84300038F330 /* UIActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234ACE727EA84300038F330 /* UIActivityView.swift */; };
-		9234ACF227EB8E050038F330 /* PermissionsSwiftUIPhoto in Frameworks */ = {isa = PBXBuildFile; productRef = 9234ACF127EB8E050038F330 /* PermissionsSwiftUIPhoto */; };
 		9234ACF527ECCC100038F330 /* LimitedImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234ACF427ECCC100038F330 /* LimitedImagePicker.swift */; };
 		923F52AE27EA1982007D16E5 /* ImageActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52AD27EA1982007D16E5 /* ImageActionsView.swift */; };
 		923F52B027EA33CF007D16E5 /* OutputEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52AF27EA33CF007D16E5 /* OutputEntityView.swift */; };
@@ -168,7 +167,6 @@
 		92A5AF312773C48A0012A0EA /* 20.40.16 Scanning Acquire_0000_1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "20.40.16 Scanning Acquire_0000_1"; sourceTree = "<group>"; };
 		92A5AF322773C48A0012A0EA /* Scanning Preview_0000_1.ser */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Scanning Preview_0000_1.ser"; sourceTree = "<group>"; };
 		92A5AF482779568D0012A0EA /* RunInferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInferenceButton.swift; sourceTree = "<group>"; };
-		92A5AF4C277A74010012A0EA /* 20.40.16 Scanning Acquire_0000_2.ser */ = {isa = PBXFileReference; lastKnownFileType = file; name = "20.40.16 Scanning Acquire_0000_2.ser"; path = "iOSAtomSegNet/Assets.xcassets/20.40.16 Scanning Acquire_0000_2.dataset/20.40.16 Scanning Acquire_0000_2.ser"; sourceTree = SOURCE_ROOT; };
 		92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInspectView.swift; sourceTree = "<group>"; };
 		92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		92B0FB2527B8674100D4478E /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9234ACF227EB8E050038F330 /* PermissionsSwiftUIPhoto in Frameworks */,
 				92A5AEC4276D2E890012A0EA /* LASwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,7 +377,6 @@
 		92A5AF2E2773C4890012A0EA /* Ser Test Files */ = {
 			isa = PBXGroup;
 			children = (
-				92A5AF4C277A74010012A0EA /* 20.40.16 Scanning Acquire_0000_2.ser */,
 				92A5AF2F2773C4890012A0EA /* 20.40.16 Scanning Acquire_0000.emi */,
 				92A5AF302773C4890012A0EA /* 20.40.16 Scanning Acquire_0000_1.ser */,
 				92A5AF312773C48A0012A0EA /* 20.40.16 Scanning Acquire_0000_1 */,
@@ -447,7 +443,6 @@
 			);
 			name = iOSAtomSegNet;
 			packageProductDependencies = (
-				9234ACF127EB8E050038F330 /* PermissionsSwiftUIPhoto */,
 			);
 			productName = iOSAtomSegNet;
 			productReference = 92A5AEB0276D2DBA0012A0EA /* iOSAtomSegNet.app */;
@@ -478,7 +473,6 @@
 			);
 			mainGroup = 92A5AEA7276D2DBA0012A0EA;
 			packageReferences = (
-				9234ACF027EB8E050038F330 /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */,
 			);
 			productRefGroup = 92A5AEB1276D2DBA0012A0EA /* Products */;
 			projectDirPath = "";
@@ -780,25 +774,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9234ACF027EB8E050038F330 /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jevonmao/PermissionsSwiftUI";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9234ACF127EB8E050038F330 /* PermissionsSwiftUIPhoto */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9234ACF027EB8E050038F330 /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
-			productName = PermissionsSwiftUIPhoto;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		92C6998627AF1F2600B42FE4 /* DataModel.xcdatamodeld */ = {

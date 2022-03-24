@@ -11,6 +11,7 @@ struct ImageActionsView: View {
         HStack {
             Button(action: {
                 let authorization = PHPhotoLibrary.authorizationStatus()
+                print("switching on image authorization status: \(authorization)")
                 switch authorization {
                 case .notDetermined:
                     parent.homeVM.showingPermissionsSelector = true
