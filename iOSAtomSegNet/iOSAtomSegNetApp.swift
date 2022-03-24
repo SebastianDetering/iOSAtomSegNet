@@ -28,10 +28,11 @@ struct iOSAtomSegNetApp: App {
                                 hasImported: $homeViewModel.didLoadNewImage
                     )
                 }
-             //       PermissionsView(isShowing: $homeViewModel.showingPermissionsSelector)
-                .sheet(isPresented: $homeViewModel.showingLimitedSelector) {
-                    TestLimitedLibraryPicker(isPresented: $homeViewModel.showingLimitedSelector)
-                }
+                
+                .JMModal(showModal: $homeViewModel.showingPermissionsSelector, for: [.photo], autoDismiss: true, autoCheckAuthorization: false, restrictDismissal: false)
+                .changeHeaderTo("App Permissions")
+                .changeHeaderDescriptionTo("Export and Import of images requires photos access.")
+                .changeBottomDescriptionTo("Allowing the app to import photos provides the app access to airdropped and saved user photos. If you change your mind, you must using settings to change authorization")
             }.onAppear {
                 MLModelLibrary.fillLibrary()
             }

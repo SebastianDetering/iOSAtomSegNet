@@ -22,7 +22,7 @@ struct ImageActionsView: View {
                 case .authorized:
                     parent.homeVM.showingImagePicker = true
                 case .limited:
-                    parent.homeVM.showingLimitedSelector = true
+                    parent.homeVM.showingImagePicker = true
                 @unknown default:
                     print("unhandled authorization status")
                     break

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,7 @@
 		923F52B227EA355B007D16E5 /* ProcessStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B127EA355B007D16E5 /* ProcessStatusView.swift */; };
 		923F52B527EA3D03007D16E5 /* GalleryTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B427EA3D03007D16E5 /* GalleryTypeButton.swift */; };
 		923F52B727EA40B5007D16E5 /* ProcessActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B627EA40B5007D16E5 /* ProcessActionsView.swift */; };
+		9246F88D27ED0DF000C25F31 /* PermissionsSwiftUIPhoto in Frameworks */ = {isa = PBXBuildFile; productRef = 9246F88C27ED0DF000C25F31 /* PermissionsSwiftUIPhoto */; };
 		9286C83A278E106100A3101E /* FileSer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C837278E106100A3101E /* FileSer.swift */; };
 		9286C83B278E106100A3101E /* FileRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C838278E106100A3101E /* FileRead.swift */; };
 		9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C839278E106100A3101E /* PythonPortHelpers.swift */; };
@@ -178,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9246F88D27ED0DF000C25F31 /* PermissionsSwiftUIPhoto in Frameworks */,
 				92A5AEC4276D2E890012A0EA /* LASwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +445,7 @@
 			);
 			name = iOSAtomSegNet;
 			packageProductDependencies = (
+				9246F88C27ED0DF000C25F31 /* PermissionsSwiftUIPhoto */,
 			);
 			productName = iOSAtomSegNet;
 			productReference = 92A5AEB0276D2DBA0012A0EA /* iOSAtomSegNet.app */;
@@ -473,6 +476,7 @@
 			);
 			mainGroup = 92A5AEA7276D2DBA0012A0EA;
 			packageReferences = (
+				9246F88B27ED0DF000C25F31 /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */,
 			);
 			productRefGroup = 92A5AEB1276D2DBA0012A0EA /* Products */;
 			projectDirPath = "";
@@ -774,6 +778,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9246F88B27ED0DF000C25F31 /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jevonmao/PermissionsSwiftUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9246F88C27ED0DF000C25F31 /* PermissionsSwiftUIPhoto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9246F88B27ED0DF000C25F31 /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUIPhoto;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		92C6998627AF1F2600B42FE4 /* DataModel.xcdatamodeld */ = {

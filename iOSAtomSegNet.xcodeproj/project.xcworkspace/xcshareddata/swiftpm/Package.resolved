@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "permissionsswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jevonmao/PermissionsSwiftUI",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b19c90ca935ca15cc3b8d5ecc2800c320d3d6a0d"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/SwiftUI-Introspect",
+      "state" : {
+        "revision" : "f2616860a41f9d9932da412a8978fec79c06fe24",
+        "version" : "0.1.4"
+      }
+    }
+  ],
+  "version" : 2
+}
