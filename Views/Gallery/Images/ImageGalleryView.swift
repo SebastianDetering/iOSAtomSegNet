@@ -12,6 +12,8 @@ struct ImageGalleryView: View {
     @StateObject var processingViewModel: ProcessingViewModel
     @StateObject var viewModel = GalleryViewModel()
     
+    @State private var importedName: String? = nil
+    
     var body: some View {
             VStack {
                 NavigationView {
@@ -50,10 +52,13 @@ struct ImageGalleryView: View {
                     } .navigationBarHidden(galleryImages.count > 0)
                     .navigationBarTitle("no sources")
                 }
+                VStack {
+                    ImageImportStatusView(importStatus: $homeVM.importStatus, importedName: $importedName, entityNumber: galleryImages.count)
                 ImageActionsView(isImportViewShowing: $homeVM.showingImagePicker,
                                  isPermissionsShowing: $homeVM.showingPermissionsSelector,
                                  parent: self )
                     .padding(.bottom, 10)
+                }
             }.sheet(isPresented: $processingViewModel.inspectingImage) {
                 ImageInspectView(homeVM: homeVM,
                                  processingVM: processingViewModel)
@@ -65,6 +70,7 @@ struct ImageGalleryView: View {
                 }
             }
             .onAppear(perform: {
+                homeVM.importStatus = .NoImport
                 if !(homeVM.loadedPackagedImages) {
                     getExampleAssets() // attempted refactor, we'll see how this goes
                 }
@@ -93,6 +99,8 @@ struct ImageGalleryView: View {
         newGalleryImage.id = UUID()
         if let newName = homeVM.importImageName {
             newGalleryImage.name  = newName
+            importedName = newName
+            homeVM.importStatus = .Success
         }
         saveContext()
         homeVM.didLoadNewImage = false

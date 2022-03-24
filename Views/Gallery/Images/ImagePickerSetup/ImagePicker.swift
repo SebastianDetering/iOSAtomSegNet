@@ -1,6 +1,11 @@
 import PhotosUI
 import SwiftUI
 
+enum ImportStatuses {
+    case NoImport
+    case Success
+    case Denied
+}
 struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var imageName: String?
@@ -8,6 +13,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var isShowing: Bool
     @Binding var hasImported: Bool
+    @Binding var importStatus: ImportStatuses
     
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
         var parent: ImagePicker
@@ -38,10 +44,33 @@ struct ImagePicker: UIViewControllerRepresentable {
                         self.parent.image = importedImage
                         // publishing changes from background not allowed warning
                     }
+                } else {
+                    self.parent.importStatus = .Denied
                 }
                 parent.isShowing = false
             case .limited:
-               print("Probably want to add more photos in this case")
+                // iOS 15 we never reached the case for limited... selected was able to see all, just not access certain photos, so the
+                // app doesn't know what the possible photos are, and is in the 'authorized' state after selected photos is picked
+                picker.dismiss(animated: true)
+                
+                guard let provider = results.first?.itemProvider else { return }
+                
+                self.parent.image = nil
+                if provider.canLoadObject(ofClass: UIImage.self) {
+                    provider.loadObject(ofClass: UIImage.self) { image, _ in
+                        guard let importedImage = image as? UIImage  else {
+                            self.parent.hasImported = false
+                            self.parent.isShowing = false
+                            return
+                        }
+                        if let importName = results.first?.itemProvider.suggestedName {
+                        self.parent.imageName = importName
+                        }
+                        self.parent.image = importedImage
+                        // publishing changes from background not allowed warning
+                    }
+                }
+                parent.isShowing = false
             default:
                 print("other case \(authorization.rawValue)")
                 parent.isShowing = false

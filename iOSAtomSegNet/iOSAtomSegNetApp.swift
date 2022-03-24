@@ -25,8 +25,8 @@ struct iOSAtomSegNetApp: App {
                     ImagePicker(imageName: $homeViewModel.importImageName,
                                 image: $homeViewModel.importImage,
                                 isShowing: $homeViewModel.showingImagePicker,
-                                hasImported: $homeViewModel.didLoadNewImage
-                    )
+                                hasImported: $homeViewModel.didLoadNewImage,
+                                importStatus: $homeViewModel.importStatus)
                 }
                 
                 .JMModal(showModal: $homeViewModel.showingPermissionsSelector, for: [.photo], autoDismiss: true, autoCheckAuthorization: false, restrictDismissal: false)

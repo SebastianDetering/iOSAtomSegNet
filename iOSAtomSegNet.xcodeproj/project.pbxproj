@@ -14,10 +14,8 @@
 		921916C527A78B3000A3FFE9 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C427A78B3000A3FFE9 /* Alert.swift */; };
 		921916C727A7908600A3FFE9 /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C627A7908600A3FFE9 /* ImageGalleryView.swift */; };
 		921916C927A790B800A3FFE9 /* SerGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C827A790B800A3FFE9 /* SerGalleryView.swift */; };
-		921916CC27A795A900A3FFE9 /* SerImportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916CB27A795A900A3FFE9 /* SerImportViewModel.swift */; };
 		921916D527A9CC9000A3FFE9 /* HomeTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */; };
 		9220387027E9256F0020919A /* SerInspectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220386F27E9256F0020919A /* SerInspectView.swift */; };
-		9220387227E925A00020919A /* SerImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220387127E925A00020919A /* SerImportView.swift */; };
 		923279F527AD82190080F2EB /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923279F427AD82190080F2EB /* PermissionsView.swift */; };
 		923279F727AD82270080F2EB /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923279F627AD82270080F2EB /* PermissionsViewController.swift */; };
 		9234ACE427EA80470038F330 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234ACE327EA80470038F330 /* ShareButton.swift */; };
@@ -30,6 +28,7 @@
 		923F52B527EA3D03007D16E5 /* GalleryTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B427EA3D03007D16E5 /* GalleryTypeButton.swift */; };
 		923F52B727EA40B5007D16E5 /* ProcessActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F52B627EA40B5007D16E5 /* ProcessActionsView.swift */; };
 		9246F88D27ED0DF000C25F31 /* PermissionsSwiftUIPhoto in Frameworks */ = {isa = PBXBuildFile; productRef = 9246F88C27ED0DF000C25F31 /* PermissionsSwiftUIPhoto */; };
+		9246F88F27ED175700C25F31 /* ImportStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246F88E27ED175700C25F31 /* ImportStatusView.swift */; };
 		9286C83A278E106100A3101E /* FileSer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C837278E106100A3101E /* FileSer.swift */; };
 		9286C83B278E106100A3101E /* FileRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C838278E106100A3101E /* FileRead.swift */; };
 		9286C83C278E106100A3101E /* PythonPortHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286C839278E106100A3101E /* PythonPortHelpers.swift */; };
@@ -105,10 +104,8 @@
 		921916C427A78B3000A3FFE9 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		921916C627A7908600A3FFE9 /* ImageGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
 		921916C827A790B800A3FFE9 /* SerGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerGalleryView.swift; sourceTree = "<group>"; };
-		921916CB27A795A900A3FFE9 /* SerImportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerImportViewModel.swift; sourceTree = "<group>"; };
 		921916D427A9CC9000A3FFE9 /* HomeTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewModel.swift; sourceTree = "<group>"; };
 		9220386F27E9256F0020919A /* SerInspectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerInspectView.swift; sourceTree = "<group>"; };
-		9220387127E925A00020919A /* SerImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerImportView.swift; sourceTree = "<group>"; };
 		923279F427AD82190080F2EB /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
 		923279F627AD82270080F2EB /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
 		9234ACE327EA80470038F330 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
@@ -120,6 +117,7 @@
 		923F52B127EA355B007D16E5 /* ProcessStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusView.swift; sourceTree = "<group>"; };
 		923F52B427EA3D03007D16E5 /* GalleryTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTypeButton.swift; sourceTree = "<group>"; };
 		923F52B627EA40B5007D16E5 /* ProcessActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessActionsView.swift; sourceTree = "<group>"; };
+		9246F88E27ED175700C25F31 /* ImportStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportStatusView.swift; sourceTree = "<group>"; };
 		9286C837278E106100A3101E /* FileSer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSer.swift; sourceTree = "<group>"; };
 		9286C838278E106100A3101E /* FileRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRead.swift; sourceTree = "<group>"; };
 		9286C839278E106100A3101E /* PythonPortHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PythonPortHelpers.swift; sourceTree = "<group>"; };
@@ -206,8 +204,6 @@
 		921916CA27A7957000A3FFE9 /* Ser */ = {
 			isa = PBXGroup;
 			children = (
-				9220387127E925A00020919A /* SerImportView.swift */,
-				921916CB27A795A900A3FFE9 /* SerImportViewModel.swift */,
 				921916BE27A61C8200A3FFE9 /* Ser Detail Views */,
 				921916C827A790B800A3FFE9 /* SerGalleryView.swift */,
 				9209D3C227A39DFE008DEAFF /* SerDocument.swift */,
@@ -224,6 +220,7 @@
 				92B0FB2527B8674100D4478E /* UIScrollView.swift */,
 				92A5AF4D277AA65A0012A0EA /* ImageInspectView.swift */,
 				923F52AD27EA1982007D16E5 /* ImageActionsView.swift */,
+				9246F88E27ED175700C25F31 /* ImportStatusView.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -523,7 +520,6 @@
 				92A5AF1127713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel in Sources */,
 				92A5AF06276EF3D50012A0EA /* circularMask_1024.mlmodel in Sources */,
 				92A5AECC276D2EBB0012A0EA /* MatrixFromImage.swift in Sources */,
-				921916CC27A795A900A3FFE9 /* SerImportViewModel.swift in Sources */,
 				921916C027A7877B00A3FFE9 /* SegNetTabPickerView.swift in Sources */,
 				92A5AED4276D2EF50012A0EA /* ExampleSources.swift in Sources */,
 				92A5AEEE276D2F3A0012A0EA /* Errors.swift in Sources */,
@@ -538,7 +534,6 @@
 				92A5AEE0276D2F0F0012A0EA /* HomeTabView.swift in Sources */,
 				92A5AF1327713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel in Sources */,
 				923F52B227EA355B007D16E5 /* ProcessStatusView.swift in Sources */,
-				9220387227E925A00020919A /* SerImportView.swift in Sources */,
 				92A5AF50277B89BE0012A0EA /* ImagePicker.swift in Sources */,
 				9286C83A278E106100A3101E /* FileSer.swift in Sources */,
 				92A5AEF7276D2F500012A0EA /* gaussianMask.mlmodel in Sources */,
@@ -551,6 +546,7 @@
 				92A5AEFA276D2F500012A0EA /* denoise&bgremoval.mlmodel in Sources */,
 				923F52B727EA40B5007D16E5 /* ProcessActionsView.swift in Sources */,
 				92A5AF4E277AA65A0012A0EA /* ImageInspectView.swift in Sources */,
+				9246F88F27ED175700C25F31 /* ImportStatusView.swift in Sources */,
 				92A5AEED276D2F3A0012A0EA /* MLModelLibrary.swift in Sources */,
 				92B0FB2627B8674100D4478E /* UIScrollView.swift in Sources */,
 				92A5AEEB276D2F3A0012A0EA /* ImageConverter.swift in Sources */,

@@ -12,7 +12,9 @@ struct SerGalleryView: View {
     @StateObject var homeVM: HomeTabViewModel
     @StateObject var processingVM: ProcessingViewModel
     
-    @State  var isImporting: Bool = false
+    @State private var isImporting: Bool = false
+    @State private var importedName: String? = nil
+    
     @State private var fileSelected = Set<UUID>()
     @State private var serName: String = ""
     @State private var serObject: SerEntity?
@@ -40,7 +42,9 @@ struct SerGalleryView: View {
                             serObject = serEntity
                             processingVM.inspectingImage = true
                         }
-                }
+                }.onDelete(perform: { indexSet in
+                    deleteEntities(offsets: indexSet)
+                })
             } .sheet(isPresented: $processingVM.inspectingImage) {
                 SerInspectView(parent: self,
                                processingVM: processingVM,
@@ -62,6 +66,7 @@ struct SerGalleryView: View {
             do {
                     guard let selectedFile: URL = try result.get().first else { return }
                     if selectedFile.startAccessingSecurityScopedResource() {
+                        importedName = selectedFile.lastPathComponent
                         let data = try Data(contentsOf: selectedFile)
                         defer { selectedFile.stopAccessingSecurityScopedResource()}
                         fileDocument = SerDocument(rawData: data)
@@ -80,13 +85,19 @@ struct SerGalleryView: View {
             newSerEntity()
         }
     }
+    private func deleteEntities(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { serEntities[$0] }.forEach(viewContext.delete)
+            saveContext()
+        }
+    }
     func newSerEntity() { // refactor to test if this will be a valid
         guard let serToAdd = fileDocument?.binary else { return }
         var newSer = SerEntity(context: viewContext)
         newSer.serBinary = serToAdd
         newSer.date = Date()
         newSer.id = UUID()
-        newSer.name  =  fileDocument.debugDescription
+        newSer.name  = importedName
         saveContext()
         homeVM.didLoadNewImage = false
     }
@@ -144,14 +155,14 @@ struct SerActionsView: View {
             },
                    label: {
                 Text("import ser files")
-            })
+            }).padding(.trailing, 30)
             
             Button(action: {
                 parent.getExampleAssets() // put in special settings (user can retrieve assets if deleted accidentally.)
             }, label: {
                 Text("example ser files")
             })
-        }
+        } .padding(.bottom, 12)
     }
 }
 

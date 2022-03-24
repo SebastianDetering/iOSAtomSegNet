@@ -7,7 +7,7 @@ struct SerDocument: FileDocument, Equatable {
     static var readableContentTypes: [UTType] { [.data] }
 
     var binary: Data
-
+    
     init(rawData: Data) {
         self.binary = rawData
     }
