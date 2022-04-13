@@ -7,7 +7,7 @@ struct iOSAtomSegNetApp: App {
     @StateObject var homeViewModel = HomeTabViewModel()
     // this way of doing it doesnt show the image picker right after permissions selector finished running
     let persistenceController = PersistenceController.shared
-    
+   
     var body: some Scene {
         WindowGroup {
             ZStack{
@@ -35,6 +35,9 @@ struct iOSAtomSegNetApp: App {
                 .changeBottomDescriptionTo("Allowing the app to import photos provides the app access to airdropped and saved user photos. If you change your mind, you must using settings to change authorization")
             }.onAppear {
                 MLModelLibrary.fillLibrary()
+                // I added these to have the background appear in the output view too
+                UINavigationBar.appearance().backgroundColor = UIColor(processingViewModel.topGradientColor)
+                UITableView.appearance().backgroundColor = .clear
             }
         }
     }

@@ -15,18 +15,18 @@ struct ProcessStatusView: View {
             ProcessLabelView(text: "Oversized (512x512 recommended)",
                              color: .gray)
         case .ProcessError:
-            Text("Error")
-                .foregroundColor(.red)
+            ProcessLabelView(text: "Error",
+                             color: .red)
         case .ProcessCompleted:
-            Text("Success! ready to save output")
-                .foregroundColor(.green)
+            ProcessLabelView(text: "Success! ready to save output",
+                             color: .green)
         case .Saved:
-            Text("Success! saved output")
+            ProcessLabelView(text: "Success! saved output")
         case .Processing:
-            Text("Processing...")
+            ProcessLabelView(text: "Processing...")
         case .AlreadyProcessing:
-            Text("Wait until finished!")
-                .foregroundColor(.orange)
+            ProcessLabelView(text: "Wait until finished!",
+                             color: .orange)
         }
         
     }
@@ -35,7 +35,7 @@ struct ProcessStatusView: View {
 struct ProcessLabelView: View {
     
     var text: String
-    var color: Color
+    var color: Color = .primary
     var body: some View {
         Text(text)
             .foregroundColor(color)
