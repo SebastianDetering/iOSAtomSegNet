@@ -103,11 +103,6 @@ final class SegNetIOManager {
         _currentModel = to
     }
     
-    static func setHResCurrentModel( _ to: MLModels ) {
-        _currentModel = to
-    }
-    
-    
     static func getCurrentModel() -> MLModels {
         return _currentModel
     }

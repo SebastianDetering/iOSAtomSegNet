@@ -18,6 +18,7 @@ enum ProcessingStatus {
     case ProcessError
     case Saved
     case Processing
+    case AlreadyProcessing
 }
 
 final class ProcessingViewModel: ObservableObject {
@@ -118,6 +119,7 @@ final class ProcessingViewModel: ObservableObject {
     }
     
     func processImage() throws {
+        if !isLoadingActivations {
         processStatus = .Processing
         if workingImage != nil {
             SegNetIOManager.setCurrentModel( currentModel )
@@ -138,7 +140,7 @@ final class ProcessingViewModel: ObservableObject {
                             self.cgImageOutput = cgOut
                             self.processStatus = .ProcessCompleted
                             self.outputEntityID = UUID()
-                            self.modelUsed = self.currentModel.rawValue
+                            self.modelUsed = SegNetIOManager.getCurrentModel()
                         case .failure(let error):
                             self.isLoadingActivations = false
                             self.processStatus = .ProcessError
@@ -148,5 +150,8 @@ final class ProcessingViewModel: ObservableObject {
                 }
             }
         } else { throw ModelIOErrors.MissingSourceImage}
+    } else {
+        self.processStatus = .AlreadyProcessing
+    }
     }
 }

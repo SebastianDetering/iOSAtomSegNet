@@ -42,20 +42,17 @@ final class MLModelLibrary {
             do {
             // '&' in file name replaced with '_'
                 try _library.updateValue( gaussianMask(), forKey: .gaussianMask)
-//                try _library.updateValue( circularMask(), forKey: .circularMask)
-//                try _library.updateValue( denoise(), forKey: .denoise)
-//                try _library.updateValue( denoise_bgremoval(), forKey: .denoise_bgremoval)
-//                try _library.updateValue( denoise_bgremoval_superres(), forKey: .denoise_bgremoval_superres)
-                // 1024 x 1024 size do on demand
             } catch { fatalError(error.localizedDescription) }
     }
     
     static func getMLModel( model: MLModels, hResDesired: Bool = false) -> ( Any, Any ) {   // ( 512x512 model, 1024x1024 model )
         // caching all models consumes too much memory in ios 15 even for regular models.
-        _library = [:]
-        _hResLibrary = [:]
+        
         let hResModel = getHResModel( model )
         if !_library.keys.contains( model ) && !hResDesired  {
+            _library = [:]
+            _hResLibrary = [:]
+            SegmentationNetwork.clearCurrentModels()
             do {
             switch model {
             case .gaussianMask:
@@ -71,6 +68,13 @@ final class MLModelLibrary {
             }} catch { print(error.localizedDescription)}
         }
         if !_hResLibrary.keys.contains( hResModel ) && hResDesired  {
+            SegmentationNetwork.report_memory()
+            _library = [:]
+            _hResLibrary = [:]
+            SegmentationNetwork.clearCurrentModels()
+            print("clearing cached models")
+            SegmentationNetwork.report_memory()
+            print("cleared models")
             do {
             switch hResModel {
             case .gaussianMask_1024:
@@ -84,6 +88,8 @@ final class MLModelLibrary {
             case .denoise_bgremoval_superres_1024:
                 try _hResLibrary.updateValue( denoise_bgremoval_superres_1024(), forKey: .denoise_bgremoval_superres_1024)
             }} catch { print(error.localizedDescription)}
+            print("cached new model \(hResModel)")
+            SegmentationNetwork.report_memory()
         }
         if hResDesired {
         return ("" , _hResLibrary[ hResModel ] )
@@ -105,6 +111,10 @@ final class SegmentationNetwork: ObservableObject {
         } catch let error as MLModelError { throw error }
     }
     
+    static func clearCurrentModels() {
+        _currentModel = nil
+        _currentHResModel = nil
+    }
     static func getCurrentModel() -> MLModels {
         report_memory()
         return _modelType
@@ -115,7 +125,7 @@ final class SegmentationNetwork: ObservableObject {
         _modelType = model
         ( _currentModel, _currentHResModel )  = MLModelLibrary.getMLModel(model: _modelType, hResDesired: hResDesired)
     }
-    static private func report_memory() {
+    static func report_memory() {
         var info = mach_task_basic_info()
         let MACH_TASK_BASIC_INFO_COUNT = MemoryLayout<mach_task_basic_info>.stride/MemoryLayout<natural_t>.stride
         var count = mach_msg_type_number_t(MACH_TASK_BASIC_INFO_COUNT)

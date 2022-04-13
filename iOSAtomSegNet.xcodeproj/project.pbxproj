@@ -185,13 +185,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		921916BD27A61C6A00A3FFE9 /* Ser Detail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Ser Detail";
-			sourceTree = "<group>";
-		};
 		921916BE27A61C8200A3FFE9 /* Ser Detail Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,13 +246,12 @@
 				92C6998627AF1F2600B42FE4 /* DataModel.xcdatamodeld */,
 				9286C83D278E439300A3101E /* Persistence.swift */,
 				921916C427A78B3000A3FFE9 /* Alert.swift */,
-				921916BD27A61C6A00A3FFE9 /* Ser Detail */,
 				929336DB27A0A15D002E14A0 /* ContentView.swift */,
 				929336D927A0A106002E14A0 /* MessageDocument.swift */,
 				92A5AEB2276D2DBA0012A0EA /* iOSAtomSegNet */,
 				92A5AED7276D2F0F0012A0EA /* Views */,
 				92A5AECE276D2EF50012A0EA /* Model */,
-				92A5AEEF276D2F500012A0EA /* Segmentation Networks */,
+				92A5AEEF276D2F500012A0EA /* MLModels */,
 				92A5AEB1276D2DBA0012A0EA /* Products */,
 				92A5AEC2276D2E890012A0EA /* Frameworks */,
 			);
@@ -345,7 +337,7 @@
 			path = "CoreML Setup";
 			sourceTree = "<group>";
 		};
-		92A5AEEF276D2F500012A0EA /* Segmentation Networks */ = {
+		92A5AEEF276D2F500012A0EA /* MLModels */ = {
 			isa = PBXGroup;
 			children = (
 				92A5AEF1276D2F500012A0EA /* gaussianMask.mlmodel */,
@@ -359,7 +351,7 @@
 				92A5AF1027713A6C0012A0EA /* denoise&bgremoval_1024.mlmodel */,
 				92A5AF1227713A750012A0EA /* denoise&bgremoval&superres_1024.mlmodel */,
 			);
-			path = "Segmentation Networks";
+			path = MLModels;
 			sourceTree = "<group>";
 		};
 		92A5AF1C2773BE8E0012A0EA /* Ser Reading */ = {

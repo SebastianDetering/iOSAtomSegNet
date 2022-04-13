@@ -24,7 +24,11 @@ struct ProcessStatusView: View {
             Text("Success! saved output")
         case .Processing:
             Text("Processing...")
+        case .AlreadyProcessing:
+            Text("Wait until finished!")
+                .foregroundColor(.orange)
         }
+        
     }
 }
 
