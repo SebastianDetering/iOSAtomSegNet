@@ -140,7 +140,7 @@ final class ProcessingViewModel: ObservableObject {
                             self.cgImageOutput = cgOut
                             self.processStatus = .ProcessCompleted
                             self.outputEntityID = UUID()
-                            self.modelUsed = SegNetIOManager.getCurrentModel()
+                            self.modelUsed = SegNetIOManager.getCurrentModel().rawValue
                         case .failure(let error):
                             self.isLoadingActivations = false
                             self.processStatus = .ProcessError
