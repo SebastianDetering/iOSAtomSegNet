@@ -12,6 +12,7 @@ extension Color {
     static let brandSecondary = Color("brandSecondary")
     static let brandBackground = Color("brandBackground")
     static let brandBackground2 = Color("brandBackground2")
+    static let galleryTabSelect = Color("GalleryTabSelectColor")
 }
 
 extension UIColor {
@@ -19,4 +20,6 @@ extension UIColor {
     static let brandSecondary = UIColor(named: "brandSecondary")
     static let brandBackground = UIColor(named: "brandBackground")
     static let brandBackground2 = UIColor(named: "brandBackground2")
+    static let galleryTabSelect = UIColor(named: "GalleryTabSelectColor")
+
 }

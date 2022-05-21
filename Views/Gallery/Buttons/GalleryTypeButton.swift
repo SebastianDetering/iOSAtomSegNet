@@ -11,7 +11,7 @@ struct GalleryTypeButton: View {
         GroupBox {
             HStack {
                 Image(systemName: systemName)
-                    .foregroundColor(gallerySelection == galleryType ? Color.red : Color.black)
+                    .foregroundColor(gallerySelection == galleryType ? .galleryTabSelect : Color.black)
                 Text(text)
             }
         }

@@ -61,7 +61,7 @@ struct AppInfoView: View {
                         .resizable()
                         .frame(maxWidth: 80, maxHeight: 80, alignment: .center)
                 }
-                Text("The neural network included in our app addresses the issue of noisy images using Machine Learning, or ML.  The Deep EM Lab at UCI developed a neural network using the python ML application developer interface Pytorch – which can perform various denoising and deblurring of TEM images.  With my efforts at UCI and in my free time learning SwiftUI, this incredibly cool complex tool now lies in the power of your pocket phone. We hope that the app increases your interest for the field of condensed matter and electron microscopy.")
+                Text("The neural network included in our app addresses the issue of noisy images using Machine Learning, or ML.  The Deep EM Lab at UCI developed a neural network using the python ML application developer interface Pytorch – which can perform various denoising and deblurring of TEM images.  In Atom Seg. Net iPhone version, CoreML powers the Machine Learning.  With my efforts at UCI and in my free time learning SwiftUI, this incredibly cool complex tool now lies in the power of your pocket phone. We hope that the app increases your interest for the field of condensed matter and electron microscopy.")
                     .padding()
                 Text("Credits")
                     .font(.title)
