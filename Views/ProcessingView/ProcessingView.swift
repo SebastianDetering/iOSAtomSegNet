@@ -25,6 +25,7 @@ struct ProcessingView: View {
                 }
                 
                 WorkingImageView(tabSelection: $homeVM.selection,
+                                 gallerySelection: $homeVM.gallerySelection,
                                  workingImage: processingVM.workingImage,
                                  imageInProcessing: $processingVM.imageInProcessing)
                 

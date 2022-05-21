@@ -1,8 +1,10 @@
 import SwiftUI
 
 final class HomeTabViewModel: ObservableObject {
-    @AppStorage("currentTab") var selection: HomeTabs = .Gallery // selected tab same on relaunch
     
+    @AppStorage("currentTab") var selection: HomeTabs = .Gallery // selected tab same on relaunch
+    @AppStorage("galleryTab") var gallerySelection: GalleryTabs = .ImageGallery
+
     @AppStorage("loadedExampleImages") var loadedPackagedImages = false
     @AppStorage("loadedExampleSer")    var loadedPackagedSer    = false
     

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WorkingImageView: View {
     @Binding var tabSelection: HomeTabs
+    @Binding var gallerySelection: GalleryTabs // we want to go to image gallery when tapping "select image"
+
     var workingImage: CGImage?
     @Binding var imageInProcessing: Bool
     
@@ -22,7 +24,7 @@ struct WorkingImageView: View {
                 Rectangle()
                     .frame(width: 230, height: 230, alignment: .center)
                     .foregroundColor(.brandPrimary)
-                Button(action: { imageInProcessing = false; tabSelection = .Gallery},
+                Button(action:{imageInProcessing = false;tabSelection = .Gallery;gallerySelection = .ImageGallery},
                        label: {Text("select image to process")} )
                     .frame(width: 230, height: 230, alignment: .center)
                     .foregroundColor(.accentColor)

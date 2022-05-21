@@ -41,7 +41,7 @@ struct AppInfoView: View {
                 Image("tem-12")
                     .resizable()
                     .frame(maxWidth: 80, maxHeight: 80, alignment: .center)
-                Text("We included atom resolution Transition Electron Microscope images, or TEM images.  Expensive electron microscopes acquire TEM images by firing a focused electron beam which scatters off of very small samples in order to achieve an image of atoms.  Unlike life-size photos, electron microscope photos at the atomic scale are imaging probabilities rather than classical structures because atoms are governed by quantum mechanics.  Atoms behaving as probabilities given by the quantum wavefunction and because scattering electrons are also governed by quantum mechanics, this randomness makes atomic resolution images noisy.")
+                Text("We included atom resolution Transition Electron Microscope images, or TEM images.  Expensive electron microscopes acquire TEM images by firing a focused electron beam which scatters off of very small samples in order to achieve an image of atoms.  Unlike life-size photos, electron microscope photos at the atomic scale are imaging probabilities rather than classical structures because atoms are governed by quantum mechanics.  Because atom position is probabilistic and scattering electrons are also governed by quantum mechanics, this randomness is a natural reason for why atomic resolution images are noisy.")
                     .padding()
                 HStack {
                     Image("tem2")
@@ -61,7 +61,7 @@ struct AppInfoView: View {
                         .resizable()
                         .frame(maxWidth: 80, maxHeight: 80, alignment: .center)
                 }
-                Text("The neural network included in our app addresses the issue of noisy images using Machine Learning, or ML.  The Deep EM Lab at UCI developed a neural network using the python ML application developer interface Pytorch – which can perform various denoising and deblurring of TEM images.  In Atom Seg. Net iPhone version, CoreML powers the Machine Learning.  With my efforts at UCI and in my free time learning SwiftUI, this incredibly cool complex tool now lies in the power of your pocket phone. We hope that the app increases your interest for the field of condensed matter and electron microscopy.")
+                Text("The neural network included in our app addresses the issue of noisy images using Machine Learning, or ML.  The Deep EM Lab at UCI developed a neural network using the python ML application developer interface Pytorch – which can perform various denoising and deblurring of TEM images.  In Atom Seg. Net iPhone version, CoreML powers the Machine Learning.  With my efforts at UCI and in my free time learning SwiftUI, this incredibly cool complex tool now lies in the power of your pocket. We hope that the app increases your interest for the field of condensed matter and electron microscopy.")
                     .padding()
                 Text("Credits")
                     .font(.title)
