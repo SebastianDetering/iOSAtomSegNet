@@ -26,6 +26,13 @@ struct SegNetTabPickerView: View {
 //                .onTapGesture {
 //                    self.gallerySelection = .EmiGallery
 //                }
+            GalleryTypeButton(text: "about",
+                              systemName: "info.circle",
+                              galleryType: .AppInfo,
+                              gallerySelection: $gallerySelection)
+                .onTapGesture {
+                    self.gallerySelection = .AppInfo
+                }
         }
     }
 }

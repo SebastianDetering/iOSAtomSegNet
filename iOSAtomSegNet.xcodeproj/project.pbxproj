@@ -80,6 +80,7 @@
 		92A5AF50277B89BE0012A0EA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */; };
 		92B0FB2627B8674100D4478E /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0FB2527B8674100D4478E /* UIScrollView.swift */; };
 		92C6998827AF1F2600B42FE4 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92C6998627AF1F2600B42FE4 /* DataModel.xcdatamodeld */; };
+		92C72EF92839741E00159C1A /* AppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C72EF82839741E00159C1A /* AppInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -170,6 +171,7 @@
 		92A5AF4F277B89BE0012A0EA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		92B0FB2527B8674100D4478E /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		92C6998727AF1F2600B42FE4 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		92C72EF82839741E00159C1A /* AppInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +395,7 @@
 		92A5AF3F2777D2890012A0EA /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				92C72EF82839741E00159C1A /* AppInfoView.swift */,
 				923F52B327EA3CB5007D16E5 /* Buttons */,
 				92A5AEDE276D2F0F0012A0EA /* GalleryView.swift */,
 				92A5AECF276D2EF50012A0EA /* GalleryViewModel.swift */,
@@ -506,6 +509,7 @@
 				92A5AF01276E97A60012A0EA /* SegNetIOManager.swift in Sources */,
 				923F52AE27EA1982007D16E5 /* ImageActionsView.swift in Sources */,
 				9286C83B278E106100A3101E /* FileRead.swift in Sources */,
+				92C72EF92839741E00159C1A /* AppInfoView.swift in Sources */,
 				92A5AEF8276D2F500012A0EA /* circularMask.mlmodel in Sources */,
 				92A5AED3276D2EF50012A0EA /* GalleryViewModel.swift in Sources */,
 				921916BC27A61C6500A3FFE9 /* SerDescriptionView.swift in Sources */,

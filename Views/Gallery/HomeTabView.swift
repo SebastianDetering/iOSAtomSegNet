@@ -79,7 +79,7 @@ struct HomeTabView: View {
         }
         guard let newID = processingViewModel.outputEntityID else { return } // prevent accidentally saving many copies
         if !(outputIds.contains(newID)){
-        var newEntity = OutputEntity(context: viewContext)
+        var newEntity = OutputEntity(context: viewContext) // KEEP as var since this is a persistent mutable stored entity.
         newEntity.modelUsed = processingViewModel.modelUsed?.replacingOccurrences(of: " ", with: "")
         newEntity.sourceImage = UIImage(cgImage: imageToAdd).pngData()
         newEntity.outputImage = UIImage(cgImage: outputToAdd).pngData()

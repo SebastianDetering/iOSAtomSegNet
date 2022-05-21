@@ -11,6 +11,7 @@ enum GalleryTabs {
     case ImageGallery
     case SerGallery
     case EmiGallery
+    case AppInfo
 }
 
 struct GalleryView: View {
@@ -37,6 +38,8 @@ struct GalleryView: View {
                 } else if gallerySelection == .EmiGallery {
                     Text("emi file coming soon")
                     Spacer()
+                } else if gallerySelection == .AppInfo {
+                    AppInfoView()
                 }
             } .background(Color.brandBackground)
 
