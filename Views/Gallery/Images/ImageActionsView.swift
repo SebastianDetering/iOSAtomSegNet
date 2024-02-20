@@ -22,6 +22,7 @@ struct ImageActionsView: View {
                 case .authorized:
                     parent.homeVM.showingImagePicker = true
                 case .limited:
+                    print("reached limited auth case (in iOS 14 and 15 I haven't reached this)")
                     parent.homeVM.showingImagePicker = true
                 @unknown default:
                     print("unhandled authorization status")

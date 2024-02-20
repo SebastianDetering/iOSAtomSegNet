@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9209D3C127A391E0008DEAFF /* SerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209D3C027A391E0008DEAFF /* SerDetailView.swift */; };
 		9209D3C327A39DFE008DEAFF /* SerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209D3C227A39DFE008DEAFF /* SerDocument.swift */; };
+		920DEB7B28458BF100731B80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 920DEB7A28458BF100731B80 /* Assets.xcassets */; };
 		921916BC27A61C6500A3FFE9 /* SerDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916BB27A61C6500A3FFE9 /* SerDescriptionView.swift */; };
 		921916C027A7877B00A3FFE9 /* SegNetTabPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916BF27A7877B00A3FFE9 /* SegNetTabPickerView.swift */; };
 		921916C527A78B3000A3FFE9 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921916C427A78B3000A3FFE9 /* Alert.swift */; };
@@ -36,7 +37,6 @@
 		929336DA27A0A106002E14A0 /* MessageDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929336D927A0A106002E14A0 /* MessageDocument.swift */; };
 		929336DC27A0A15D002E14A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929336DB27A0A15D002E14A0 /* ContentView.swift */; };
 		92A5AEB4276D2DBA0012A0EA /* iOSAtomSegNetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5AEB3276D2DBA0012A0EA /* iOSAtomSegNetApp.swift */; };
-		92A5AEB8276D2DBB0012A0EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A5AEB7276D2DBB0012A0EA /* Assets.xcassets */; };
 		92A5AEBB276D2DBB0012A0EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A5AEBA276D2DBB0012A0EA /* Preview Assets.xcassets */; };
 		92A5AEC4276D2E890012A0EA /* LASwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A5AEC3276D2E890012A0EA /* LASwift.framework */; };
 		92A5AEC5276D2E890012A0EA /* LASwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92A5AEC3276D2E890012A0EA /* LASwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -100,6 +100,7 @@
 /* Begin PBXFileReference section */
 		9209D3C027A391E0008DEAFF /* SerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerDetailView.swift; sourceTree = "<group>"; };
 		9209D3C227A39DFE008DEAFF /* SerDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerDocument.swift; sourceTree = "<group>"; };
+		920DEB7A28458BF100731B80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		921916BB27A61C6500A3FFE9 /* SerDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerDescriptionView.swift; sourceTree = "<group>"; };
 		921916BF27A7877B00A3FFE9 /* SegNetTabPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegNetTabPickerView.swift; sourceTree = "<group>"; };
 		921916C427A78B3000A3FFE9 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -125,9 +126,8 @@
 		9286C83D278E439300A3101E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		929336D927A0A106002E14A0 /* MessageDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDocument.swift; sourceTree = "<group>"; };
 		929336DB27A0A15D002E14A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		92A5AEB0276D2DBA0012A0EA /* iOSAtomSegNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAtomSegNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92A5AEB0276D2DBA0012A0EA /* Atom Seg Net.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Atom Seg Net.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A5AEB3276D2DBA0012A0EA /* iOSAtomSegNetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSAtomSegNetApp.swift; sourceTree = "<group>"; };
-		92A5AEB7276D2DBB0012A0EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92A5AEBA276D2DBB0012A0EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		92A5AEBC276D2DBB0012A0EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92A5AEC3276D2E890012A0EA /* LASwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LASwift.framework; path = "Carthage/Build/LASwift.xcframework/ios-arm64_armv7/LASwift.framework"; sourceTree = "<group>"; };
@@ -220,6 +220,17 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		92275E70287E47D700B9289A /* AlertsAndStuff */ = {
+			isa = PBXGroup;
+			children = (
+				9286C83D278E439300A3101E /* Persistence.swift */,
+				921916C427A78B3000A3FFE9 /* Alert.swift */,
+				929336D927A0A106002E14A0 /* MessageDocument.swift */,
+				929336DB27A0A15D002E14A0 /* ContentView.swift */,
+			);
+			path = AlertsAndStuff;
+			sourceTree = "<group>";
+		};
 		9234ACF327ECCBF80038F330 /* ImagePickerSetup */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,11 +256,8 @@
 		92A5AEA7276D2DBA0012A0EA = {
 			isa = PBXGroup;
 			children = (
+				92275E70287E47D700B9289A /* AlertsAndStuff */,
 				92C6998627AF1F2600B42FE4 /* DataModel.xcdatamodeld */,
-				9286C83D278E439300A3101E /* Persistence.swift */,
-				921916C427A78B3000A3FFE9 /* Alert.swift */,
-				929336DB27A0A15D002E14A0 /* ContentView.swift */,
-				929336D927A0A106002E14A0 /* MessageDocument.swift */,
 				92A5AEB2276D2DBA0012A0EA /* iOSAtomSegNet */,
 				92A5AED7276D2F0F0012A0EA /* Views */,
 				92A5AECE276D2EF50012A0EA /* Model */,
@@ -262,7 +270,7 @@
 		92A5AEB1276D2DBA0012A0EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92A5AEB0276D2DBA0012A0EA /* iOSAtomSegNet.app */,
+				92A5AEB0276D2DBA0012A0EA /* Atom Seg Net.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -270,8 +278,8 @@
 		92A5AEB2276D2DBA0012A0EA /* iOSAtomSegNet */ = {
 			isa = PBXGroup;
 			children = (
+				920DEB7A28458BF100731B80 /* Assets.xcassets */,
 				92A5AEB3276D2DBA0012A0EA /* iOSAtomSegNetApp.swift */,
-				92A5AEB7276D2DBB0012A0EA /* Assets.xcassets */,
 				92A5AEBC276D2DBB0012A0EA /* Info.plist */,
 				92A5AEB9276D2DBB0012A0EA /* Preview Content */,
 				92A5AEFC276D68E00012A0EA /* LoadingView.swift */,
@@ -422,9 +430,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		92A5AEAF276D2DBA0012A0EA /* iOSAtomSegNet */ = {
+		92A5AEAF276D2DBA0012A0EA /* Atom Seg Net */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 92A5AEBF276D2DBB0012A0EA /* Build configuration list for PBXNativeTarget "iOSAtomSegNet" */;
+			buildConfigurationList = 92A5AEBF276D2DBB0012A0EA /* Build configuration list for PBXNativeTarget "Atom Seg Net" */;
 			buildPhases = (
 				92A5AEAC276D2DBA0012A0EA /* Sources */,
 				92A5AEAD276D2DBA0012A0EA /* Frameworks */,
@@ -435,12 +443,12 @@
 			);
 			dependencies = (
 			);
-			name = iOSAtomSegNet;
+			name = "Atom Seg Net";
 			packageProductDependencies = (
 				9246F88C27ED0DF000C25F31 /* PermissionsSwiftUIPhoto */,
 			);
 			productName = iOSAtomSegNet;
-			productReference = 92A5AEB0276D2DBA0012A0EA /* iOSAtomSegNet.app */;
+			productReference = 92A5AEB0276D2DBA0012A0EA /* Atom Seg Net.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -458,7 +466,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 92A5AEAB276D2DBA0012A0EA /* Build configuration list for PBXProject "iOSAtomSegNet" */;
+			buildConfigurationList = 92A5AEAB276D2DBA0012A0EA /* Build configuration list for PBXProject "Atom Seg Net" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -474,7 +482,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				92A5AEAF276D2DBA0012A0EA /* iOSAtomSegNet */,
+				92A5AEAF276D2DBA0012A0EA /* Atom Seg Net */,
 			);
 		};
 /* End PBXProject section */
@@ -485,10 +493,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A5AEBB276D2DBB0012A0EA /* Preview Assets.xcassets in Resources */,
-				92A5AEB8276D2DBB0012A0EA /* Assets.xcassets in Resources */,
 				92A5AF382773C48A0012A0EA /* 20.40.16 Scanning Acquire_0000_1 in Resources */,
 				92A5AF392773C48A0012A0EA /* Scanning Preview_0000_1.ser in Resources */,
 				92A5AF362773C48A0012A0EA /* 20.40.16 Scanning Acquire_0000.emi in Resources */,
+				920DEB7B28458BF100731B80 /* Assets.xcassets in Resources */,
 				92A5AF372773C48A0012A0EA /* 20.40.16 Scanning Acquire_0000_1.ser in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,7 +704,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSAtomSegNet/Preview Content\"";
-				DEVELOPMENT_TEAM = W33KH9HRV5;
+				DEVELOPMENT_TEAM = BG774WWHGB;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -708,7 +716,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sebastian.iOSAtomSegNet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sebastiandetering.atomsegnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -727,7 +735,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSAtomSegNet/Preview Content\"";
-				DEVELOPMENT_TEAM = W33KH9HRV5;
+				DEVELOPMENT_TEAM = BG774WWHGB;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -739,7 +747,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sebastian.iOSAtomSegNet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sebastiandetering.atomsegnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -751,7 +759,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		92A5AEAB276D2DBA0012A0EA /* Build configuration list for PBXProject "iOSAtomSegNet" */ = {
+		92A5AEAB276D2DBA0012A0EA /* Build configuration list for PBXProject "Atom Seg Net" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				92A5AEBD276D2DBB0012A0EA /* Debug */,
@@ -760,7 +768,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		92A5AEBF276D2DBB0012A0EA /* Build configuration list for PBXNativeTarget "iOSAtomSegNet" */ = {
+		92A5AEBF276D2DBB0012A0EA /* Build configuration list for PBXNativeTarget "Atom Seg Net" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				92A5AEC0276D2DBB0012A0EA /* Debug */,

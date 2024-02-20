@@ -21,7 +21,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(EXECUTABLE_NAME)</string>
+	<string>Atom Segmentation Network includes powerful machine learning processing tools you can use to process electron microscope images in standard formats: png, jpeg... Atom Seg Net stores imported images and does not share any of the users photos outside the app. By allowing the app to import photos, you can process your own images. If you do not authorize Atom Seg Net for photo access, you must use settings to change authorization.  \n Atom Segmentation Network is more interesting when your own electron microscope images are imported for processing. Atom Segmentation does not sell, share, track or record your data, it runs locally.</string>
 	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

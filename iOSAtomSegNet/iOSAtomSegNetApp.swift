@@ -32,7 +32,8 @@ struct iOSAtomSegNetApp: App {
                 .JMModal(showModal: $homeViewModel.showingPermissionsSelector, for: [.photo], autoDismiss: true, autoCheckAuthorization: false, restrictDismissal: false)
                 .changeHeaderTo("App Permissions")
                 .changeHeaderDescriptionTo("Export and Import of images requires photos access.")
-                .changeBottomDescriptionTo("Allowing the app to import photos provides the app access to airdropped and saved user photos. If you change your mind, you must using settings to change authorization")
+                .changeBottomDescriptionTo("Atom Segmentation Network includes Powerful machine learning processing tools you can use to process electron microscope images in standard formats: png, jpeg... Atom Seg Net stores imported images and does not share any of the users photos outside the app. By allowing the app to import photos, you can process your own images. If you do not authorize Atom Seg Net for photo access, you must use settings to change authorization.  \n Atom Segmentation Network is more interesting when your own electron microscope images are imported for processing. Atom Segmentation does not sell, share, track or record your data, it runs locally.")
+                //.setPermissionComponent(for: .photo, title: "allow photo access")
             }.onAppear {
                 MLModelLibrary.fillLibrary()
                 // I added these to have the background appear in the output view too
