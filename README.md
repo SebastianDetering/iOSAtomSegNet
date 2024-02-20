@@ -61,8 +61,9 @@ Linear Algebra swift (LASwift)
 https://github.com/AlexanderTar/LASwift
 this package helped a lot with image 2d manipulation logic
 
-I have been struggling to get this to work with the new Swift 5.9, I will try to set the project version to Swift 5.6
-try running `carthage bootstrap` to get this working after downloading this xcode project
+Carthage has been the most difficult to get working with a fresh XCode Project.
+https://github.com/Carthage/Carthage.git
+The docs suggest running `carthage bootstrap` when dependencies are already built like in this project.
 when updating using Carthage, use `carthage update --use-xcframeworks` 
 
 
@@ -71,6 +72,9 @@ when updating using Carthage, use `carthage update --use-xcframeworks`
 Todos
 
 ###########
+
+Setting this project up from this repository may not build because it will say ` LASwift module was compiled in Swift 5.6 ` ...I dont know how to solve this problem
+But restarting my project seemed to work once. Seb-Feb 19 6pm
 
 The electron microscope file parsers were included as a utility, but they are incomplete.  Error handling and functionality are much needed features.
 
