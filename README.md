@@ -12,6 +12,7 @@ https://apps.apple.com/us/app/atom-seg-net/id1626926737
 ###########
 Atom Segmentation Network iOS Description
 ###########
+
 A Machine Learning App for all Platforms
 Starting Summer 2021, with the support of a grant from UCI's Summer Undergraduate Research Proposal, I began developing MatLab and iOS versions for the processing of Atom Resolution images.  The machine learning model was trained in UCI Professor Huolin Xin's group; you can read the original publication here.  The machine learning originates in python, but I have finished developing the iOS version March 2022, published July (I dealt with some publishing problems with Apple).  The app will allow exploration of machine learning in a user-friendly way.  A huge benefit is to show the non-coding public a neural network in action!
 
@@ -36,6 +37,7 @@ End of Atom Segmentation Network iOS Description
 ##############
 MIT License
 ##############
+
 Copyright 2022 DeepEM Lab at UCI
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -43,6 +45,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 ####
 End of MIT License
 ####
