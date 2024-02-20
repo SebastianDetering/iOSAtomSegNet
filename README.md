@@ -38,6 +38,33 @@ End of Atom Segmentation Network iOS Description
 
 ###########
 
+##########
+
+Dependencies
+
+#########
+
+
+#########
+
+End Dependencies
+
+#############
+
+Swift Package manager packages:
+Introspect
+PermissionsSwiftUI
+
+Carthage:
+
+Linear Algebra swift (LASwift)
+https://github.com/AlexanderTar/LASwift
+this package helped a lot with image 2d manipulation logic
+
+I have been struggling to get this to work with the new Swift 5.9, I will try to set the project version to Swift 5.6
+try running `carthage bootstrap` to get this working after downloading this xcode project
+when updating using Carthage, use `carthage update --use-xcframeworks` 
+
 
 ###########
 
