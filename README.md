@@ -38,6 +38,18 @@ End of Atom Segmentation Network iOS Description
 
 ###########
 
+
+###########
+
+Todos
+
+###########
+
+The electron microscope file parsers were included as a utility, but they are incomplete.  Error handling and functionality are much needed features.
+
+Warning: running on a iOS simulation will NOT work.  This is because CoreML needs real hardware to work.  Run this with a iphone/ipad connected and configured for development
+
+
 ##############
 
 MIT License
