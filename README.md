@@ -73,7 +73,10 @@ Todos
 
 ###########
 
-Setting this project up from this repository may not build because it will say ` LASwift module was compiled in Swift 5.6 ` ...I dont know how to solve this problem
+Add the LASwift dependency with Swift Package manager instead of Carthage.
+
+Why?
+Setting this project up from this repository may not run because it will say ` LASwift module was compiled in Swift 5.6 ` ...I dont know how to solve this problem
 But restarting my project seemed to work once. Seb-Feb 19 6pm
 
 The electron microscope file parsers were included as a utility, but they are incomplete.  Error handling and functionality are much needed features.
