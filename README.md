@@ -1,19 +1,16 @@
-Developed for the DeepEM Lab at UC Irvine led by Professor Huolin Xin
 
-Original Paper:
+<h4>Original Paper</h4>
 https://www.nature.com/articles/s41598-021-84499-w
 
-Original AtomSegNet:
+<h4>Original Atom Seg Net</h4>
 https://github.com/xinhuolin/AtomSegNet
+Developed for the DeepEM Lab at UC Irvine led by Professor Huolin Xin
 
-App Store:
+<h4>App Store</h4>
 https://apps.apple.com/us/app/atom-seg-net/id1626926737
 
-###########
 
-Atom Segmentation Network iOS Description
-
-###########
+<h3>Atom Segmentation Network iOS Description</h3>
 
 A Machine Learning App for all Platforms
 Starting Summer 2021, with the support of a grant from UCI's Summer Undergraduate Research Proposal, I began developing MatLab and iOS versions for the processing of Atom Resolution images.  The machine learning model was trained in UCI Professor Huolin Xin's group; you can read the original publication here.  The machine learning originates in python, but I have finished developing the iOS version March 2022, published July (I dealt with some publishing problems with Apple).  The app will allow exploration of machine learning in a user-friendly way.  A huge benefit is to show the non-coding public a neural network in action!
@@ -32,30 +29,13 @@ With the pipeline working, I implemented persistent data stores (Core Data) to h
 For a finished version, import and export capability allow the user to share images.
 This app is a great example of implementing machine learning for everyone. 
 
-###########
+<h3>Dependencies</h3>
 
-End of Atom Segmentation Network iOS Description
-
-###########
-
-##########
-
-Dependencies
-
-#########
-
-
-#########
-
-End Dependencies
-
-#############
-
-Swift Package manager packages:
+<h6>Swift Package manager packages:</h6>
 Introspect
 PermissionsSwiftUI
 
-Carthage:
+<h6>Carthage:</h6>
 
 Linear Algebra swift (LASwift)
 https://github.com/AlexanderTar/LASwift
@@ -67,11 +47,7 @@ The docs suggest running `carthage bootstrap` when dependencies are already buil
 when updating using Carthage, use `carthage update --use-xcframeworks` 
 
 
-###########
-
-Todos
-
-###########
+<h4>Todos</h4>
 
 Add the LASwift dependency with Swift Package manager instead of Carthage.
 
@@ -83,12 +59,8 @@ The electron microscope file parsers were included as a utility, but they are in
 
 Warning: running on a iOS simulation will NOT work.  This is because CoreML needs real hardware to work.  Run this with a iphone/ipad connected and configured for development
 
-
-##############
-
-MIT License
-
-##############
+<h5>MIT License
+</h5>
 
 Copyright 2022 DeepEM Lab at UCI
 
@@ -97,9 +69,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-####
-
-End of MIT License
-
-####
